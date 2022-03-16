@@ -1,0 +1,66 @@
+.Guess{
+    background-color: #F6EABE;
+    margin-top:1%;
+    margin-bottom: 0.5vh;
+    flex:row;
+    width: 65%;
+    height: 6vh;
+    border-radius: 40px;
+  }
+  
+  .Flag{
+    float:left;
+    margin-left:0.5vw;
+    margin-top:1vh;
+    margin-bottom:1vh;
+    width: 5%;
+    height: 100%;
+    text-align: center;
+    border-radius: 25px;
+  }
+
+  .GuessName{
+    float:left;
+    background-color: #789395;
+    margin-left:0.5vw;
+    margin-top:1vh;
+    margin-bottom:1vh;
+    width: 55%;
+    text-align: center;
+    border-radius: 25px;
+  }
+  
+  .GuessDistance{
+    float:left;
+    background-color: #789395;
+    margin-left:0.6vw;
+    margin-top:1vh;
+    width: 23%;
+    text-align: center;
+    border-radius: 25px;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+  }
+  
+  .GuessDirection{
+    float:left;
+    background-color: #789395;
+    margin-left:0.6vw;
+    margin-top:1vh;
+    width: 13%;
+    text-align: center;
+    border-radius: 25px;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+  }
+  
+  .GuessPercentage{
+    float:right;
+    background-color: #789395;
+    width: 4%;
+    margin-right: 0.3vw;
+    border-radius: 100px;
+    padding-top: 5px;
+    margin-top:0.25vh;
+    text-align: center;
+  }
