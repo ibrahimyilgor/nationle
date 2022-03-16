@@ -121,7 +121,7 @@ function App() {
         <div>
           <img 
               style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
-              src={`all/${countries.ref_country_codes[randomNum].alpha2}/vector.svg`}
+              src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
               width="300" height="300"/> 
         </div>
         <div className='AutocompleteAndButton'>
