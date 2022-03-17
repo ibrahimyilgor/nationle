@@ -58,7 +58,6 @@ const useStyles = makeStyles(
 function App() {
   const classes = useStyles();
   var randomNum = random();
-  console.log("randomNum",randomNum, Math.round(randomNum*countries.ref_country_codes.length));
   randomNum = Math.round(randomNum*countries.ref_country_codes.length);
 
   const options = [];
@@ -100,32 +99,31 @@ function App() {
         break;
       }
       else{
-        answer += numbers[i+1] +  " - " + parseInt(guesses[i].name2) + " km ";
+        answer += numbers[i+1] +  " - " + (parseInt(guesses[i].name2) + " km                ").slice(0,20-guesses[i].name2.length);
       }
-      /* let blank = "a";
-      answer += "\xA0".repeat(12-(guesses[i].name2.length));
-      answer = answer.replace("a","b");
-      console.log("length", guesses[i].name2, 12-(guesses[i].name2.length)) */
- 
-      if(parseFloat(guesses[i].name3)>=22.5 && parseFloat(guesses[i].name3) < 67.5){
+      console.log("slice",(parseInt(guesses[i].name2,10) + " km            ").slice(0,20-guesses[i].name2.length))
+      if(parseInt(guesses[i].name2) === 0){
+        answer += "✅";
+      }
+      else if(parseFloat(360-guesses[i].name3)%360>=22.5 && parseFloat(360-guesses[i].name3)%360 < 67.5){
         answer += "↗️";
       }
-      else if(parseFloat(guesses[i].name3)>=67.5 && parseFloat(guesses[i].name3) < 112.5){
+      else if(parseFloat(360-guesses[i].name3)%360>=67.5 && parseFloat(360-guesses[i].name3)%360 < 112.5){
         answer += "⬆️";
       }
-      else if(parseFloat(guesses[i].name3)>=112.5 && parseFloat(guesses[i].name3) < 157.5){
+      else if(parseFloat(360-guesses[i].name3)%360>=112.5 && parseFloat(360-guesses[i].name3)%360 < 157.5){
         answer += "↖️";
       }
-      else if(parseFloat(guesses[i].name3)>=157.5 && parseFloat(guesses[i].name3) < 202.5){
+      else if(parseFloat(360-guesses[i].name3)%360>=157.5 && parseFloat(360-guesses[i].name3)%360 < 202.5){
         answer += "⬅️";
       }
-      else if(parseFloat(guesses[i].name3)>=202.5 && parseFloat(guesses[i].name3) < 247.5){
+      else if(parseFloat(360-guesses[i].name3)%360>=202.5 && parseFloat(360-guesses[i].name3)%360 < 247.5){
         answer += "↙️";
       }
-      else if(parseFloat(guesses[i].name3)>=247.5 && parseFloat(guesses[i].name3) < 292.5){
+      else if(parseFloat(360-guesses[i].name3)%360>=247.5 && parseFloat(360-guesses[i].name3)%360 < 292.5){
         answer += "⬇️";
       }
-      else if(parseFloat(guesses[i].name3)>=292.5 && parseFloat(guesses[i].name3) < 337.5){
+      else if(parseFloat(360-guesses[i].name3)%360>=292.5 && parseFloat(360-guesses[i].name3)%360 < 337.5){
         answer += "↘️";
       }
       else{
@@ -133,6 +131,7 @@ function App() {
       }
       answer +=  " %" + parseInt(guesses[i].value) + "\n";
     }
+    answer += "https://globle-guess.herokuapp.com";
     navigator.clipboard.writeText(answer);
     setCopyAlert(true);
   }
@@ -155,7 +154,6 @@ function App() {
 };
 
   const guessClick = () =>{
-    console.log("clicked");
     
     var value;
     var km;
@@ -175,7 +173,6 @@ function App() {
 
       setGuessNum(guessNum+1);
     }  
-    console.log("kmvelength",value,guesses.length,value === 100);
     if (value === 100 ){
       setOpenWinModal(true);
       setEndState(1);
@@ -188,13 +185,12 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("guesses",guesses);
-  }, [guesses]); // <- add the count variable here
+  }, [guesses]); 
 
   useEffect(() => {
     console.log("guessText",guessText,guessText?.label);
     console.log("guesses",guesses);
-  }, [guessText]); // <- add the count variable here
+  }, [guessText]);
 
   return (
     <div className="App">
