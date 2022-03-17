@@ -14,7 +14,7 @@ const style = {
     p: 4,
   };
 
-const GiveUpModal = ({ handleOpen,handleClose, open}) => {
+const GiveUpModal = ({ setEndState, handleOpen, handleClose, open}) => {
     return(
         <div>
             <Modal
@@ -28,7 +28,7 @@ const GiveUpModal = ({ handleOpen,handleClose, open}) => {
                 <Box sx={style}>
                     <Text>Are you giving up?</Text>
                     <Button onClick={handleClose}>NO</Button>
-                    <Button onClick={()=>{handleClose();handleOpen()}}>YES</Button>
+                    <Button onClick={()=>{setEndState(2);handleClose();handleOpen();}}>YES</Button>
                 </Box>
             </Modal>
         </div>

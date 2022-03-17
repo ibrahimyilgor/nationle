@@ -20,6 +20,12 @@
   height: 8vh;
 }
 
+.Alert{
+  position: fixed;
+  bottom: 300;
+  right: 300;
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;
