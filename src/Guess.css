@@ -25,9 +25,11 @@
     margin-left:0.5vw;
     margin-top:1vh;
     margin-bottom:1vh;
+    height: 70%;
     width: 55%;
     text-align: center;
     border-radius: 25px;
+    text-align: center;
   }
   
   .GuessDistance{
@@ -36,6 +38,7 @@
     margin-left:0.6vw;
     margin-top:1vh;
     width: 23%;
+    height: 70%;
     text-align: center;
     border-radius: 25px;
     padding-left: 0.5vw;
@@ -48,6 +51,7 @@
     margin-left:0.6vw;
     margin-top:1vh;
     width: 13%;
+    height: 70%;
     text-align: center;
     border-radius: 25px;
     padding-left: 0.5vw;
@@ -58,9 +62,40 @@
     float:right;
     background-color: #789395;
     width: 4%;
+    height: 70%;
     margin-right: 0.3vw;
     border-radius: 100px;
     padding-top: 5px;
     margin-top:0.25vh;
     text-align: center;
   }
+
+  @media (orientation: portrait) {
+    .Guess{
+     width: 90%;
+    }
+    
+    .Flag{
+      width: 15%;
+    }
+  
+    .GuessName{
+      font-size: 100%;
+      width: 40%;
+    }
+    
+    .GuessDistance{
+      font-size: 100%;
+    }
+    
+    .GuessDirection{
+      font-size: 100%;
+      width: 20%;
+    }
+    
+    .GuessPercentage{
+      font-size: 100%;
+      width: 10%;
+    }
+  }
+  

@@ -39,12 +39,11 @@ function Guess({code,name1,name2,name3,value}) {
             alt={name1}/> 
         </div>)}
        
-        <div className="GuessName">
-            <Text style={{color:"#F6EABE",fontSize:"25px"}}>{name1}</Text>   
-        </div>
-        <div className='GuessDistance'>
-            <Text style={{color:"#F6EABE",fontSize:"25px"}}>{name2}</Text>  
-        </div>
+        {name3 !== undefined && (<><div className="GuessName">
+                <Text style={{ color: "#F6EABE" ,fontSize: "80%", display: "block"}}>{name1}</Text>
+            </div><div className='GuessDistance'>
+                    <Text style={{ color: "#F6EABE", fontSize: "80%", display: "block"}}>{name2}</Text>
+                </div></>)}
         {name3 !== undefined && (<div className={classes.rotateImgDiv}>
             {value === 100 ? (<DoneIcon/>) : (<EastIcon className={classes.rotateImg}/>)}
             

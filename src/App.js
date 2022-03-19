@@ -5,6 +5,8 @@ import { Autocomplete, Button, Snackbar, TextField } from '@mui/material';
 import Guess from './Guess'
 import React, { useEffect, useRef, useState } from 'react';
 import { makeStyles } from '@mui/styles';
+import Alert from '@mui/material/Alert';
+
 import distance from './Distance';
 import bearing from './Degree';
 
@@ -12,26 +14,17 @@ import WinModal from './WinModal'
 import LoseModal from './LoseModal'
 import GiveUpModal from './GiveUpModal';
 
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-import { LegendToggle } from '@mui/icons-material';
-
 document.title = "Globle";
 
 const useStyles = makeStyles(
   {
     autocomplete: {
-      "&.MuiAutocomplete-root":{
-        width: "50vw",
-        borderRadius: "25px",
-        borderWidth: "5px",
-        borderColor: "#F6EABE",
-        borderStyle: "solid",
-        backgroundColor: "#789395",
-        color: "#F6EABE",
-      },
+     "&.MuiOutlinedInput-root": {
+        padding:0
+     },
       "& .MuiOutlinedInput-root":{
         width: "50vw",
+        height: "7vh",
         borderRadius: "18px",
         borderWidth: "5px",
         borderColor: "#F6EABE",
@@ -195,22 +188,25 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
+        <div className="Top">
+          
+        </div>
+        <div className="Image">
           <img 
               style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
               src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
-              width="300" height="300"/> 
+              width="100%" height="auto"/> 
         </div>
         <div className='AutocompleteAndButton'>
             <Autocomplete
               disablePortal
               onChange={change}
               disabled={endState !== 0}
-              value={guessText?.label ? guessText?.label : "Guess The Country"}
+              value={guessText?.label ? guessText?.label : "Select The Country"}
               id="combo-box-demo"
               options={options}
               className={classes.autocomplete}
-              sx={{ width: 500 }}
+           
               renderInput={(params) => <TextField {...params}  />}
             />
             {endState === 0 &&(
