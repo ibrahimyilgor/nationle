@@ -67,6 +67,32 @@ function App() {
   const [openLoseModal, setOpenLoseModal] = useState();
   const [openGiveUpModal, setOpenGiveUpModal] = useState();
 
+  useEffect(() => {
+    const localS = localStorage.getItem(new Date().getDate().toString() + "." +(new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString());
+    //console.log("locals",localS);
+    if(localS){
+      setGuesses(JSON.parse(localS));
+    }
+
+    const guessN = localStorage.getItem("guessnum");
+    //console.log("guessN",guessN);
+    if(guessN){
+     // console.log("guessN2",guessNum);
+      setGuessNum(parseInt(guessN));
+     // console.log("guessN3",guessNum);
+    }
+
+    const localState = localStorage.getItem("state");
+   // console.log("state",localState);
+    if(localState){
+     // console.log("guessN2",localState);
+      setEndState(parseInt(localState));
+     // console.log("guessN3",endState);
+    }
+  }, []); 
+
+
+
   const change = (event,value) =>{
     if (value?.label){
       setGuessText(value);
@@ -85,7 +111,7 @@ function App() {
         break;
       }
     }
-    let answer = "Globle - " + date.getDate() + "." + (date.getMonth()+1) +  "." + date.getFullYear() + " " + result +"\n";
+    let answer = "#Globle - " + date.getDate() + "." + (date.getMonth()+1) +  "." + date.getFullYear() + " " + result +"\n";
     const numbers = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"];
     for(let i=0;i<6;i++){
       if(guesses[i]?.code === undefined){
@@ -94,7 +120,7 @@ function App() {
       else{
         answer += numbers[i+1] +  " - " + (parseInt(guesses[i].name2) + " km                ").slice(0,20-guesses[i].name2.length);
       }
-      console.log("slice",(parseInt(guesses[i].name2,10) + " km            ").slice(0,20-guesses[i].name2.length))
+      //console.log("slice",(parseInt(guesses[i].name2,10) + " km            ").slice(0,20-guesses[i].name2.length))
       if(parseInt(guesses[i].name2) === 0){
         answer += "✅";
       }
@@ -162,23 +188,28 @@ function App() {
         name3: bearing(guessText?.value?.latitude,guessText?.value?.longitude,countries.ref_country_codes[randomNum].latitude,countries.ref_country_codes[randomNum].longitude).toFixed(2),
         value: value
       }
-      setGuesses( changeGuess )
-
+      setGuesses( changeGuess );
       setGuessNum(guessNum+1);
+      //console.log("guessnam",guessNum);
+      localStorage.setItem("guessnum", parseInt(guessNum+1));
+      localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify(guesses));
+      
     }  
     if (value === 100 ){
       setOpenWinModal(true);
       setEndState(1);
+      localStorage.setItem("state", 1);
     }
     if(value !== 100 && guessNum === 5){
       setOpenLoseModal(true);
       setEndState(2);
+      localStorage.setItem("state", 2);
     }
     setGuessText({});
   }
 
-  useEffect(() => {
-  }, [guesses]); 
+  /*useEffect(() => {
+  }, [guesses]); */
 
   useEffect(() => {
     console.log("guessText",guessText,guessText?.label);

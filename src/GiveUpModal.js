@@ -1,6 +1,4 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
-import { useState } from "react";
-import { Text } from 'react-native';
 
 const style = {
     position: 'absolute',
@@ -49,7 +47,7 @@ const GiveUpModal = ({ setEndState, handleOpen, handleClose, open}) => {
                                 <Button sx={{ color: "#F6EABE" }} onClick={handleClose}>NO</Button>
                             </div>
                             <div style={button}>
-                                <Button sx={{ color: "#F6EABE" }} onClick={()=>{setEndState(2);handleClose();handleOpen();}}>YES</Button>
+                                <Button sx={{ color: "#F6EABE" }} onClick={()=>{setEndState(2);localStorage.setItem("state", 2);handleClose();handleOpen();}}>YES</Button>
                             </div>
                         </div>
                     </center>
