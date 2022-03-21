@@ -13,6 +13,7 @@ import bearing from './Degree';
 import WinModal from './WinModal'
 import LoseModal from './LoseModal'
 import GiveUpModal from './GiveUpModal';
+import useWindowDimensions from './getWindowDimensions';
 
 document.title = "Globle";
 
@@ -43,6 +44,7 @@ const useStyles = makeStyles(
         borderStyle: "solid",
         backgroundColor: "#789395",
         color: "#F6EABE",
+        fontSize: "60%"
       }
     },
   }
@@ -51,7 +53,7 @@ const useStyles = makeStyles(
 function App() {
   const classes = useStyles();
   var randomNum = random();
-  randomNum = Math.round(randomNum*countries.ref_country_codes.length);
+  randomNum = Math.round(randomNum*(countries.ref_country_codes.length-1));
 
   const options = [];
   countries.ref_country_codes.map(country => {
@@ -68,26 +70,13 @@ function App() {
   const [openGiveUpModal, setOpenGiveUpModal] = useState();
 
   useEffect(() => {
-    const localS = localStorage.getItem(new Date().getDate().toString() + "." +(new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString());
+    let localS = localStorage.getItem(new Date().getDate().toString() + "." +(new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString());
     //console.log("locals",localS);
+    localS = JSON.parse(localS);
     if(localS){
-      setGuesses(JSON.parse(localS));
-    }
-
-    const guessN = localStorage.getItem("guessnum");
-    //console.log("guessN",guessN);
-    if(guessN){
-     // console.log("guessN2",guessNum);
-      setGuessNum(parseInt(guessN));
-     // console.log("guessN3",guessNum);
-    }
-
-    const localState = localStorage.getItem("state");
-   // console.log("state",localState);
-    if(localState){
-     // console.log("guessN2",localState);
-      setEndState(parseInt(localState));
-     // console.log("guessN3",endState);
+      setGuesses(localS.guesses);
+      setGuessNum(parseInt(localS.guessNum));
+      setEndState(parseInt(localS.endState));
     }
   }, []); 
 
@@ -177,7 +166,7 @@ function App() {
     var value;
     var km;
     if(guessNum<6 && guessText?.label !== undefined){
-      km = distance(guessText?.value?.latitude,guessText?.value?.longitude,countries.ref_country_codes[randomNum].latitude,countries.ref_country_codes[randomNum].longitude).toFixed(2);
+      km = distance(guessText?.value?.latitude,guessText?.value?.longitude,countries.ref_country_codes[randomNum].latitude,countries.ref_country_codes[randomNum].longitude).toFixed(0);
       value = 100*((20000-km)/20000);
 
       let changeGuess = guesses;
@@ -191,19 +180,19 @@ function App() {
       setGuesses( changeGuess );
       setGuessNum(guessNum+1);
       //console.log("guessnam",guessNum);
-      localStorage.setItem("guessnum", parseInt(guessNum+1));
-      localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify(guesses));
+      //localStorage.setItem("guessnum", parseInt(guessNum+1));
+      localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:0}));
       
     }  
     if (value === 100 ){
       setOpenWinModal(true);
       setEndState(1);
-      localStorage.setItem("state", 1);
+      localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:1}));
     }
     if(value !== 100 && guessNum === 5){
       setOpenLoseModal(true);
       setEndState(2);
-      localStorage.setItem("state", 2);
+      localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:2}));
     }
     setGuessText({});
   }
@@ -212,8 +201,8 @@ function App() {
   }, [guesses]); */
 
   useEffect(() => {
-    console.log("guessText",guessText,guessText?.label);
-    console.log("guesses",guesses);
+    //console.log("guessText",guessText,guessText?.label);
+    //console.log("guesses",guesses);
   }, [guessText]);
 
   return (
@@ -298,7 +287,9 @@ function App() {
         handleClose={() => {setOpenGiveUpModal(false)}}
         handleOpen={() => {setOpenLoseModal(true)}}
         open={openGiveUpModal}
-        setEndState={setEndState}/>
+        setEndState={setEndState}
+        guesses={guesses}
+        guessNum={guessNum}/>
     </div>
   );
 }

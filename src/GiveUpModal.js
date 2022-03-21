@@ -26,7 +26,7 @@ const button = {
     marginRight: "5%",
 };
 
-const GiveUpModal = ({ setEndState, handleOpen, handleClose, open}) => {
+const GiveUpModal = ({ guesses, guessNum, setEndState, handleOpen, handleClose, open}) => {
     return(
         <div>
             <Modal
@@ -47,7 +47,7 @@ const GiveUpModal = ({ setEndState, handleOpen, handleClose, open}) => {
                                 <Button sx={{ color: "#F6EABE" }} onClick={handleClose}>NO</Button>
                             </div>
                             <div style={button}>
-                                <Button sx={{ color: "#F6EABE" }} onClick={()=>{setEndState(2);localStorage.setItem("state", 2);handleClose();handleOpen();}}>YES</Button>
+                                <Button sx={{ color: "#F6EABE" }} onClick={()=>{setEndState(2);localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum,endState:2}));handleClose();handleOpen();}}>YES</Button>
                             </div>
                         </div>
                     </center>

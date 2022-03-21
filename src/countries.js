@@ -873,14 +873,6 @@ const countries = {
       "longitude" : 138
     },
 {
-      "country" : "Jersey",
-      "alpha2" : "JE",
-      "alpha3" : "JEY",
-      "numeric" : 832,
-      "latitude" : 49.21,
-      "longitude" : -2.13
-    },
-{
       "country" : "Jordan",
       "alpha2" : "JO",
       "alpha3" : "JOR",
@@ -1058,14 +1050,6 @@ const countries = {
       "longitude" : 14.5833
     },
 {
-      "country" : "Marshall Islands",
-      "alpha2" : "MH",
-      "alpha3" : "MHL",
-      "numeric" : 584,
-      "latitude" : 9,
-      "longitude" : 168
-    },
-{
       "country" : "Martinique",
       "alpha2" : "MQ",
       "alpha3" : "MTQ",
@@ -1104,14 +1088,6 @@ const countries = {
       "numeric" : 484,
       "latitude" : 23,
       "longitude" : -102
-    },
-{
-      "country" : "Micronesia, Federated States of",
-      "alpha2" : "FM",
-      "alpha3" : "FSM",
-      "numeric" : 583,
-      "latitude" : 6.9167,
-      "longitude" : 158.25
     },
 {
       "country" : "Moldova",
@@ -1210,14 +1186,6 @@ const countries = {
       "longitude" : 5.75
     },
 {
-      "country" : "Netherlands Antilles",
-      "alpha2" : "AN",
-      "alpha3" : "ANT",
-      "numeric" : 530,
-      "latitude" : 12.25,
-      "longitude" : -68.75
-    },
-{
       "country" : "New Caledonia",
       "alpha2" : "NC",
       "alpha3" : "NCL",
@@ -1290,14 +1258,6 @@ const countries = {
       "longitude" : 22
     },
 {
-      "country" : "Northern Mariana Islands",
-      "alpha2" : "MP",
-      "alpha3" : "MNP",
-      "numeric" : 580,
-      "latitude" : 15.2,
-      "longitude" : 145.75
-    },
-{
       "country" : "Norway",
       "alpha2" : "NO",
       "alpha3" : "NOR",
@@ -1328,14 +1288,6 @@ const countries = {
       "numeric" : 585,
       "latitude" : 7.5,
       "longitude" : 134.5
-    },
-{
-      "country" : "Palestine",
-      "alpha2" : "PS",
-      "alpha3" : "PSE",
-      "numeric" : 275,
-      "latitude" : 32,
-      "longitude" : 35.25
     },
 {
       "country" : "Panama",
@@ -1794,14 +1746,6 @@ const countries = {
       "longitude" : -71.5833
     },
 {
-      "country" : "Tuvalu",
-      "alpha2" : "TV",
-      "alpha3" : "TUV",
-      "numeric" : 798,
-      "latitude" : -8,
-      "longitude" : 178
-    },
-{
       "country" : "Uganda",
       "alpha2" : "UG",
       "alpha3" : "UGA",
@@ -1840,14 +1784,6 @@ const countries = {
       "numeric" : 840,
       "latitude" : 38,
       "longitude" : -97
-    },
-{
-      "country" : "United States Minor Outlying Islands",
-      "alpha2" : "UM",
-      "alpha3" : "UMI",
-      "numeric" : 581,
-      "latitude" : 19.2833,
-      "longitude" : 166.6
     },
 {
       "country" : "Uruguay",

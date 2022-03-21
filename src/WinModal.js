@@ -28,7 +28,6 @@ const button = {
 
 
 const WinModal = ({ country, handleClose, open}) => {
-    console.log("country",country);
     return(
         <div>
             <Modal
@@ -58,7 +57,7 @@ const WinModal = ({ country, handleClose, open}) => {
                         <Typography id="modal-modal-description" variant="h5" component="h2" sx={{ mt: 2, mb: 2, textAlign:"center" }}>
                         {country.country}
                         </Typography>
-                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`}>View {country.country} on Google Maps </a>
+                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} target="_blank">View {country.country} on Google Maps </a>
                     </center>
                 </Box>
             </Modal>
