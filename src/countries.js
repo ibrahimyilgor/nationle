@@ -1610,7 +1610,7 @@ const countries = {
       "longitude" : 20
     },
 {
-      "country" : "Swaziland",
+      "country" : "Swaziland (Eswatini)",
       "alpha2" : "SZ",
       "alpha3" : "SWZ",
       "numeric" : 748,

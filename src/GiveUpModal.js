@@ -1,4 +1,8 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { minWidth } from "@mui/system";
+import useWindowDimensions from './getWindowDimensions';
+
 
 const style = {
     position: 'absolute',
@@ -15,18 +19,32 @@ const style = {
     color: "#F6EABE",
 };
 
-const button = {
-    width: "25%",
-    backgroundColor: "#789395",
-    borderRadius: "25px",
-    borderColor: "#F6EABE",
-    borderStyle: "solid",
-    color: "#789395",
-    float:"left",
-    marginRight: "5%",
-};
+const useStyles = makeStyles(
+    {
+      button: {
+        "&.MuiButton-root":{
+          fontFamily: "Patrick Hand",
+          borderRadius: "25px",
+          borderWidth: "5px",
+          borderColor: "#F6EABE",
+          borderStyle: "solid",
+          backgroundColor: "#789395",
+          color: "#F6EABE",
+          fontSize: "70%",
+          minWidth: "20%"
+        },
+        '&.MuiButton-root:hover': {
+          backgroundColor: '#95aaab',
+          borderColor: "#F6EABE",
+        },
+      },
+    }
+  );
 
 const GiveUpModal = ({ guesses, guessNum, setEndState, handleOpen, handleClose, open}) => {
+    const classes = useStyles();
+    const dim = useWindowDimensions();
+
     return(
         <div>
             <Modal
@@ -38,17 +56,13 @@ const GiveUpModal = ({ guesses, guessNum, setEndState, handleOpen, handleClose, 
                 <Box sx={style}>
                     <center>
                         <div>
-                        <Typography sx={{ textAlign:"center", mb:2 }} id="modal-modal-title" variant="h6" component="h2">
+                        <Typography sx={{ fontFamily: "Patrick Hand", textAlign:"center", mb:2 }} id="modal-modal-title" variant="h6" component="h2">
                     Are you giving up?
                     </Typography>
                         </div>
-                        <div style={{ marginLeft: "30%" }}>
-                            <div style={button}>
-                                <Button sx={{ color: "#F6EABE" }} onClick={handleClose}>NO</Button>
-                            </div>
-                            <div style={button}>
-                                <Button sx={{ color: "#F6EABE" }} onClick={()=>{setEndState(2);localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum,endState:2}));handleClose();handleOpen();}}>YES</Button>
-                            </div>
+                        <div style={{ flexDirection: "column" }}>
+                            <Button className={classes.button} sx={{ color: "#F6EABE", marginRight: "2%" }} onClick={handleClose}>NO</Button>
+                            <Button className={classes.button} sx={{ color: "#F6EABE", marginLeft: "2%" }} onClick={()=>{setEndState(2);localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum,endState:2}));handleClose();handleOpen();}}>YES</Button>
                         </div>
                     </center>
                 </Box>

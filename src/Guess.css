@@ -6,6 +6,7 @@
     width: 65%;
     height: 6vh;
     border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   
   .Flag{
@@ -27,6 +28,8 @@
     width: 55%;
     border-radius: 25px;
     text-align: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    font-family: "Patrick Hand";
   }
   
   .GuessDistance{
@@ -40,6 +43,7 @@
     border-radius: 25px;
     padding-left: 0.5vw;
     padding-right: 0.5vw;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   }
   
   .GuessDirection{
@@ -53,6 +57,7 @@
     border-radius: 25px;
     padding-left: 0.5vw;
     padding-right: 0.5vw;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   }
   
   .GuessPercentage{
@@ -65,6 +70,7 @@
     border-radius: 100px;
     margin-top:1vh;
     text-align: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   }
 
   @media (orientation: portrait) {

@@ -1,4 +1,6 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { useCountdown } from "./Timer";
 
 const style = {
     position: 'absolute',
@@ -15,18 +17,33 @@ const style = {
     color: "#F6EABE",
 };
 
-const button = {
-    position: "absolute",
-    right: "5px",
-    top: "5px",
-    backgroundColor: "#789395",
-    borderRadius: "25px",
-    borderColor: "#F6EABE",
-    borderStyle: "solid",
-    color: "#789395",
-};
+const useStyles = makeStyles(
+    {
+      button: {
+        "&.MuiButton-root":{
+          fontFamily: "Patrick Hand",
+          float: "right",
+          borderRadius: "25px",
+          borderWidth: "5px",
+          borderColor: "#F6EABE",
+          borderStyle: "solid",
+          backgroundColor: "#789395",
+          color: "#F6EABE",
+          fontSize: "100%",
+          minWidth: "15%",
+        },
+        '&.MuiButton-root:hover': {
+          backgroundColor: '#95aaab',
+          borderColor: "#F6EABE",
+        },
+      },
+    }
+  );
 
 const LoseModal = ({country, handleClose, open}) => {
+    const time = useCountdown();
+    const classes = useStyles();
+
     return(
         <div>
             <Modal
@@ -36,23 +53,23 @@ const LoseModal = ({country, handleClose, open}) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                <div style={button}>
-                    <Button 
-                        onClick={handleClose} sx={{ color: "#F6EABE" }}>Close</Button>
+                <div>
+                    <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>Close</Button>
                 </div>
-                    <Typography sx={{ textAlign:"center" }} id="modal-modal-title" variant="h4" component="h2">
+                    <Typography sx={{ fontFamily: "Patrick Hand",textAlign:"center" }} id="modal-modal-title" variant="h3" component="h2">
                     Lose
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2, textAlign:"center" }}>
+                    <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h5" component="h4">
                     {"Unfortunately, you could not find the today's answer"}
                     </Typography>
                     <center>
+                    <Typography sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h5" component="h4">{"Next Globle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}</Typography>
                         <img
-                        width={"50%"}
+                        width={"40%"}
                         src={`https://flagcdn.com/w2560/${country?.alpha2?.toLowerCase()}.png`}
                         alt={"Country"}/>
                         
-                        <Typography id="modal-modal-description" variant="h5" component="h2" sx={{ mt: 2, mb: 2, textAlign:"center" }}>
+                        <Typography id="modal-modal-description" variant="h4" component="h2" sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }}>
                         {country.country}
                         </Typography>
                         <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} target="_blank">View {country.country} on Google Maps </a>

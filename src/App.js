@@ -19,11 +19,18 @@ document.title = "Globle";
 
 const useStyles = makeStyles(
   {
+    cookieAlert: {
+      "& .MuiAlert-message": {
+        fontFamily: "Patrick Hand",
+      }
+    },
     autocomplete: {
      "&.MuiOutlinedInput-root": {
+       
         padding:0
      },
       "& .MuiOutlinedInput-root":{
+        fontFamily: "Patrick Hand",
         width: "50vw",
         height: "7vh",
         borderRadius: "18px",
@@ -36,6 +43,8 @@ const useStyles = makeStyles(
     },
     button: {
       "&.MuiButton-root":{
+        fontFamily: "Patrick Hand",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
         width: "100px",
         marginLeft: "10px",
         borderRadius: "25px",
@@ -44,8 +53,12 @@ const useStyles = makeStyles(
         borderStyle: "solid",
         backgroundColor: "#789395",
         color: "#F6EABE",
-        fontSize: "60%"
-      }
+        fontSize: "75%"
+      },
+      '&.MuiButton-root:hover': {
+        backgroundColor: '#95aaab',
+        borderColor: "#F6EABE",
+      },
     },
   }
 );
@@ -100,7 +113,7 @@ function App() {
         break;
       }
     }
-    let answer = "#Globle - " + date.getDate() + "." + (date.getMonth()+1) +  "." + date.getFullYear() + " " + result +"\n";
+    let answer = "#Globle - " + date.getDate() + "." + (date.getMonth()+1) +  "." + date.getFullYear() + " - " + result +"\n";
     const numbers = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"];
     for(let i=0;i<6;i++){
       if(guesses[i]?.code === undefined){
@@ -209,7 +222,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="Top">
-          
+          <p style={{color:"red"}}>Bu bir test yazısıdır</p>
         </div>
         <div className="Image">
           <img 
@@ -222,11 +235,10 @@ function App() {
               disablePortal
               onChange={change}
               disabled={endState !== 0}
-              value={guessText?.label ? guessText?.label : "Select The Country"}
+              value={guessText?.label ? guessText?.label : "Select A Country"}
               id="combo-box-demo"
               options={options}
               className={classes.autocomplete}
-           
               renderInput={(params) => <TextField {...params}  />}
             />
             {endState === 0 &&(
@@ -262,19 +274,11 @@ function App() {
         })} 
         {copyAlert && (
         <Snackbar open={copyAlert} onClose={handleCloseAlert} autoHideDuration={3000} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
-          <Alert  severity="success" sx={{ width: '100%' }}>
+          <Alert className={classes.cookieAlert} severity="success" sx={{ width: '100%' }}>
             Your result is copied to clipboard
           </Alert>
         </Snackbar>)}
-       {/*  <p>
-          {countries.ref_country_codes[randomNum].country + " "}
-          {countries.ref_country_codes[randomNum].latitude + " "}
-          {countries.ref_country_codes[randomNum].longitude + " "}
-          {countries.ref_country_codes.length + " "}
-          {randomNum}
-        </p>
-        <a href={`https://maps.google.com/?q=${countries.ref_country_codes[randomNum].latitude},${countries.ref_country_codes[randomNum].longitude}`}>{countries.ref_country_codes[randomNum].country} on Google Maps </a>
-      */} </header>
+      </header>
       <WinModal 
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenWinModal(false)}}
