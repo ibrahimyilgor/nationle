@@ -1,11 +1,17 @@
 import random from './Random';
 import './App.css';
 import countries from './countries';
-import { Autocomplete, Button, Snackbar, TextField } from '@mui/material';
+import { Autocomplete, Button, IconButton, Snackbar, TextField } from '@mui/material';
 import Guess from './Guess'
 import React, { useEffect, useRef, useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
+import { Link } from 'react-router-dom'
+
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import CoffeeIcon from '@mui/icons-material/Coffee';
 
 import distance from './Distance';
 import bearing from './Degree';
@@ -14,6 +20,8 @@ import WinModal from './WinModal'
 import LoseModal from './LoseModal'
 import GiveUpModal from './GiveUpModal';
 import useWindowDimensions from './getWindowDimensions';
+import StatsModal from './StatsModal';
+import InfoModal from './InfoModal';
 
 document.title = "Globle";
 
@@ -25,10 +33,18 @@ const useStyles = makeStyles(
       }
     },
     autocomplete: {
-     "&.MuiOutlinedInput-root": {
-       
+     "&.MuiOutlinedInput-root": {  
         padding:0
      },
+     "& .MuiButtonBase-root.MuiAutocomplete-clearIndicator": {
+      color: "#F6EABE"
+    },
+    "& .MuiButtonBase-root.MuiAutocomplete-popupIndicator": {
+      color: "#F6EABE"
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+      border: "none"
+    },
       "& .MuiOutlinedInput-root":{
         fontFamily: "Patrick Hand",
         width: "50vw",
@@ -39,6 +55,7 @@ const useStyles = makeStyles(
         borderStyle: "solid",
         backgroundColor: "#789395",
         color: "#F6EABE",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
       },
     },
     button: {
@@ -53,13 +70,39 @@ const useStyles = makeStyles(
         borderStyle: "solid",
         backgroundColor: "#789395",
         color: "#F6EABE",
-        fontSize: "75%"
+        fontSize: "64%"
       },
       '&.MuiButton-root:hover': {
         backgroundColor: '#95aaab',
         borderColor: "#F6EABE",
       },
     },
+    iconbutton: {
+      "&.MuiIconButton-root":{
+        marginTop: "1.25%",
+        height: "80%",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        width: "10%",
+        backgroundColor: "#789395",
+        color: "#F6EABE",
+        fontSize: "80%",
+        marginLeft: "1%",
+        marginRight: "1%"
+      },
+      '&.MuiIconButton-root:hover': {
+        backgroundColor: '#95aaab',
+        borderColor: "#F6EABE",
+        marginTop: "1.25%",
+        height: "80%",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        width: "10%",
+        backgroundColor: "#789395",
+        color: "#F6EABE",
+        fontSize: "80%",
+        marginLeft: "1%",
+        marginRight: "1%"
+      },
+    }
   }
 );
 
@@ -78,9 +121,12 @@ function App() {
   const [guesses,setGuesses] = useState([{},{},{},{},{},{}]);
   const [guessText, setGuessText] = useState({});
   const [copyAlert, setCopyAlert] = useState(false);
+
   const [openWinModal, setOpenWinModal] = useState();
   const [openLoseModal, setOpenLoseModal] = useState();
   const [openGiveUpModal, setOpenGiveUpModal] = useState();
+  const [openStatsModal, setOpenStatsModal] = useState();
+  const [openInfoModal, setOpenInfoModal] = useState();
 
   useEffect(() => {
     let localS = localStorage.getItem(new Date().getDate().toString() + "." +(new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString());
@@ -222,7 +268,20 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="Top">
-          <p style={{color:"red"}}>Bu bir test yazısıdır</p>
+        <IconButton className={classes.iconbutton}  onClick={() => { setOpenInfoModal(true) }} aria-label="delete">
+          <QuestionMarkIcon fontSize="inherit" />
+        </IconButton>
+        <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} target="_blank">
+          <IconButton className={classes.iconbutton} aria-label="delete">
+            <AlternateEmailIcon fontSize="inherit" />
+          </IconButton>
+        </a>
+        <IconButton className={classes.iconbutton} aria-label="delete">
+          <CoffeeIcon fontSize="inherit" />
+        </IconButton>
+        <IconButton className={classes.iconbutton}  onClick={() => { setOpenStatsModal(true) }} aria-label="delete">
+          <EqualizerIcon fontSize="inherit" />
+        </IconButton>
         </div>
         <div className="Image">
           <img 
@@ -279,6 +338,14 @@ function App() {
           </Alert>
         </Snackbar>)}
       </header>
+      <InfoModal
+        country={countries.ref_country_codes[randomNum]}
+        handleClose={() => {setOpenInfoModal(false)}}
+        open={openInfoModal}/>
+      <StatsModal
+        country={countries.ref_country_codes[randomNum]}
+        handleClose={() => {setOpenStatsModal(false)}}
+        open={openStatsModal}/>
       <WinModal 
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenWinModal(false)}}
