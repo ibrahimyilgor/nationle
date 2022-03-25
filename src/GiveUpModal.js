@@ -41,9 +41,10 @@ const useStyles = makeStyles(
     }
   );
 
-const GiveUpModal = ({ guesses, guessNum, setEndState, handleOpen, handleClose, open}) => {
+const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handleClose, open}) => {
     const classes = useStyles();
     const dim = useWindowDimensions();
+    
 
     return(
         <div>
@@ -62,7 +63,15 @@ const GiveUpModal = ({ guesses, guessNum, setEndState, handleOpen, handleClose, 
                         </div>
                         <div style={{ flexDirection: "column" }}>
                             <Button className={classes.button} sx={{ color: "#F6EABE", marginRight: "2%" }} onClick={handleClose}>NO</Button>
-                            <Button className={classes.button} sx={{ color: "#F6EABE", marginLeft: "2%" }} onClick={()=>{setEndState(2);localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum,endState:2}));handleClose();handleOpen();}}>YES</Button>
+                            <Button className={classes.button} sx={{ color: "#F6EABE", marginLeft: "2%" }} onClick={()=>{
+                                setEndState(2);
+                                localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum,endState:2}));
+                                handleClose();
+                                handleOpen();
+                                let tempStats = stats;
+                                tempStats[0] += 1;
+                                localStorage.setItem("stats", JSON.stringify(stats));
+                                }}>YES</Button>
                         </div>
                     </center>
                 </Box>

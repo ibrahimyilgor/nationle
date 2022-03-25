@@ -40,7 +40,7 @@ const useStyles = makeStyles(
     }
   );
 
-const StatsModal = ({ country, handleClose, open}) => {
+const StatsModal = ({ stats, country, handleClose, open}) => {
     const time = useCountdown();
     const classes = useStyles();
 
@@ -59,9 +59,12 @@ const StatsModal = ({ country, handleClose, open}) => {
                     <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center" }} id="modal-modal-title" variant="h3" component="h2">
                     Stats
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }} variant="h5" component="h4">
-                    Coming Soon
-                    </Typography>
+                    {stats.map((val,key) => {
+                      return <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }} variant="h5" component="h4">
+                        {(key === 0 ? "Unsuccessful" : key) + ": " + val}   
+                      </Typography>
+                    })} 
+                   
                 </Box>
             </Modal>
         </div>

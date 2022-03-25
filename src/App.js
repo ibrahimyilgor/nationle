@@ -1,7 +1,7 @@
 import random from './Random';
 import './App.css';
 import countries from './countries';
-import { Autocomplete, Button, IconButton, Snackbar, TextField } from '@mui/material';
+import { Autocomplete, Button, IconButton, Snackbar, TextField, Typography } from '@mui/material';
 import Guess from './Guess'
 import React, { useEffect, useRef, useState } from 'react';
 import { makeStyles } from '@mui/styles';
@@ -33,18 +33,18 @@ const useStyles = makeStyles(
       }
     },
     autocomplete: {
-     "&.MuiOutlinedInput-root": {  
+      "&.MuiOutlinedInput-root": {  
         padding:0
-     },
-     "& .MuiButtonBase-root.MuiAutocomplete-clearIndicator": {
+      },
+      "& .MuiButtonBase-root.MuiAutocomplete-clearIndicator": {
       color: "#F6EABE"
-    },
-    "& .MuiButtonBase-root.MuiAutocomplete-popupIndicator": {
-      color: "#F6EABE"
-    },
-    "& .MuiOutlinedInput-notchedOutline": {
-      border: "none"
-    },
+      },
+      "& .MuiButtonBase-root.MuiAutocomplete-popupIndicator": {
+        color: "#F6EABE"
+      },
+      "& .MuiOutlinedInput-notchedOutline": {
+        border: "none"
+      },
       "& .MuiOutlinedInput-root":{
         fontFamily: "Patrick Hand",
         width: "50vw",
@@ -56,6 +56,12 @@ const useStyles = makeStyles(
         backgroundColor: "#789395",
         color: "#F6EABE",
         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+      },
+      "&.MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input":{
+        fontFamily: "Patrick Hand",
+        padding: 0,
+        width: "50vw",
+        height: "auto",
       },
     },
     button: {
@@ -85,6 +91,10 @@ const useStyles = makeStyles(
         width: "10%",
         backgroundColor: "#789395",
         color: "#F6EABE",
+        borderRadius: "25px",
+        borderWidth: "5px",
+        borderColor: "#F6EABE",
+        borderStyle: "solid",
         fontSize: "80%",
         marginLeft: "1%",
         marginRight: "1%"
@@ -96,7 +106,11 @@ const useStyles = makeStyles(
         height: "80%",
         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
         width: "10%",
-        backgroundColor: "#789395",
+        borderRadius: "25px",
+        borderWidth: "5px",
+        borderColor: "#F6EABE",
+        borderStyle: "solid",
+        backgroundColor: "#95aaab",
         color: "#F6EABE",
         fontSize: "80%",
         marginLeft: "1%",
@@ -121,6 +135,7 @@ function App() {
   const [guesses,setGuesses] = useState([{},{},{},{},{},{}]);
   const [guessText, setGuessText] = useState({});
   const [copyAlert, setCopyAlert] = useState(false);
+  const [stats, setStats] = useState([0,0,0,0,0,0,0]);
 
   const [openWinModal, setOpenWinModal] = useState();
   const [openLoseModal, setOpenLoseModal] = useState();
@@ -129,13 +144,20 @@ function App() {
   const [openInfoModal, setOpenInfoModal] = useState();
 
   useEffect(() => {
-    let localS = localStorage.getItem(new Date().getDate().toString() + "." +(new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString());
-    //console.log("locals",localS);
-    localS = JSON.parse(localS);
-    if(localS){
-      setGuesses(localS.guesses);
-      setGuessNum(parseInt(localS.guessNum));
-      setEndState(parseInt(localS.endState));
+    //Guesses
+    let localGuesses = localStorage.getItem(new Date().getDate().toString() + "." +(new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString());
+    localGuesses = JSON.parse(localGuesses);
+    if(localGuesses){
+      setGuesses(localGuesses.guesses);
+      setGuessNum(parseInt(localGuesses.guessNum));
+      setEndState(parseInt(localGuesses.endState));
+    }
+
+    //Stats
+    let localStats = localStorage.getItem("stats");
+    localStats = JSON.parse(localStats);
+    if(localStats){
+      setStats(localStats);
     }
   }, []); 
 
@@ -247,11 +269,17 @@ function App() {
       setOpenWinModal(true);
       setEndState(1);
       localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:1}));
+      let tempStats = stats;
+      tempStats[guessNum+1] += 1
+      localStorage.setItem("stats", JSON.stringify(stats));
     }
     if(value !== 100 && guessNum === 5){
       setOpenLoseModal(true);
       setEndState(2);
       localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:2}));
+      let tempStats = stats;
+      tempStats[0] += 1
+      localStorage.setItem("stats", JSON.stringify(stats));
     }
     setGuessText({});
   }
@@ -276,6 +304,7 @@ function App() {
             <AlternateEmailIcon fontSize="inherit" />
           </IconButton>
         </a>
+
         <IconButton className={classes.iconbutton} aria-label="delete">
           <CoffeeIcon fontSize="inherit" />
         </IconButton>
@@ -344,6 +373,7 @@ function App() {
         open={openInfoModal}/>
       <StatsModal
         country={countries.ref_country_codes[randomNum]}
+        stats={stats}
         handleClose={() => {setOpenStatsModal(false)}}
         open={openStatsModal}/>
       <WinModal 
@@ -360,6 +390,7 @@ function App() {
         open={openGiveUpModal}
         setEndState={setEndState}
         guesses={guesses}
+        stats={stats}
         guessNum={guessNum}/>
     </div>
   );
