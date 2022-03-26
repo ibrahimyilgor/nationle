@@ -30,7 +30,8 @@ const useStyles = makeStyles(
           backgroundColor: "#789395",
           color: "#F6EABE",
           fontSize: "100%",
-          minWidth: "15%",
+          minWidth: "10%",
+          height: "5vh"
         },
         '&.MuiButton-root:hover': {
           backgroundColor: '#95aaab',
@@ -53,26 +54,28 @@ const WinModal = ({ country, handleClose, open}) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                <div>
+                <div style={{width: "100%", height: "5vh"}}>
                     <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>Close</Button>
                 </div>
-                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center" }} id="modal-modal-title" variant="h3" component="h2">
+                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center" }} id="modal-modal-title" variant="h4" component="h3">
                     Win
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }} variant="h5" component="h4">
+                    <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">
                     Congratulations, you have found the today's answer
                     </Typography>
                     <center>
-                        <Typography variant="h5" component="h4" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>{"Next Globle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}</Typography>
+                        
                         <img
                         width={"40%"}
                         src={`https://flagcdn.com/w2560/${country?.alpha2?.toLowerCase()}.png`}
                         alt={"Country"}/>
                         
-                        <Typography id="modal-modal-description" variant="h4" component="h2" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>
+                        <Typography id="modal-modal-description" variant="h5" component="h3" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>
                         {country.country}
                         </Typography>
                         <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} target="_blank">View {country.country} on Google Maps </a>
+                        <Typography variant="h6" component="h5" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>{"Next Globle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}
+                        </Typography>
                     </center>
                 </Box>
             </Modal>

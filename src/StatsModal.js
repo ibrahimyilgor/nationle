@@ -30,7 +30,8 @@ const useStyles = makeStyles(
           backgroundColor: "#789395",
           color: "#F6EABE",
           fontSize: "100%",
-          minWidth: "15%",
+          minWidth: "10%",
+          height: "5vh"
         },
         '&.MuiButton-root:hover': {
           backgroundColor: '#95aaab',
@@ -41,9 +42,9 @@ const useStyles = makeStyles(
   );
 
 const StatsModal = ({ stats, country, handleClose, open}) => {
-    const time = useCountdown();
+   
     const classes = useStyles();
-
+    const max = Math.max.apply(Math,stats);
     return(
         <div>
             <Modal
@@ -53,18 +54,28 @@ const StatsModal = ({ stats, country, handleClose, open}) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                <div>
+                <div style={{width: "100%", height: "5vh"}}>
                     <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>Close</Button>
                 </div>
-                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center" }} id="modal-modal-title" variant="h3" component="h2">
+                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center" }} id="modal-modal-title" variant="h4" component="h3">
                     Stats
                     </Typography>
-                    {stats.map((val,key) => {
-                      return <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }} variant="h5" component="h4">
+                  {/*   {stats.map((val,key) => {
+                      return <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">
                         {(key === 0 ? "Unsuccessful" : key) + ": " + val}   
                       </Typography>
-                    })} 
-                   
+                    })}  */}
+                      {stats.map((val,key) => {
+                        console.log(val,max, stats);
+                      return (
+                      <div style={{display: "flex", marginBottom: "2vh"}}>
+                        <Typography id="modal-modal-description" sx={{ width: "2vw", fontFamily: "Patrick Hand", mr: 1, textAlign: "center"}} variant="h6" component="h5">
+                        {key === 0 ? "X:" : key + ":"}
+                        </Typography>
+                        <div style={{ marginLeft: "1vw", height: "4vh", width: `${(val/max)*70+1}%`, backgroundColor: "#F6EABE" }}></div>
+                        <Typography style={{ height: "4vh", fontFamily: "Patrick Hand", marginLeft: "0.5vw",  justifyContent: "center", alignItems: "center", display: "flex"}}>{val}</Typography>
+                      </div>)
+                    })}  
                 </Box>
             </Modal>
         </div>
