@@ -1,6 +1,7 @@
 import { Box, Button, Divider, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Guess from "./Guess";
+import useWindowDimensions from './getWindowDimensions';
 
 const style = {
     position: 'absolute',
@@ -55,6 +56,8 @@ const useStyles = makeStyles(
 
 const InfoModal = ({ country, handleClose, open}) => {
     const classes = useStyles();
+    const dim = useWindowDimensions();
+
     return(
         <div>
             <Modal
@@ -67,10 +70,10 @@ const InfoModal = ({ country, handleClose, open}) => {
                 <div style={{width: "100%", height: "5vh"}}>
                     <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>Close</Button>
                 </div>
-                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1" }} id="modal-modal-title" variant="h4" component="h3">
+                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1" }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h5" : "h4"} component="h3">
                     How To Play
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 1, mb: 1, textAlign:"center" , lineHeight: "1" }} variant="h6" component="h4">
+                    <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 1, mb: 1, textAlign:"center" , lineHeight: "1" }} variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
                     Guess the country of the day in 6 guesses. After each guess, you will have the distance, the direction and the proximity from your guess and the target country.
                     </Typography>
                     <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand"}}>Example</Divider>
@@ -81,7 +84,7 @@ const InfoModal = ({ country, handleClose, open}) => {
                       name2="1162 km"
                       name3={170}
                       value={94}/>
-                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  }} id="modal-modal-title" variant="h6" component="h4">
+                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
                     The target country is 1162 km away from Azerbaijan, in the west and the proximity is 94%
                     </Typography>
                     <Guess 
@@ -91,11 +94,11 @@ const InfoModal = ({ country, handleClose, open}) => {
                       name2="0 km"
                       name3={0}
                       value={100}/>
-                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  }} id="modal-modal-title" variant="h6" component="h4">
+                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
                     Next guess, Turkey, it's the country to guess! Congrats!
                     </Typography>
                     <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>Inspired By</Divider>
-                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  }} id="modal-modal-title" variant="h6" component="h4">
+                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
                     {"Globle has been heavily inspired by: "}
                     <a style={{"color": "inherit"}} href={`https://www.nytimes.com/games/wordle/index.html`} rel="noreferrer" target="_blank">Wordle</a>   
                     {" created by "}
@@ -106,7 +109,7 @@ const InfoModal = ({ country, handleClose, open}) => {
                     <a style={{"color": "inherit"}} href={`https://twitter.com/teuteuf`} rel="noreferrer" target="_blank">@teuteuf </a>
                     </Typography>
                     <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>Made By</Divider>
-                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  }} id="modal-modal-title" variant="h6" component="h4">
+                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
                     {"Globle is made by "}
                     <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">@ibrahimyilgor</a>
                  
