@@ -1,12 +1,11 @@
 import random from './Random';
 import './App.css';
 import countries from './countries';
-import { Autocomplete, Button, IconButton, Snackbar, TextField, Typography } from '@mui/material';
+import { Autocomplete, Button, IconButton, Snackbar, TextField } from '@mui/material';
 import Guess from './Guess'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
-import { Link } from 'react-router-dom'
 
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
@@ -19,9 +18,8 @@ import bearing from './Degree';
 import WinModal from './WinModal'
 import LoseModal from './LoseModal'
 import GiveUpModal from './GiveUpModal';
-import useWindowDimensions from './getWindowDimensions';
 import StatsModal from './StatsModal';
-import InfoModal from './InfoModal';
+import HowToPlayModal from './HowToPlayModal';
 
 document.title = "Globle";
 
@@ -100,8 +98,6 @@ const useStyles = makeStyles(
         marginRight: "1%"
       },
       '&.MuiIconButton-root:hover': {
-        backgroundColor: '#95aaab',
-        borderColor: "#F6EABE",
         marginTop: "1.25%",
         height: "80%",
         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
@@ -127,7 +123,8 @@ function App() {
 
   const options = [];
   countries.ref_country_codes.map(country => {
-    options.push({label:country.country,value:country})
+    options.push({label:country.country,value:country});
+    return true; //To avoid warning.
   });
 
   const [endState, setEndState] = useState(0); //0 default, 1 win, 2 lose
@@ -141,7 +138,7 @@ function App() {
   const [openLoseModal, setOpenLoseModal] = useState();
   const [openGiveUpModal, setOpenGiveUpModal] = useState();
   const [openStatsModal, setOpenStatsModal] = useState();
-  const [openInfoModal, setOpenInfoModal] = useState();
+  const [openHowToPlayModal, setOpenHowToPlayModal] = useState();
 
   useEffect(() => {
     //Guesses
@@ -160,8 +157,6 @@ function App() {
       setStats(localStats);
     }
   }, []); 
-
-
 
   const change = (event,value) =>{
     if (value?.label){
@@ -284,22 +279,14 @@ function App() {
     setGuessText({});
   }
 
-  /*useEffect(() => {
-  }, [guesses]); */
-
-  useEffect(() => {
-    //console.log("guessText",guessText,guessText?.label);
-    //console.log("guesses",guesses);
-  }, [guessText]);
-
   return (
     <div className="App">
       <header className="App-header">
         <div className="Top">
-        <IconButton className={classes.iconbutton}  onClick={() => { setOpenInfoModal(true) }} aria-label="delete">
+        <IconButton className={classes.iconbutton}  onClick={() => { setOpenHowToPlayModal(true) }} aria-label="delete">
           <QuestionMarkIcon fontSize="inherit" />
         </IconButton>
-        <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} target="_blank">
+        <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
           <IconButton className={classes.iconbutton} aria-label="delete">
             <AlternateEmailIcon fontSize="inherit" />
           </IconButton>
@@ -314,6 +301,7 @@ function App() {
         </div>
         <div className="Image">
           <img 
+              alt = "target_country"
               style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
               src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
               width="100%" height="auto"/> 
@@ -367,10 +355,10 @@ function App() {
           </Alert>
         </Snackbar>)}
       </header>
-      <InfoModal
+      <HowToPlayModal
         country={countries.ref_country_codes[randomNum]}
-        handleClose={() => {setOpenInfoModal(false)}}
-        open={openInfoModal}/>
+        handleClose={() => {setOpenHowToPlayModal(false)}}
+        open={openHowToPlayModal}/>
       <StatsModal
         country={countries.ref_country_codes[randomNum]}
         stats={stats}

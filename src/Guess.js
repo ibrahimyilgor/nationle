@@ -1,13 +1,11 @@
 import { Text } from 'react-native';
 import CircularStatic from './CircularProgressWithLabel'
 import './Guess.css';
-import { useEffect, useState } from 'react';
 
 import EastIcon from '@mui/icons-material/East';
 import DoneIcon from '@mui/icons-material/Done';
 
 import { makeStyles } from '@mui/styles';
-import useWindowDimensions from './getWindowDimensions';
 
 const useStyles = makeStyles(
     {
@@ -50,27 +48,24 @@ const useStyles = makeStyles(
     }
   );
 
-function Guess({code,name1,name2,name3,value}) {
-
+function Guess({fullWidth,code,name1,name2,name3,value}) {
     const classes = useStyles({name3});
- 
-    const dim = useWindowDimensions();
-    //console.log("dim",dim);
 
     return(
-    <div className='Guess'>
+    <div className='Guess' style= {fullWidth && {width: "100%"}}>
         {code && (<div className="Flag">
         <img
-            width={dim.height > dim.width ? "50%" : "100%"}
+            width="auto"
             src={`https://flagcdn.com/32x24/${code?.toLowerCase()}.png`}
             alt={name1}/> 
         </div>)}
        
-        {name3 !== undefined && (<><div className="GuessName">
+        {name3 !== undefined && (<div className="GuessName">
                 <Text style={{ color: "#F6EABE" ,fontSize: "80%", fontFamily: "Patrick Hand", display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", width: "90%", marginLeft: "5%"}}>{name1}</Text>
-            </div><div className='GuessDistance'>
+            </div>)}
+        {name3 !== undefined && (<div className='GuessDistance'>
                     <Text style={{ color: "#F6EABE", fontSize: "80%", fontFamily: "Patrick Hand", display: "flex", flexDirection: "column", justifyContent: "center", height: "100%"}}>{name2}</Text>
-                </div></>)}
+                </div>)}
         {name3 !== undefined && (<div className={classes.rotateImgDiv}>
             {value === 100 ? (<DoneIcon className={classes.done}/>) : (<EastIcon className={[classes.svgIcon, classes.rotateImg]}/>)}
             
