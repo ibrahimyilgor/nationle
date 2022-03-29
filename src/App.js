@@ -1,9 +1,9 @@
 import random from './Random';
 import './App.css';
 import countries from './countries';
-import { Autocomplete, Button, IconButton, Snackbar, TextField } from '@mui/material';
+import { Autocomplete, Box, Button, IconButton, ListItem, ListItemSecondaryAction, ListItemText, Popper, Snackbar, TextField } from '@mui/material';
 import Guess from './Guess'
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
 
@@ -61,6 +61,17 @@ const useStyles = makeStyles(
         width: "50vw",
         height: "auto",
       },
+      
+    },
+    popper: {
+      "& .MuiTypography-root":{
+        fontFamily: "Patrick Hand"
+      },
+      "& .MuiAutocomplete-listbox": {
+        backgroundColor: "#87AAAA",
+        "& li:nth-child(even)": {backgroundColor: "#87AAAA", color: "#F6EABE", fontFamily: "Patrick Hand" },
+        "& li:nth-child(odd)": {backgroundColor: "#789395", color: "#F6EABE", fontFamily: "Patrick Hand" }
+      }
     },
     button: {
       "&.MuiButton-root":{
@@ -126,6 +137,11 @@ function App() {
     options.push({label:country.country,value:country});
     return true; //To avoid warning.
   });
+
+  const CustomPopper = function (props) {
+    const classes = useStyles();
+    return <Popper {...props} className={classes.popper} placement="bottom" />;
+  };
 
   const [endState, setEndState] = useState(0); //0 default, 1 win, 2 lose
   const [guessNum,setGuessNum] = useState(0);
@@ -291,10 +307,11 @@ function App() {
             <AlternateEmailIcon fontSize="inherit" />
           </IconButton>
         </a>
-
+        <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
         <IconButton className={classes.iconbutton} aria-label="delete">
           <CoffeeIcon fontSize="inherit" />
         </IconButton>
+        </a>
         <IconButton className={classes.iconbutton}  onClick={() => { setOpenStatsModal(true) }} aria-label="delete">
           <EqualizerIcon fontSize="inherit" />
         </IconButton>
@@ -315,7 +332,17 @@ function App() {
               id="combo-box-demo"
               options={options}
               className={classes.autocomplete}
+              renderOption={(props, option, state) => (
+                <ListItem  {...props}>
+                  <img
+                    height="25vw"
+                    src={`https://flagcdn.com/256x192/${option.value.alpha2?.toLowerCase()}.png`}
+                    alt={"flag"}/> 
+                  <ListItemText sx={{marginLeft: "1vw"}} primary={option.value.country} />
+                </ListItem>
+              )}
               renderInput={(params) => <TextField {...params}  />}
+              PopperComponent={CustomPopper}
             />
             {endState === 0 &&(
             <>

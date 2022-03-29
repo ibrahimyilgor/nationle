@@ -66,7 +66,6 @@ const StatsModal = ({ stats, country, handleClose, open}) => {
                     </Typography>
                   })}  */}
                     {stats.map((val,key) => {
-                      console.log(val,max, stats);
                     return (
                     <div style={{display: "flex", marginBottom: "2vh"}}>
                       <Typography id="modal-modal-description" sx={{ width: "2vw", fontFamily: "Patrick Hand", mr: 1, textAlign: "center"}} variant="h6" component="h5">
