@@ -1,11 +1,13 @@
-import random from './Random';
+
 import './App.css';
-import countries from './countries';
-import { Autocomplete, Box, Button, IconButton, ListItem, ListItemSecondaryAction, ListItemText, Popper, Snackbar, TextField } from '@mui/material';
+import { Autocomplete, Button, IconButton, ListItem, ListItemText, Popper, Snackbar, TextField } from '@mui/material';
+
 import Guess from './Guess'
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
+
+import countries from './countries';
 
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
@@ -14,6 +16,7 @@ import CoffeeIcon from '@mui/icons-material/Coffee';
 
 import distance from './Distance';
 import bearing from './Degree';
+import random from './Random';
 
 import WinModal from './WinModal'
 import LoseModal from './LoseModal'
@@ -92,6 +95,24 @@ const useStyles = makeStyles(
         borderColor: "#F6EABE",
       },
     },
+    namebutton: {
+      "&.MuiIconButton-root":{
+        fontFamily: "Patrick Hand",
+        marginTop: "1.25%",
+        height: "80%",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        width: "30%",
+        backgroundColor: "#789395",
+        color: "#F6EABE",
+        borderRadius: "25px",
+        borderWidth: "5px",
+        borderColor: "#F6EABE",
+        borderStyle: "solid",
+        fontSize: "80%",
+        marginLeft: "1%",
+        marginRight: "1%"
+      }
+    },
     iconbutton: {
       "&.MuiIconButton-root":{
         marginTop: "1.25%",
@@ -123,7 +144,8 @@ const useStyles = makeStyles(
         marginLeft: "1%",
         marginRight: "1%"
       },
-    }
+    },
+    
   }
 );
 
@@ -177,6 +199,9 @@ function App() {
   const change = (event,value) =>{
     if (value?.label){
       setGuessText(value);
+    }
+    else{
+      setGuessText({})
     }
   }
 
@@ -307,6 +332,9 @@ function App() {
             <AlternateEmailIcon fontSize="inherit" />
           </IconButton>
         </a>
+        <IconButton  className={classes.namebutton} aria-label="delete">
+            <p>GLOBLE</p>
+          </IconButton>
         <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
         <IconButton className={classes.iconbutton} aria-label="delete">
           <CoffeeIcon fontSize="inherit" />
@@ -336,7 +364,8 @@ function App() {
                 <ListItem  {...props}>
                   <img
                     height="25vw"
-                    src={`https://flagcdn.com/256x192/${option.value.alpha2?.toLowerCase()}.png`}
+                    width="40vw"
+                    src={`svg/${option.value.alpha2?.toLowerCase()}.svg`}
                     alt={"flag"}/> 
                   <ListItemText sx={{marginLeft: "1vw"}} primary={option.value.country} />
                 </ListItem>
@@ -391,7 +420,7 @@ function App() {
         stats={stats}
         handleClose={() => {setOpenStatsModal(false)}}
         open={openStatsModal}/>
-      <WinModal 
+      <WinModal
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenWinModal(false)}}
         open={openWinModal}/>

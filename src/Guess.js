@@ -50,13 +50,13 @@ const useStyles = makeStyles(
 
 function Guess({fullWidth,code,name1,name2,name3,value}) {
     const classes = useStyles({name3});
-
+//3224
     return(
     <div className='Guess' style= {fullWidth && {width: "100%"}}>
         {code && (<div className="Flag">
         <img
-            width="auto"
-            src={`https://flagcdn.com/32x24/${code?.toLowerCase()}.png`}
+            width="60%"
+            src={`svg/${code?.toLowerCase()}.svg`}
             alt={name1}/> 
         </div>)}
        

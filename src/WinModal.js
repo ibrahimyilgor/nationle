@@ -66,8 +66,8 @@ const WinModal = ({ country, handleClose, open}) => {
                     <center>
                         
                         <img
-                        width={"40%"}
-                        src={`https://flagcdn.com/w2560/${country?.alpha2?.toLowerCase()}.png`}
+                        width={"35%"}
+                        src={`svg/${country?.alpha2?.toLowerCase()}.svg`}
                         alt={"Country"}/>
                         
                         <Typography id="modal-modal-description" variant="h5" component="h3" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>

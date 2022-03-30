@@ -67,7 +67,7 @@ const LoseModal = ({country, handleClose, open}) => {
                   
                         <img
                         width={"35%"}
-                        src={`https://flagcdn.com/w2560/${country?.alpha2?.toLowerCase()}.png`}
+                        src={`svg/${country?.alpha2?.toLowerCase()}.svg`}
                         alt={"Country"}/>
                         
                         <Typography id="modal-modal-description" variant="h5" component="h3" sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }}>
