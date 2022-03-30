@@ -68,7 +68,7 @@ const WinModal = ({ country, handleClose, open}) => {
                         <img
                         width={"35%"}
                         src={`svg/${country?.alpha2?.toLowerCase()}.svg`}
-                        alt={"Country"}/>
+                        alt={country?.alpha2?.toLowerCase() || "flag"}/>
                         
                         <Typography id="modal-modal-description" variant="h5" component="h3" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>
                         {country.country}

@@ -57,7 +57,7 @@ function Guess({fullWidth,code,name1,name2,name3,value}) {
         <img
             width="60%"
             src={`svg/${code?.toLowerCase()}.svg`}
-            alt={name1}/> 
+            alt={code?.toLowerCase() || "flag"}/> 
         </div>)}
        
         {name3 !== undefined && (<div className="GuessName">

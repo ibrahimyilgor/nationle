@@ -365,9 +365,9 @@ function App() {
                   <img
                     height="25vw"
                     width="40vw"
-                    src={`svg/${option.value.alpha2?.toLowerCase()}.svg`}
-                    alt={"flag"}/> 
-                  <ListItemText sx={{marginLeft: "1vw"}} primary={option.value.country} />
+                    src={`svg/${option?.value?.alpha2?.toLowerCase()}.svg`}
+                    alt={option?.value?.alpha2?.toLowerCase() || "flag"}/> 
+                  <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value?.country} />
                 </ListItem>
               )}
               renderInput={(params) => <TextField {...params}  />}
