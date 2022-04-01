@@ -64,7 +64,6 @@ const useStyles = makeStyles(
         width: "50vw",
         height: "auto",
       },
-      
     },
     popper: {
       "& .MuiTypography-root":{
@@ -179,6 +178,13 @@ function App() {
   const [openHowToPlayModal, setOpenHowToPlayModal] = useState();
 
   useEffect(() => {
+    //Remove last 30 day's localGuess
+    var date = new Date();
+    for(let i = 0; i < 30 ; i++){
+      date.setDate(date.getDate() - 1);
+      localStorage.removeItem(date.getDate().toString() + "." +(date.getMonth()+1).toString()  + "." + date.getFullYear().toString());
+    }
+   
     //Guesses
     let localGuesses = localStorage.getItem(new Date().getDate().toString() + "." +(new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString());
     localGuesses = JSON.parse(localGuesses);
@@ -355,7 +361,14 @@ function App() {
             <Autocomplete
               disablePortal
               onChange={change}
+              freeSolo={true}
               disabled={endState !== 0}
+              onKeyPress= {(e) => {
+                if (e.key === 'Enter') {
+                  //console.log('Enter key pressed');
+                  guessClick()
+                }
+              }}
               value={guessText?.label ? guessText?.label : "Select A Country"}
               id="combo-box-demo"
               options={options}
