@@ -24,7 +24,7 @@ import GiveUpModal from './GiveUpModal';
 import StatsModal from './StatsModal';
 import HowToPlayModal from './HowToPlayModal';
 
-document.title = "Globle";
+document.title = "Nationle";
 
 const useStyles = makeStyles(
   {
@@ -223,7 +223,7 @@ function App() {
         break;
       }
     }
-    let answer = "#Globle - " + date.getDate() + "." + (date.getMonth()+1) +  "." + date.getFullYear() + " - " + result +"\n";
+    let answer = "#Nationle - " + date.getDate() + "." + (date.getMonth()+1) +  "." + date.getFullYear() + " - " + result +"\n";
     const numbers = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"];
     for(let i=0;i<6;i++){
       if(guesses[i]?.code === undefined){
@@ -262,7 +262,7 @@ function App() {
       }
       answer +=  " %" + parseInt(guesses[i].value) + "\n";
     }
-    answer += "https://globle-guess.herokuapp.com";
+    answer += "https://nationle.herokuapp.com";
     navigator.clipboard.writeText(answer);
     setCopyAlert(true);
   }
@@ -339,7 +339,7 @@ function App() {
           </IconButton>
         </a>
         <IconButton  className={classes.namebutton} aria-label="delete">
-            <p>GLOBLE</p>
+            <p>NATIONLE</p>
           </IconButton>
         <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
         <IconButton className={classes.iconbutton} aria-label="delete">
@@ -369,7 +369,8 @@ function App() {
                   guessClick()
                 }
               }}
-              value={guessText?.label ? guessText?.label : "Select A Country"}
+              openOnFocus
+              value={guessText?.label}
               id="combo-box-demo"
               options={options}
               className={classes.autocomplete}
@@ -383,7 +384,7 @@ function App() {
                   <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value?.country} />
                 </ListItem>
               )}
-              renderInput={(params) => <TextField {...params}  />}
+              renderInput={(params) => <TextField placeholder='Select A Country' {...params} />}
               PopperComponent={CustomPopper}
             />
             {endState === 0 &&(

@@ -99,7 +99,7 @@ const InfoModal = ({ country, handleClose, open}) => {
                     </Typography>
                     <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>Inspired By</Divider>
                     <Typography sx={[{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  },dim.height > dim.width ? {mt: 1, mb: 1}: {mt: 2, mb: 2}]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                    {"Globle has been heavily inspired by: "}
+                    {"Nationle has been heavily inspired by: "}
                     <a style={{"color": "inherit"}} href={`https://www.nytimes.com/games/wordle/index.html`} rel="noreferrer" target="_blank">Wordle</a>   
                     {" created by "}
                     <a style={{"color": "inherit"}} href={`https://twitter.com/powerlanguish`} rel="noreferrer" target="_blank">@powerlanguish</a>   
@@ -110,12 +110,12 @@ const InfoModal = ({ country, handleClose, open}) => {
                     </Typography>
                     <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>Made By</Divider>
                     <Typography sx={[{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  },dim.height > dim.width ? {mt: 1, mb: 1}: {mt: 2, mb: 2}]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                    {"Globle is made by "}
+                    {"Nationle is made by "}
                     <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">@ibrahimyilgor</a>
                  
                    
                     {". You can reach the "}
-                    <a style={{"color": "inherit"}} href={`https://github.com/ibrahimyilgor/globle-guess`} rel="noreferrer" target="_blank">source code.</a> 
+                    <a style={{"color": "inherit"}} href={`https://github.com/ibrahimyilgor/nationle`} rel="noreferrer" target="_blank">source code.</a> 
                   
                     {" If you want to support, you can buy me a "}
                      <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/ibrahimyilgor`} target="_blank">coffee. </a> 

@@ -74,7 +74,7 @@ const LoseModal = ({country, handleClose, open}) => {
                         {country.country}
                         </Typography>
                         <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} target="_blank">View {country.country} on Google Maps </a>
-                        <Typography sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">{"Next Globle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}
+                        <Typography sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">{"Next Nationle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}
                         </Typography>
                     </center>
                 </Box>
