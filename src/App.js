@@ -69,6 +69,11 @@ const useStyles = makeStyles(
       "& .MuiTypography-root":{
         fontFamily: "Patrick Hand"
       },
+      "& .MuiAutocomplete-listbox .MuiAutocomplete-option.Mui-focused": {
+        backgroundColor: "#F6EABE",
+        color: "#87AAAA", 
+        fontFamily: "Patrick Hand",
+    },
       "& .MuiAutocomplete-listbox": {
         backgroundColor: "#87AAAA",
         "& li:nth-child(even)": {backgroundColor: "#87AAAA", color: "#F6EABE", fontFamily: "Patrick Hand" },
