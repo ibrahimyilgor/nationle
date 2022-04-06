@@ -3,7 +3,7 @@ import './App.css';
 import { Autocomplete, Button, IconButton, ListItem, ListItemText, Popper, Snackbar, TextField } from '@mui/material';
 
 import Guess from './Guess'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
 
@@ -60,9 +60,9 @@ const useStyles = makeStyles(
       },
       "&.MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input":{
         fontFamily: "Patrick Hand",
-        padding: 0,
         width: "50vw",
         height: "auto",
+        padding: 0,
       },
     },
     popper: {
@@ -182,6 +182,8 @@ function App() {
   const [openStatsModal, setOpenStatsModal] = useState();
   const [openHowToPlayModal, setOpenHowToPlayModal] = useState();
 
+  const autoCompleteRef = useRef();
+
   useEffect(() => {
     //Remove last 30 day's localGuess
     var date = new Date();
@@ -290,10 +292,10 @@ function App() {
 };
 
   const guessClick = () =>{
-    
     var value;
     var km;
     if(guessNum<6 && guessText?.label !== undefined){
+      console.log(guessNum);
       km = distance(guessText?.value?.latitude,guessText?.value?.longitude,countries.ref_country_codes[randomNum].latitude,countries.ref_country_codes[randomNum].longitude).toFixed(0);
       value = 100*((20000-km)/20000);
 
@@ -307,10 +309,13 @@ function App() {
       }
       setGuesses( changeGuess );
       setGuessNum(guessNum+1);
-      //console.log("guessnam",guessNum);
-      //localStorage.setItem("guessnum", parseInt(guessNum+1));
       localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:0}));
       
+      //Delete autoComplete text when guess is clicked.
+      const ele = autoCompleteRef.current.getElementsByClassName('MuiAutocomplete-clearIndicator')[0];
+      if (ele) {
+        ele.click();
+      }
     }  
     if (value === 100 ){
       setOpenWinModal(true);
@@ -320,7 +325,7 @@ function App() {
       tempStats[guessNum+1] += 1
       localStorage.setItem("stats", JSON.stringify(stats));
     }
-    if(value !== 100 && guessNum === 5){
+    if(value !== 100 && guessNum === 5 && guesses[5].code){
       setOpenLoseModal(true);
       setEndState(2);
       localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:2}));
@@ -328,7 +333,6 @@ function App() {
       tempStats[0] += 1
       localStorage.setItem("stats", JSON.stringify(stats));
     }
-    setGuessText({});
   }
 
   return (
@@ -367,10 +371,10 @@ function App() {
               disablePortal
               onChange={change}
               freeSolo={true}
+              
               disabled={endState !== 0}
               onKeyPress= {(e) => {
                 if (e.key === 'Enter') {
-                  //console.log('Enter key pressed');
                   guessClick()
                 }
               }}
@@ -382,14 +386,14 @@ function App() {
               renderOption={(props, option, state) => (
                 <ListItem  {...props}>
                   <img
-                    height="25vw"
+                    height="30vh"
                     width="40vw"
                     src={`svg/${option?.value?.alpha2?.toLowerCase()}.svg`}
                     alt={option?.value?.alpha2?.toLowerCase() || "flag"}/> 
                   <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value?.country} />
                 </ListItem>
               )}
-              renderInput={(params) => <TextField placeholder='Select A Country' {...params} />}
+              renderInput={(params) => <TextField ref={autoCompleteRef} placeholder='Select A Country' {...params} />}
               PopperComponent={CustomPopper}
             />
             {endState === 0 &&(
