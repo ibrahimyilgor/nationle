@@ -3,7 +3,7 @@ import './App.css';
 import { Autocomplete, Button, IconButton, ListItem, ListItemText, Popper, Snackbar, TextField } from '@mui/material';
 
 import Guess from './Guess'
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
 
@@ -155,8 +155,9 @@ const useStyles = makeStyles(
 
 function App() {
   const classes = useStyles();
-  var randomNum = random();
-  randomNum = Math.round(randomNum*(countries.ref_country_codes.length-1));
+
+  const randomNum = useMemo(() => Math.round(random()*(countries.ref_country_codes.length-1)), []);
+  const datee = useMemo(() => new Date(), []);
 
   const options = [];
   countries.ref_country_codes.map(country => {
@@ -219,7 +220,7 @@ function App() {
   }
 
   const copyAnswer = () =>{
-    const date = new Date();
+    const date = datee;
     let result = "X/6";
     for(let i=0;i<6;i++){
       if(guesses[i]?.code === undefined){
@@ -295,7 +296,6 @@ function App() {
     var value;
     var km;
     if(guessNum<6 && guessText?.label !== undefined){
-      console.log(guessNum);
       km = distance(guessText?.value?.latitude,guessText?.value?.longitude,countries.ref_country_codes[randomNum].latitude,countries.ref_country_codes[randomNum].longitude).toFixed(0);
       value = 100*((20000-km)/20000);
 
@@ -309,7 +309,7 @@ function App() {
       }
       setGuesses( changeGuess );
       setGuessNum(guessNum+1);
-      localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:0}));
+      localStorage.setItem(datee.getDate().toString() + "." + (datee.getMonth()+1).toString()  + "." + datee.getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:0}));
       
       //Delete autoComplete text when guess is clicked.
       const ele = autoCompleteRef.current.getElementsByClassName('MuiAutocomplete-clearIndicator')[0];
@@ -320,7 +320,7 @@ function App() {
     if (value === 100 ){
       setOpenWinModal(true);
       setEndState(1);
-      localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:1}));
+      localStorage.setItem(datee.getDate().toString() + "." + (datee.getMonth()+1).toString()  + "." + datee.getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:1}));
       let tempStats = stats;
       tempStats[guessNum+1] += 1
       localStorage.setItem("stats", JSON.stringify(stats));
@@ -328,7 +328,7 @@ function App() {
     if(value !== 100 && guessNum === 5 && guesses[5].code){
       setOpenLoseModal(true);
       setEndState(2);
-      localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:2}));
+      localStorage.setItem(datee.getDate().toString() + "." + (datee.getMonth()+1).toString()  + "." + datee.getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:2}));
       let tempStats = stats;
       tempStats[0] += 1
       localStorage.setItem("stats", JSON.stringify(stats));
@@ -446,11 +446,13 @@ function App() {
       <WinModal
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenWinModal(false)}}
-        open={openWinModal}/>
+        open={openWinModal}
+        datee={datee}/>
       <LoseModal 
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenLoseModal(false)}}
-        open={openLoseModal}/>
+        open={openLoseModal}
+        datee={datee}/>
       <GiveUpModal
         handleClose={() => {setOpenGiveUpModal(false)}}
         handleOpen={() => {setOpenLoseModal(true)}}

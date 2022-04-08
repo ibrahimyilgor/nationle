@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-const useCountdown = () => {
-  const countDownDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 23, 59, 59)
+const useCountdown = (datee) => {
+  const countDownDate = new Date(datee.getFullYear(), datee.getMonth(), datee.getDate(), 23, 59, 59)
 
   const [countDown, setCountDown] = useState(
     countDownDate - new Date().getTime()
@@ -20,6 +20,9 @@ const useCountdown = () => {
 
 const getReturnValues = (countDown) => {
   // calculate time left
+  if (countDown < 0){
+    return ["Next Nationle is ready. Refresh the page for the next country."];
+  }
   const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (countDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)

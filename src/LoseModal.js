@@ -41,8 +41,8 @@ const useStyles = makeStyles(
     }
   );
 
-const LoseModal = ({country, handleClose, open}) => {
-    const time = useCountdown();
+const LoseModal = ({country, handleClose, open, datee}) => {
+    const time = useCountdown(datee);
     const classes = useStyles();
 
     return(
@@ -74,7 +74,7 @@ const LoseModal = ({country, handleClose, open}) => {
                         {country.country}
                         </Typography>
                         <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} target="_blank">View {country.country} on Google Maps </a>
-                        <Typography sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">{"Next Nationle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}
+                        <Typography sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">{time.length === 1 ? time[0] : "Next Nationle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}
                         </Typography>
                     </center>
                 </Box>

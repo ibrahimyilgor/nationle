@@ -41,8 +41,8 @@ const useStyles = makeStyles(
     }
   );
 
-const WinModal = ({ country, handleClose, open}) => {
-    const time = useCountdown();
+const WinModal = ({ country, handleClose, open, datee}) => {
+    const time = useCountdown(datee);
     const classes = useStyles();
 
     return(
@@ -73,8 +73,8 @@ const WinModal = ({ country, handleClose, open}) => {
                         <Typography id="modal-modal-description" variant="h5" component="h3" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>
                         {country.country}
                         </Typography>
-                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} target="_blank">View {country.country} on Google Maps </a>
-                        <Typography variant="h6" component="h5" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>{"Next Nationle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}
+                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} rel="noreferrer" target="_blank">View {country.country} on Google Maps </a>
+                        <Typography variant="h6" component="h5" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>{time.length === 1 ? time[0] : "Next Nationle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}
                         </Typography>
                     </center>
                 </Box>
