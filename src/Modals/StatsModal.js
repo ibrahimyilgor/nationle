@@ -1,6 +1,6 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import useWindowDimensions from './getWindowDimensions';
+import useWindowDimensions from '../getWindowDimensions';
 
 const style = {
     position: 'absolute',

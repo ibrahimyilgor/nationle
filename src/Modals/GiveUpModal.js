@@ -1,8 +1,5 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { minWidth } from "@mui/system";
-import useWindowDimensions from './getWindowDimensions';
-
 
 const style = {
     position: 'absolute',
@@ -43,8 +40,6 @@ const useStyles = makeStyles(
 
 const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handleClose, open}) => {
     const classes = useStyles();
-    const dim = useWindowDimensions();
-    
 
     return(
         <div>

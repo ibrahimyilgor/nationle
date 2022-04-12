@@ -1,6 +1,6 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import {useCountdown} from "./Timer";
+import { useCountdown } from "../Timer";
 
 const style = {
     position: 'absolute',

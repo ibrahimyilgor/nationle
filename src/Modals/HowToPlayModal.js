@@ -1,58 +1,58 @@
 import { Box, Button, Divider, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import Guess from "./Guess";
-import useWindowDimensions from './getWindowDimensions';
+import Guess from "../Guess";
+import useWindowDimensions from '../getWindowDimensions';
 
 const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    maxHeight: "90%",
-    minHeight: "50%",
-    width: "80%",
-    bgcolor: 'background.paper',
-    border: '2px solid #F6EABE',
-    boxShadow: 24,
-    backgroundColor: "#789395",
-    borderRadius: "25px",
-    p: 4,
-    color: "#F6EABE",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  maxHeight: "90%",
+  minHeight: "50%",
+  width: "80%",
+  bgcolor: 'background.paper',
+  border: '2px solid #F6EABE',
+  boxShadow: 24,
+  backgroundColor: "#789395",
+  borderRadius: "25px",
+  p: 4,
+  color: "#F6EABE",
 };
 
 const useStyles = makeStyles(
-    {
-      button: {
-        "&.MuiButton-root":{
-          fontFamily: "Patrick Hand",
-          float: "right",
-          borderRadius: "25px",
-          borderWidth: "5px",
-          borderColor: "#F6EABE",
-          borderStyle: "solid",
-          backgroundColor: "#789395",
-          color: "#F6EABE",
-          fontSize: "100%",
-          minWidth: "10%",
-          height: "5vh"
-        },
-        '&.MuiButton-root:hover': {
-          backgroundColor: '#95aaab',
-          borderColor: "#F6EABE",
-        },
+  {
+    button: {
+      "&.MuiButton-root":{
+        fontFamily: "Patrick Hand",
+        float: "right",
+        borderRadius: "25px",
+        borderWidth: "5px",
+        borderColor: "#F6EABE",
+        borderStyle: "solid",
+        backgroundColor: "#789395",
+        color: "#F6EABE",
+        fontSize: "100%",
+        minWidth: "10%",
+        height: "5vh"
       },
-      divider: {
-        '&.MuiDivider-root': {
-          '&::before': {
-              borderTop: `thin solid #F6EABE`
-          } ,
-          '&::after': {
+      '&.MuiButton-root:hover': {
+        backgroundColor: '#95aaab',
+        borderColor: "#F6EABE",
+      },
+    },
+    divider: {
+      '&.MuiDivider-root': {
+        '&::before': {
             borderTop: `thin solid #F6EABE`
-          } 
-        }
-      },
-    }
-  );
+        } ,
+        '&::after': {
+          borderTop: `thin solid #F6EABE`
+        } 
+      }
+    },
+  }
+);
 
 const InfoModal = ({ country, handleClose, open}) => {
     const classes = useStyles();
@@ -118,7 +118,7 @@ const InfoModal = ({ country, handleClose, open}) => {
                     <a style={{"color": "inherit"}} href={`https://github.com/ibrahimyilgor/nationle`} rel="noreferrer" target="_blank">source code.</a> 
                   
                     {" If you want to support, you can buy me a "}
-                     <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/ibrahimyilgor`} target="_blank">coffee. </a> 
+                     <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/ibrahimyilgor`} rel="noreferrer" target="_blank">coffee. </a> 
                     </Typography>
                 </Box>
             </Modal>

@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
 import CircularStatic from './CircularProgressWithLabel'
-import './Guess.css';
+import './Css/Guess.css';
 
 import EastIcon from '@mui/icons-material/East';
 import DoneIcon from '@mui/icons-material/Done';
