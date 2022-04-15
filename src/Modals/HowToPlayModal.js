@@ -111,7 +111,7 @@ const InfoModal = ({ country, handleClose, open}) => {
                     <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>Made By</Divider>
                     <Typography sx={[{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  },dim.height > dim.width ? {mt: 1, mb: 1}: {mt: 2, mb: 2}]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
                     {"Nationle is made by "}
-                    <a style={{"color": "inherit"}} href={`https://twitter.com/Ramazantasa`} rel="noreferrer" target="_blank">@Ramazantasa</a>
+                    <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">@ibrahimyilgor</a>
                  
                    
                     {". You can reach the "}
