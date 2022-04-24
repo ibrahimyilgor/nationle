@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
+
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #87AAAA, #789395);
+  background-size: 400% 400%;
+  animation: GradientAnimation 30s ease infinite;
+}
+
+@keyframes GradientAnimation {
+  0%{background-position: 0% 50%}
+  50%{background-position: 100% 50%}
+  100%{background-position:0% 50%}
+  }
+
+.AutocompleteAndButton{
+  flex:row;
+  margin-bottom:1vh;
+  display: flex;
+  height: 7vh;
+  max-width: 90%;
+}
+
+.Alert{
+  position: fixed;
+  bottom: 300;
+  right: 300;
+}
+
+.Image{
+  width: 30vh;
+  height: 30vh;
+  display: block;
+  margin-bottom: 1vh;
+}
+
+.Top{
+  height: 7vh;
+  margin-bottom: 2vh;
+  width: 70%;
+}
+
+.App-header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #F6EABE;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (orientation: portrait) {
+  .Top{
+    height: 7vh;
+    margin-bottom: 2vh;
+    width: 100vw;
+    border-radius: 25px;
+  }
+}
