@@ -287,7 +287,7 @@ function App() {
         <IconButton className={classes.iconbutton}  onClick={() => { setOpenHowToPlayModal(true) }} aria-label="delete">
           <QuestionMarkIcon fontSize="inherit" />
         </IconButton>
-        <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
+        <a style={{"color": "inherit"}} href={`https://twitter.com/nationleGame`} rel="noreferrer" target="_blank">
           <IconButton className={classes.iconbutton} aria-label="delete">
             <AlternateEmailIcon fontSize="inherit" />
           </IconButton>
@@ -295,7 +295,7 @@ function App() {
         <IconButton  className={classes.namebutton} aria-label="delete">
             <p>NATIONLE</p>
           </IconButton>
-        <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
+        <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/nationle`} rel="noreferrer" target="_blank">
         <IconButton className={classes.iconbutton} aria-label="delete">
           <CoffeeIcon fontSize="inherit" />
         </IconButton>
