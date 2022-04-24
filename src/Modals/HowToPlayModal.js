@@ -118,7 +118,7 @@ const InfoModal = ({ country, handleClose, open}) => {
                     <a style={{"color": "inherit"}} href={`https://github.com/ibrahimyilgor/nationle`} rel="noreferrer" target="_blank">source code.</a> 
                   
                     {" If you want to support, you can buy me a "}
-                     <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/ibrahimyilgor`} rel="noreferrer" target="_blank">coffee. </a> 
+                     <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/nationle`} rel="noreferrer" target="_blank">coffee. </a> 
                     </Typography>
                 </Box>
             </Modal>
