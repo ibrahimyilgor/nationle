@@ -62,7 +62,7 @@ const useStyles = makeStyles(
       "&.MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input":{
         fontFamily: "Patrick Hand",
         width: "50vw",
-        height: "auto",
+        height: "100%",
         padding: 0,
       },
     },
@@ -156,7 +156,7 @@ const useStyles = makeStyles(
 
 function App() {
   const classes = useStyles();
-
+  // console.log(countries.ref_country_codes.map(function(e) { return e.alpha2; }).indexOf('TR')); //Türkiye'nin indexi 217
   const randomNum = useMemo(() => Math.round(random()*(countries.ref_country_codes.length-1)), []);
   const datee = useMemo(() => new Date(), []);
 
@@ -316,7 +316,7 @@ function App() {
               disablePortal
               onChange={change}
               freeSolo={true}
-              
+             
               disabled={endState !== 0}
               onKeyPress= {(e) => {
                 if (e.key === 'Enter') {
@@ -331,8 +331,8 @@ function App() {
               renderOption={(props, option, state) => (
                 <ListItem  {...props}>
                   <img
-                    height="30vh"
-                    width="40vw"
+                    height="25vh"
+                    width="35vw"
                     src={`svg/${option?.value?.alpha2?.toLowerCase()}.svg`}
                     alt={option?.value?.alpha2?.toLowerCase() || "flag"}/> 
                   <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value?.country} />
@@ -392,11 +392,15 @@ function App() {
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenWinModal(false)}}
         open={openWinModal}
+        randomNum={randomNum}
+        guesses={guesses}
         datee={datee}/>
       <LoseModal 
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenLoseModal(false)}}
         open={openLoseModal}
+        randomNum={randomNum}
+        guesses={guesses}
         datee={datee}/>
       <GiveUpModal
         handleClose={() => {setOpenGiveUpModal(false)}}

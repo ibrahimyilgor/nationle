@@ -32,8 +32,9 @@
 .Image{
   width: 30vh;
   height: 30vh;
-  display: block;
+  display: grid;
   margin-bottom: 1vh;
+  align-items: center;
 }
 
 .Top{

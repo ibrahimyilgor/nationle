@@ -56,14 +56,14 @@ const countries = {
       "latitude" : 18.25,
       "longitude" : -63.1667
     },
-{
+/* {
       "country" : "Antarctica",
       "alpha2" : "AQ",
       "alpha3" : "ATA",
       "numeric" : 10,
       "latitude" : -90,
       "longitude" : 0
-    },
+    }, */
 {
       "country" : "Antigua and Barbuda",
       "alpha2" : "AG",
@@ -240,14 +240,14 @@ const countries = {
       "latitude" : -10,
       "longitude" : -55
     },
-{
+/* {
       "country" : "British Indian Ocean Territory",
       "alpha2" : "IO",
       "alpha3" : "IOT",
       "numeric" : 86,
       "latitude" : -6,
       "longitude" : 71.5
-    },
+    }, */
 {
       "country" : "Brunei Darussalam",
       "alpha2" : "BN",
@@ -896,13 +896,21 @@ const countries = {
       "latitude" : 1,
       "longitude" : 38
     },
-{
+/* {
       "country" : "Kiribati",
       "alpha2" : "KI",
       "alpha3" : "KIR",
       "numeric" : 296,
       "latitude" : 1.4167,
       "longitude" : 173
+    }, */
+    {
+      "country" : "Kosovo",
+      "alpha2" : "XK",
+      "alpha3" : "XKX",
+      "numeric" : 688,
+      "latitude" : 42.667542,
+      "longitude" : 21.166191
     },
 {
       "country" : "Kuwait",
@@ -1569,6 +1577,14 @@ const countries = {
       "latitude" : 37,
       "longitude" : 127.5
     },
+    {
+      "country" : "South Sudan",
+      "alpha2" : "SS",
+      "alpha3" : "SSD",
+      "numeric" : 728,
+      "latitude" : 6.876991,
+      "longitude" : 31.306978
+    },
 {
       "country" : "Spain",
       "alpha2" : "ES",
@@ -1697,14 +1713,14 @@ const countries = {
       "latitude" : -9,
       "longitude" : -172
     },
-{
+/* {
       "country" : "Tonga",
       "alpha2" : "TO",
       "alpha3" : "TON",
       "numeric" : 776,
       "latitude" : -20,
       "longitude" : -175
-    },
+    }, */
 {
       "country" : "Trinidad and Tobago",
       "alpha2" : "TT",
