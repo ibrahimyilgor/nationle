@@ -22,6 +22,11 @@ const style = {
 
 const useStyles = makeStyles(
   {
+    cookieAlert: {
+      "& .MuiAlert-message": {
+        fontFamily: "Patrick Hand",
+      }
+    },
     buttonLeft: {
       "&.MuiButton-root":{
         fontFamily: "Patrick Hand",
