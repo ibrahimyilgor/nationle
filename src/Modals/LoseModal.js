@@ -5,6 +5,8 @@ import { useCountdown } from "../Timer";
 import copyAnswer from '../Share'; 
 import { useState } from "react";
 
+import l from '../Languages/language';
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -68,8 +70,8 @@ const useStyles = makeStyles(
   }
 );
 
-const LoseModal = ({ country, handleClose, open, randomNum, datee, guesses}) => {
-    const time = useCountdown(datee);
+const LoseModal = ({ country, handleClose, open, lang, datee, guesses}) => {
+    const time = useCountdown(datee, lang);
     const classes = useStyles();
 
     const [copyAlert, setCopyAlert] = useState(false);
@@ -91,14 +93,14 @@ const LoseModal = ({ country, handleClose, open, randomNum, datee, guesses}) => 
             >
                 <Box sx={style}>
                 <div style={{width: "100%", height: "5vh"}}>
-                    <Button className={classes.buttonRight} onClick={handleClose} sx={{ color: "#FFBED8", marginLeft: "1vw" }}>close</Button>
-                    <Button className={classes.buttonLeft} onClick={ () => copyAnswer(guesses,datee,setCopyAlert)} sx={{ color: "#FFBED8"}}>share</Button>
+                    <Button className={classes.buttonRight} onClick={handleClose} sx={{ color: "#FFBED8", marginLeft: "1vw" }}>{l(lang,"close")}</Button>
+                    <Button className={classes.buttonLeft} onClick={ () => copyAnswer(guesses,datee,setCopyAlert)} sx={{ color: "#FFBED8"}}>{l(lang,"share")}</Button>
                 </div>
                     <Typography sx={{ fontFamily: "Patrick Hand",textAlign: "center"}} id="modal-modal-title" variant="h4" component="h3">
-                    Lose
+                    {l(lang,"lose")}
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">
-                    {"Unfortunately, you could not find the today's answer"}
+                    {l(lang,"unfortunately")}
                     </Typography>
                     <center>
                   
@@ -110,14 +112,14 @@ const LoseModal = ({ country, handleClose, open, randomNum, datee, guesses}) => 
                         <Typography id="modal-modal-description" variant="h5" component="h3" sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }}>
                         {country.country}
                         </Typography>
-                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} rel="noreferrer" target="_blank">View {country.country} on Google Maps </a>
-                        <Typography sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">{time.length === 1 ? time[0] : "Next Nationle in "+ time[1] +" hours " + time[2] +" minutes "+ time[3] + " seconds"}
+                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} rel="noreferrer" target="_blank">{l(lang,"viewCountry")}</a>
+                        <Typography sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">{time.length === 1 ? time[0] : l(lang,"nextNationleIn")+ time[1] + l(lang,"hours")  + time[2] + l(lang,"minutes") + time[3] + l(lang,"seconds")}
                         </Typography>
                     </center>
                     {copyAlert && (
                       <Snackbar open={copyAlert} onClose={handleCloseAlert} autoHideDuration={3000} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
                         <Alert className={classes.cookieAlert} severity="success" sx={{ width: '100%' }}>
-                          Your result is copied to clipboard
+                          {l(lang,"copy")}
                         </Alert>
                       </Snackbar>)}
                 </Box>

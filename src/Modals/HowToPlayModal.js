@@ -3,6 +3,8 @@ import { makeStyles } from "@mui/styles";
 import Guess from "../Guess";
 import useWindowDimensions from '../getWindowDimensions';
 
+import l from '../Languages/language';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -54,7 +56,7 @@ const useStyles = makeStyles(
   }
 );
 
-const InfoModal = ({ country, handleClose, open}) => {
+const InfoModal = ({ lang, handleClose, open}) => {
     const classes = useStyles();
     const dim = useWindowDimensions();
 
@@ -68,15 +70,15 @@ const InfoModal = ({ country, handleClose, open}) => {
             >
                 <Box sx={style}>
                 <div style={{width: "100%", height: "5vh"}}>
-                    <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>Close</Button>
+                    <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>{l(lang,"close")}</Button>
                 </div>
                     <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1" }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h5" : "h4"} component="h3">
-                    How To Play
+                      {l(lang,"howToPlay")}
                     </Typography>
                     <Typography id="modal-modal-description" sx={[{ fontFamily: "Patrick Hand", textAlign:"center" , lineHeight: "1" },dim.height > dim.width ? {mt: 1, mb: 1}: {mt: 2, mb: 2}]} variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                    Guess the country of the day in 6 guesses. After each guess, you will have the distance, the direction and the proximity from your guess and the target country.
+                      {l(lang,"guessTheCountry")}
                     </Typography>
-                    <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand"}}>Example</Divider>
+                    <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand"}}>{l(lang,"example")}</Divider>
                     <Guess 
                       fullWidth={true}
                       code={"az"}
@@ -85,7 +87,7 @@ const InfoModal = ({ country, handleClose, open}) => {
                       name3={170}
                       value={94}/>
                     <Typography sx={[{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  },dim.height > dim.width ? {mt: 1, mb: 1}: {mt: 2, mb: 2}]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                    The target country is 1162 km away from Azerbaijan, in the west and the proximity is 94%
+                      {l(lang,"theTarget")}
                     </Typography>
                     <Guess 
                       fullWidth={true}
@@ -95,30 +97,27 @@ const InfoModal = ({ country, handleClose, open}) => {
                       name3={0}
                       value={100}/>
                     <Typography sx={[{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  },dim.height > dim.width ? {mt: 1, mb: 1}: {mt: 2, mb: 2}]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                    Next guess, Turkey, it's the country to guess! Congrats!
+                      {l(lang,"nextGuess")}
                     </Typography>
-                    <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>Inspired By</Divider>
+                    <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>{l(lang,"inspiredBy")}</Divider>
                     <Typography sx={[{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  },dim.height > dim.width ? {mt: 1, mb: 1}: {mt: 2, mb: 2}]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                    {"Nationle has been heavily inspired by: "}
+                      {l(lang,"heavilyInspired")}
                     <a style={{"color": "inherit"}} href={`https://www.nytimes.com/games/wordle/index.html`} rel="noreferrer" target="_blank">Wordle</a>   
-                    {" created by "}
+                      {l(lang,"createdBy")}
                     <a style={{"color": "inherit"}} href={`https://twitter.com/powerlanguish`} rel="noreferrer" target="_blank">@powerlanguish</a>   
-                    {" and "}
+                      {l(lang,"and")}
                     <a style={{"color": "inherit"}} href={`https://worldle.teuteuf.fr/`} rel="noreferrer" target="_blank">Worldle</a>   
-                    {" created by "}
+                      {l(lang,"createdBy")}
                     <a style={{"color": "inherit"}} href={`https://twitter.com/teuteuf`} rel="noreferrer" target="_blank">@teuteuf </a>
                     </Typography>
-                    <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>Made By</Divider>
+                    <Divider className={classes.divider} sx={{fontFamily: "Patrick Hand", marginTop: "1%"}}>{l(lang,"madeBy")}</Divider>
                     <Typography sx={[{fontFamily: "Patrick Hand", textAlign:"center", lineHeight: "1"  },dim.height > dim.width ? {mt: 1, mb: 1}: {mt: 2, mb: 2}]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                    {"Nationle is made by "}
+                      {l(lang,"creator")}
                     <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">@ibrahimyilgor</a>
-                 
-                   
-                    {". You can reach the "}
-                    <a style={{"color": "inherit"}} href={`https://github.com/ibrahimyilgor/nationle`} rel="noreferrer" target="_blank">source code.</a> 
-                  
-                    {" If you want to support, you can buy me a "}
-                     <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/nationle`} rel="noreferrer" target="_blank">coffee. </a> 
+                      {l(lang,"youCanReach")}
+                    <a style={{"color": "inherit"}} href={`https://github.com/ibrahimyilgor/nationle`} rel="noreferrer" target="_blank">{l(lang,"sourceCode")}</a> 
+                      {l(lang,"support")}
+                     <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/nationle`} rel="noreferrer" target="_blank">{l(lang,"coffee")}</a> 
                     </Typography>
                 </Box>
             </Modal>
