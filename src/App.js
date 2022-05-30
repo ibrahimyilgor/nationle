@@ -11,8 +11,10 @@ import countries from './countries';
 
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import CoffeeIcon from '@mui/icons-material/Coffee';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 import distance from './Distance';
 import bearing from './Degree';
@@ -24,6 +26,9 @@ import LoseModal from './Modals/LoseModal'
 import GiveUpModal from './Modals/GiveUpModal';
 import StatsModal from './Modals/StatsModal';
 import HowToPlayModal from './Modals/HowToPlayModal';
+import SettingsModal from './Modals/SettingsModal';
+
+import l from './Languages/language';
 
 document.title = "Nationle";
 
@@ -39,7 +44,7 @@ const useStyles = makeStyles(
         padding:0
       },
       "& .MuiButtonBase-root.MuiAutocomplete-clearIndicator": {
-      color: "#F6EABE"
+        color: "#F6EABE"
       },
       "& .MuiButtonBase-root.MuiAutocomplete-popupIndicator": {
         color: "#F6EABE"
@@ -106,7 +111,7 @@ const useStyles = makeStyles(
         marginTop: "1.25%",
         height: "80%",
         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-        width: "30%",
+        width: "20%",
         backgroundColor: "#789395",
         color: "#F6EABE",
         borderRadius: "25px",
@@ -183,6 +188,9 @@ function App() {
   const [openGiveUpModal, setOpenGiveUpModal] = useState();
   const [openStatsModal, setOpenStatsModal] = useState();
   const [openHowToPlayModal, setOpenHowToPlayModal] = useState();
+  const [openSettingsModal, setOpenSettingsModal] = useState();
+
+  const [lang, setLang] = useState("en");
 
   const autoCompleteRef = useRef();
 
@@ -201,6 +209,13 @@ function App() {
       setGuesses(localGuesses.guesses);
       setGuessNum(parseInt(localGuesses.guessNum));
       setEndState(parseInt(localGuesses.endState));
+    }
+
+    //Language
+    let localLang = localStorage.getItem("lang");
+    localLang = JSON.parse(localLang);
+    if(localLang){
+      setLang(localLang);
     }
 
     //Stats
@@ -289,7 +304,12 @@ function App() {
         </IconButton>
         <a style={{"color": "inherit"}} href={`https://twitter.com/nationleGame`} rel="noreferrer" target="_blank">
           <IconButton className={classes.iconbutton} aria-label="delete">
-            <AlternateEmailIcon fontSize="inherit" />
+            <TwitterIcon fontSize="inherit" />
+          </IconButton>
+        </a>
+        <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
+          <IconButton className={classes.iconbutton} aria-label="delete">
+            <AccountBoxIcon fontSize="inherit" />
           </IconButton>
         </a>
         <IconButton  className={classes.namebutton} aria-label="delete">
@@ -302,6 +322,9 @@ function App() {
         </a>
         <IconButton className={classes.iconbutton}  onClick={() => { setOpenStatsModal(true) }} aria-label="delete">
           <EqualizerIcon fontSize="inherit" />
+        </IconButton>
+        <IconButton className={classes.iconbutton}  onClick={() => { setOpenSettingsModal(true) }} aria-label="delete">
+          <SettingsIcon fontSize="inherit" />
         </IconButton>
         </div>
         <div className="Image">
@@ -338,7 +361,7 @@ function App() {
                   <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value?.country} />
                 </ListItem>
               )}
-              renderInput={(params) => <TextField ref={autoCompleteRef} placeholder='Select A Country' {...params} />}
+              renderInput={(params) => <TextField ref={autoCompleteRef} placeholder={l(lang,"selectACountry")} {...params} />}
               PopperComponent={CustomPopper}
             />
             {endState === 0 &&(
@@ -346,22 +369,22 @@ function App() {
             <Button
               variant="contained"
               className={classes.button}
-              onClick={guessClick}>GUESS</Button>
+              onClick={guessClick}>{l(lang,"guess")}</Button>
             <Button
               variant="contained"
               className={classes.button}
-              onClick={() => {setOpenGiveUpModal(true);}}>GIVE UP</Button>
+              onClick={() => {setOpenGiveUpModal(true);}}>{l(lang,"giveUp")}</Button>
               </>)}
               {endState !== 0 &&(
             <>
             <Button
               variant="contained"
               className={classes.button}
-              onClick={ () => copyAnswer(guesses,datee,setCopyAlert)} >SHARE</Button>
+              onClick={ () => copyAnswer(guesses,datee,setCopyAlert)} >{l(lang,"share")}</Button>
             <Button
               variant="contained"
               className={classes.button}
-              onClick={showAnswer}>ANSWER</Button>
+              onClick={showAnswer}>{l(lang,"answer")}</Button>
               </>)}
         </div>
         {guesses.map((val,key) => {
@@ -375,23 +398,26 @@ function App() {
         {copyAlert && (
         <Snackbar open={copyAlert} onClose={handleCloseAlert} autoHideDuration={3000} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
           <Alert className={classes.cookieAlert} severity="success" sx={{ width: '100%' }}>
-            Your result is copied to clipboard
+            {l(lang,"copy")}
           </Alert>
         </Snackbar>)}
       </header>
       <HowToPlayModal
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenHowToPlayModal(false)}}
-        open={openHowToPlayModal}/>
+        open={openHowToPlayModal}
+        lang={lang}/>
       <StatsModal
         country={countries.ref_country_codes[randomNum]}
         stats={stats}
+        lang={lang}
         handleClose={() => {setOpenStatsModal(false)}}
         open={openStatsModal}/>
       <WinModal
         country={countries.ref_country_codes[randomNum]}
         handleClose={() => {setOpenWinModal(false)}}
         open={openWinModal}
+        lang={lang}
         randomNum={randomNum}
         guesses={guesses}
         datee={datee}/>
@@ -400,16 +426,24 @@ function App() {
         handleClose={() => {setOpenLoseModal(false)}}
         open={openLoseModal}
         randomNum={randomNum}
+        lang={lang}
         guesses={guesses}
         datee={datee}/>
       <GiveUpModal
         handleClose={() => {setOpenGiveUpModal(false)}}
         handleOpen={() => {setOpenLoseModal(true)}}
         open={openGiveUpModal}
+        lang={lang}
         setEndState={setEndState}
         guesses={guesses}
         stats={stats}
         guessNum={guessNum}/>
+      <SettingsModal
+        handleClose={() => {setOpenSettingsModal(false)}}
+        handleOpen={() => {setOpenSettingsModal(true)}}
+        lang={lang}
+        setLang={setLang}
+        open={openSettingsModal}/>
     </div>
   );
 }
