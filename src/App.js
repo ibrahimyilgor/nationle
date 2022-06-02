@@ -191,7 +191,8 @@ function App() {
   const [openSettingsModal, setOpenSettingsModal] = useState();
 
   const [lang, setLang] = useState("en");
-
+  const [showMap, setShowMap] = useState(true);
+  const [flagMode, setFlagMode] = useState(false);
   const autoCompleteRef = useRef();
 
   useEffect(() => {
@@ -218,6 +219,20 @@ function App() {
       setLang(localLang);
     }
 
+    //ShowMap
+    let localShowMap = localStorage.getItem("showMap");
+    localShowMap = JSON.parse(localShowMap);
+    if(localShowMap === true || localShowMap === false){
+      setShowMap(localShowMap);
+    }
+
+    //FlagMode
+    let localFlagMode = localStorage.getItem("flagMode");
+    localFlagMode = JSON.parse(localFlagMode);
+    if(localFlagMode === true || localFlagMode === false){
+      setFlagMode(localFlagMode);
+    }
+    
     //Stats
     let localStats = localStorage.getItem("stats");
     localStats = JSON.parse(localStats);
@@ -327,12 +342,27 @@ function App() {
           <SettingsIcon fontSize="inherit" />
         </IconButton>
         </div>
-        <div className="Image">
+        <div className={(flagMode && !showMap) ? "ImageOnlyFlag" : "Image"}>
+          {(showMap === true) ? 
+          (
           <img 
-              alt = "target_country"
-              style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
-              src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
-              width="100%" height="auto"/> 
+            alt = "target_country"
+            style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
+            src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
+            width="100%" height="auto"/>
+          ) 
+          : undefined
+          } 
+
+          {!showMap && !flagMode && (<p>{l(lang,"mapDisabled")}</p>)}
+
+          {(flagMode === true) &&
+          (
+            <img
+            width="60%"
+            src={`svg/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}.svg`}
+            alt={"flag"}/> 
+          )}
         </div>
         <div className='AutocompleteAndButton'>
             <Autocomplete
@@ -353,11 +383,12 @@ function App() {
               className={classes.autocomplete}
               renderOption={(props, option, state) => (
                 <ListItem  {...props}>
+                  {!flagMode && (
                   <img
                     height="25vh"
                     width="35vw"
                     src={`svg/${option?.value?.alpha2?.toLowerCase()}.svg`}
-                    alt={option?.value?.alpha2?.toLowerCase() || "flag"}/> 
+                    alt={option?.value?.alpha2?.toLowerCase() || "flag"}/> )}
                   <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value?.country} />
                 </ListItem>
               )}
@@ -443,6 +474,10 @@ function App() {
         handleOpen={() => {setOpenSettingsModal(true)}}
         lang={lang}
         setLang={setLang}
+        showMap={showMap}
+        setShowMap={setShowMap}
+        flagMode={flagMode}
+        setFlagMode={setFlagMode}
         open={openSettingsModal}/>
     </div>
   );

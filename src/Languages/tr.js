@@ -40,6 +40,9 @@ const langTr = {
     coffee: "ısmarlayabilirsiniz.",
     createdBy: "'ın yaratıcısı ",
     and: " ve ",
+    showMap: "Haritayı Göster",
+    mapDisabled: "Harita ve bayrak gizlendi. Tekrar görmek için ayarlara gir.",
+    flagMode: "Bayrak Modu",
   }
   
   export default langTr;

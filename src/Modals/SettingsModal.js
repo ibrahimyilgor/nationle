@@ -2,10 +2,14 @@ import { Box, Button, Grid, InputLabel, MenuItem, Modal, Popper, Select, Typogra
 import { makeStyles } from "@mui/styles";
 import useWindowDimensions from '../getWindowDimensions';
 import React, { useState, useEffect } from 'react';
+import Switch from '@mui/material/Switch';
 
 import '../Css/Settings.css';
 
 import l from '../Languages/language';
+
+import { alpha, styled } from '@mui/material/styles';
+import { pink } from '@mui/material/colors';
 
 const style = {
     position: 'absolute',
@@ -99,7 +103,28 @@ const useStyles = makeStyles(
     }
   );
 
-const SettingsModal = ({ handleClose, open, lang, setLang}) => {
+  const GreenSwitch = styled(Switch)(({ theme }) => ({
+    '& .MuiSwitch-switchBase.Mui-checked': {
+      color: "#F6EABE",
+      '&:hover': {
+        backgroundColor: alpha("#F6EABE", theme.palette.action.hoverOpacity),
+      },
+    },
+    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+      backgroundColor: "#F6EABE",
+    },
+    '& .MuiSwitch-switchBase' : {
+      color: "#F6EABE",
+    },
+    '& .MuiSwitch-switchBase.Mui-disabled' : {
+      color: "#F6EABE",
+    },
+    '& .MuiSwitch-switchBase.Mui-disabled + .MuiSwitch-track' : {
+      opacity: "0.4"
+    }
+  }));
+
+const SettingsModal = ({ handleClose, open, lang, setLang, showMap, setShowMap, flagMode, setFlagMode}) => {
   const dim = useWindowDimensions();
   const classes = useStyles();
   const [openSelect, setOpenSelect] = useState(false);
@@ -115,6 +140,21 @@ const SettingsModal = ({ handleClose, open, lang, setLang}) => {
 
   const handleOpen = () => {
     setOpenSelect(true);
+  };
+
+  const handleChangeShowMap = (event) => {
+    setShowMap(event.target.checked);
+    localStorage.setItem("showMap", JSON.stringify(event.target.checked));
+  };
+
+  const handleChangeFlagMode = (event) => {
+    setFlagMode(event.target.checked);
+    localStorage.setItem("flagMode", JSON.stringify(event.target.checked));
+
+/*     if(event.target.checked === true) {
+      setShowMap(false);
+      localStorage.setItem("showMap", JSON.stringify(false));
+    } */
   };
 
   return(
@@ -165,6 +205,28 @@ const SettingsModal = ({ handleClose, open, lang, setLang}) => {
                       
                         {/* <MenuItem className={classes.menuItem} value={"ja"}>{l(lang,"japanese")}</MenuItem> */}
                       </Select>
+                    </Grid>
+                    <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
+                      <p>{l(lang,"showMap")}</p>
+                    </Grid>
+                    <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
+                      <GreenSwitch 
+                        checked={showMap}
+                        onChange={handleChangeShowMap}
+                        /* disabled={flagMode} */
+                        inputProps={{ 'aria-label': 'controlled' }}
+                      />
+                    </Grid>
+
+                    <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
+                      <p>{l(lang,"flagMode")}</p>
+                    </Grid>
+                    <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
+                      <GreenSwitch 
+                        checked={flagMode}
+                        onChange={handleChangeFlagMode}
+                        inputProps={{ 'aria-label': 'controlled' }}
+                      />
                     </Grid>
                   </Grid>
                   
