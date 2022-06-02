@@ -40,6 +40,9 @@ const langEn = {
     coffee: "coffee.",
     createdBy: " created by" ,
     and: " and ",
+    showMap: "Show the Map",
+    mapDisabled: "Map and flag are hidden. You can turn it on in settings.",
+    flagMode: "Flag Mode",
   }
   
   export default langEn;
