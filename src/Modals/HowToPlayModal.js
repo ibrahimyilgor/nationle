@@ -82,7 +82,7 @@ const InfoModal = ({ lang, handleClose, open}) => {
                     <Guess 
                       fullWidth={true}
                       code={"az"}
-                      name1="Azerbaijan"
+                      name1={l(lang,"azerbaijan")}
                       name2="1162 km"
                       name3={170}
                       value={94}/>
@@ -92,7 +92,7 @@ const InfoModal = ({ lang, handleClose, open}) => {
                     <Guess 
                       fullWidth={true}
                       code={"tr"}
-                      name1="Turkey"
+                      name1={l(lang,"turkey")}
                       name2="0 km"
                       name3={0}
                       value={100}/>

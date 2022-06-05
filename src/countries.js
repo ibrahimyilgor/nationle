@@ -1,1903 +1,2569 @@
 const countries = {
   "ref_country_codes" : [
-{
-      "country" : "Afghanistan",
-      "alpha2" : "AF",
-      "alpha3" : "AFG",
-      "numeric" : 4,
-      "latitude" : 33,
-      "longitude" : 65
-    },
-{
-      "country" : "Albania",
-      "alpha2" : "AL",
-      "alpha3" : "ALB",
-      "numeric" : 8,
-      "latitude" : 41,
-      "longitude" : 20
-    },
-{
-      "country" : "Algeria",
-      "alpha2" : "DZ",
-      "alpha3" : "DZA",
-      "numeric" : 12,
-      "latitude" : 28,
-      "longitude" : 3
-    },
-{
-      "country" : "American Samoa",
-      "alpha2" : "AS",
-      "alpha3" : "ASM",
-      "numeric" : 16,
-      "latitude" : -14.3333,
-      "longitude" : -170
-    },
-{
-      "country" : "Andorra",
-      "alpha2" : "AD",
-      "alpha3" : "AND",
-      "numeric" : 20,
-      "latitude" : 42.5,
-      "longitude" : 1.6
-    },
-{
-      "country" : "Angola",
-      "alpha2" : "AO",
-      "alpha3" : "AGO",
-      "numeric" : 24,
-      "latitude" : -12.5,
-      "longitude" : 18.5
-    },
-{
-      "country" : "Anguilla",
-      "alpha2" : "AI",
-      "alpha3" : "AIA",
-      "numeric" : 660,
-      "latitude" : 18.25,
-      "longitude" : -63.1667
-    },
-/* {
-      "country" : "Antarctica",
-      "alpha2" : "AQ",
-      "alpha3" : "ATA",
-      "numeric" : 10,
-      "latitude" : -90,
-      "longitude" : 0
-    }, */
-{
-      "country" : "Antigua and Barbuda",
-      "alpha2" : "AG",
-      "alpha3" : "ATG",
-      "numeric" : 28,
-      "latitude" : 17.05,
-      "longitude" : -61.8
-    },
-{
-      "country" : "Argentina",
-      "alpha2" : "AR",
-      "alpha3" : "ARG",
-      "numeric" : 32,
-      "latitude" : -34,
-      "longitude" : -64
-    },
-{
-      "country" : "Armenia",
-      "alpha2" : "AM",
-      "alpha3" : "ARM",
-      "numeric" : 51,
-      "latitude" : 40,
-      "longitude" : 45
-    },
-{
-      "country" : "Aruba",
-      "alpha2" : "AW",
-      "alpha3" : "ABW",
-      "numeric" : 533,
-      "latitude" : 12.5,
-      "longitude" : -69.9667
-    },
-{
-      "country" : "Australia",
-      "alpha2" : "AU",
-      "alpha3" : "AUS",
-      "numeric" : 36,
-      "latitude" : -27,
-      "longitude" : 133
-    },
-{
-      "country" : "Austria",
-      "alpha2" : "AT",
-      "alpha3" : "AUT",
-      "numeric" : 40,
-      "latitude" : 47.3333,
-      "longitude" : 13.3333
-    },
-{
-      "country" : "Azerbaijan",
-      "alpha2" : "AZ",
-      "alpha3" : "AZE",
-      "numeric" : 31,
-      "latitude" : 40.5,
-      "longitude" : 47.5
-    },
-{
-      "country" : "Bahamas",
-      "alpha2" : "BS",
-      "alpha3" : "BHS",
-      "numeric" : 44,
-      "latitude" : 24.25,
-      "longitude" : -76
-    },
-{
-      "country" : "Bahrain",
-      "alpha2" : "BH",
-      "alpha3" : "BHR",
-      "numeric" : 48,
-      "latitude" : 26,
-      "longitude" : 50.55
-    },
-{
-      "country" : "Bangladesh",
-      "alpha2" : "BD",
-      "alpha3" : "BGD",
-      "numeric" : 50,
-      "latitude" : 24,
-      "longitude" : 90
-    },
-{
-      "country" : "Barbados",
-      "alpha2" : "BB",
-      "alpha3" : "BRB",
-      "numeric" : 52,
-      "latitude" : 13.1667,
-      "longitude" : -59.5333
-    },
-{
-      "country" : "Belarus",
-      "alpha2" : "BY",
-      "alpha3" : "BLR",
-      "numeric" : 112,
-      "latitude" : 53,
-      "longitude" : 28
-    },
-{
-      "country" : "Belgium",
-      "alpha2" : "BE",
-      "alpha3" : "BEL",
-      "numeric" : 56,
-      "latitude" : 50.8333,
-      "longitude" : 4
-    },
-{
-      "country" : "Belize",
-      "alpha2" : "BZ",
-      "alpha3" : "BLZ",
-      "numeric" : 84,
-      "latitude" : 17.25,
-      "longitude" : -88.75
-    },
-{
-      "country" : "Benin",
-      "alpha2" : "BJ",
-      "alpha3" : "BEN",
-      "numeric" : 204,
-      "latitude" : 9.5,
-      "longitude" : 2.25
-    },
-{
-      "country" : "Bermuda",
-      "alpha2" : "BM",
-      "alpha3" : "BMU",
-      "numeric" : 60,
-      "latitude" : 32.3333,
-      "longitude" : -64.75
-    },
-{
-      "country" : "Bhutan",
-      "alpha2" : "BT",
-      "alpha3" : "BTN",
-      "numeric" : 64,
-      "latitude" : 27.5,
-      "longitude" : 90.5
-    },
-{
-      "country" : "Bolivia",
-      "alpha2" : "BO",
-      "alpha3" : "BOL",
-      "numeric" : 68,
-      "latitude" : -17,
-      "longitude" : -65
-    },
-{
-      "country" : "Bosnia and Herzegovina",
-      "alpha2" : "BA",
-      "alpha3" : "BIH",
-      "numeric" : 70,
-      "latitude" : 44,
-      "longitude" : 18
-    },
-{
-      "country" : "Botswana",
-      "alpha2" : "BW",
-      "alpha3" : "BWA",
-      "numeric" : 72,
-      "latitude" : -22,
-      "longitude" : 24
-    },
-{
-      "country" : "Bouvet Island",
-      "alpha2" : "BV",
-      "alpha3" : "BVT",
-      "numeric" : 74,
-      "latitude" : -54.4333,
-      "longitude" : 3.4
-    },
-{
-      "country" : "Brazil",
-      "alpha2" : "BR",
-      "alpha3" : "BRA",
-      "numeric" : 76,
-      "latitude" : -10,
-      "longitude" : -55
-    },
-/* {
-      "country" : "British Indian Ocean Territory",
-      "alpha2" : "IO",
-      "alpha3" : "IOT",
-      "numeric" : 86,
-      "latitude" : -6,
-      "longitude" : 71.5
-    }, */
-{
-      "country" : "Brunei Darussalam",
-      "alpha2" : "BN",
-      "alpha3" : "BRN",
-      "numeric" : 96,
-      "latitude" : 4.5,
-      "longitude" : 114.6667
-    },
-{
-      "country" : "Bulgaria",
-      "alpha2" : "BG",
-      "alpha3" : "BGR",
-      "numeric" : 100,
-      "latitude" : 43,
-      "longitude" : 25
-    },
-{
-      "country" : "Burkina Faso",
-      "alpha2" : "BF",
-      "alpha3" : "BFA",
-      "numeric" : 854,
-      "latitude" : 13,
-      "longitude" : -2
-    },
-{
-      "country" : "Burundi",
-      "alpha2" : "BI",
-      "alpha3" : "BDI",
-      "numeric" : 108,
-      "latitude" : -3.5,
-      "longitude" : 30
-    },
-{
-      "country" : "Cambodia",
-      "alpha2" : "KH",
-      "alpha3" : "KHM",
-      "numeric" : 116,
-      "latitude" : 13,
-      "longitude" : 105
-    },
-{
-      "country" : "Cameroon",
-      "alpha2" : "CM",
-      "alpha3" : "CMR",
-      "numeric" : 120,
-      "latitude" : 6,
-      "longitude" : 12
-    },
-{
-      "country" : "Canada",
-      "alpha2" : "CA",
-      "alpha3" : "CAN",
-      "numeric" : 124,
-      "latitude" : 60,
-      "longitude" : -95
-    },
-{
-      "country" : "Cape Verde",
-      "alpha2" : "CV",
-      "alpha3" : "CPV",
-      "numeric" : 132,
-      "latitude" : 16,
-      "longitude" : -24
-    },
-{
-      "country" : "Cayman Islands",
-      "alpha2" : "KY",
-      "alpha3" : "CYM",
-      "numeric" : 136,
-      "latitude" : 19.5,
-      "longitude" : -80.5
-    },
-{
-      "country" : "Central African Republic",
-      "alpha2" : "CF",
-      "alpha3" : "CAF",
-      "numeric" : 140,
-      "latitude" : 7,
-      "longitude" : 21
-    },
-{
-      "country" : "Chad",
-      "alpha2" : "TD",
-      "alpha3" : "TCD",
-      "numeric" : 148,
-      "latitude" : 15,
-      "longitude" : 19
-    },
-{
-      "country" : "Chile",
-      "alpha2" : "CL",
-      "alpha3" : "CHL",
-      "numeric" : 152,
-      "latitude" : -30,
-      "longitude" : -71
-    },
-{
-      "country" : "China",
-      "alpha2" : "CN",
-      "alpha3" : "CHN",
-      "numeric" : 156,
-      "latitude" : 35,
-      "longitude" : 105
-    },
-{
-      "country" : "Christmas Island",
-      "alpha2" : "CX",
-      "alpha3" : "CXR",
-      "numeric" : 162,
-      "latitude" : -10.5,
-      "longitude" : 105.6667
-    },
-{
-      "country" : "Cocos (Keeling) Islands",
-      "alpha2" : "CC",
-      "alpha3" : "CCK",
-      "numeric" : 166,
-      "latitude" : -12.5,
-      "longitude" : 96.8333
-    },
-{
-      "country" : "Colombia",
-      "alpha2" : "CO",
-      "alpha3" : "COL",
-      "numeric" : 170,
-      "latitude" : 4,
-      "longitude" : -72
-    },
-{
-      "country" : "Comoros",
-      "alpha2" : "KM",
-      "alpha3" : "COM",
-      "numeric" : 174,
-      "latitude" : -12.1667,
-      "longitude" : 44.25
-    },
-{
-      "country" : "Congo",
-      "alpha2" : "CG",
-      "alpha3" : "COG",
-      "numeric" : 178,
-      "latitude" : -1,
-      "longitude" : 15
-    },
-{
-      "country" : "Cook Islands",
-      "alpha2" : "CK",
-      "alpha3" : "COK",
-      "numeric" : 184,
-      "latitude" : -21.2333,
-      "longitude" : -159.7667
-    },
-{
-      "country" : "Costa Rica",
-      "alpha2" : "CR",
-      "alpha3" : "CRI",
-      "numeric" : 188,
-      "latitude" : 10,
-      "longitude" : -84
-    },
-{
-      "country" : "Côte d'Ivoire",
-      "alpha2" : "CI",
-      "alpha3" : "CIV",
-      "numeric" : 384,
-      "latitude" : 8,
-      "longitude" : -5
-    },
-{
-      "country" : "Croatia",
-      "alpha2" : "HR",
-      "alpha3" : "HRV",
-      "numeric" : 191,
-      "latitude" : 45.1667,
-      "longitude" : 15.5
-    },
-{
-      "country" : "Cuba",
-      "alpha2" : "CU",
-      "alpha3" : "CUB",
-      "numeric" : 192,
-      "latitude" : 21.5,
-      "longitude" : -80
-    },
-{
-      "country" : "Cyprus",
-      "alpha2" : "CY",
-      "alpha3" : "CYP",
-      "numeric" : 196,
-      "latitude" : 35,
-      "longitude" : 33
-    },
-{
-      "country" : "Czech Republic",
-      "alpha2" : "CZ",
-      "alpha3" : "CZE",
-      "numeric" : 203,
-      "latitude" : 49.75,
-      "longitude" : 15.5
-    },
-{
-      "country" : "Democratic Republic of the Congo",
-      "alpha2" : "CD",
-      "alpha3" : "COD",
-      "numeric" : 180,
-      "latitude" : 0,
-      "longitude" : 25
-    },
-{
-      "country" : "Denmark",
-      "alpha2" : "DK",
-      "alpha3" : "DNK",
-      "numeric" : 208,
-      "latitude" : 56,
-      "longitude" : 10
-    },
-{
-      "country" : "Djibouti",
-      "alpha2" : "DJ",
-      "alpha3" : "DJI",
-      "numeric" : 262,
-      "latitude" : 11.5,
-      "longitude" : 43
-    },
-{
-      "country" : "Dominica",
-      "alpha2" : "DM",
-      "alpha3" : "DMA",
-      "numeric" : 212,
-      "latitude" : 15.4167,
-      "longitude" : -61.3333
-    },
-{
-      "country" : "Dominican Republic",
-      "alpha2" : "DO",
-      "alpha3" : "DOM",
-      "numeric" : 214,
-      "latitude" : 19,
-      "longitude" : -70.6667
-    },
-{
-      "country" : "Ecuador",
-      "alpha2" : "EC",
-      "alpha3" : "ECU",
-      "numeric" : 218,
-      "latitude" : -2,
-      "longitude" : -77.5
-    },
-{
-      "country" : "Egypt",
-      "alpha2" : "EG",
-      "alpha3" : "EGY",
-      "numeric" : 818,
-      "latitude" : 27,
-      "longitude" : 30
-    },
-{
-      "country" : "El Salvador",
-      "alpha2" : "SV",
-      "alpha3" : "SLV",
-      "numeric" : 222,
-      "latitude" : 13.8333,
-      "longitude" : -88.9167
-    },
-{
-      "country" : "Equatorial Guinea",
-      "alpha2" : "GQ",
-      "alpha3" : "GNQ",
-      "numeric" : 226,
-      "latitude" : 2,
-      "longitude" : 10
-    },
-{
-      "country" : "Eritrea",
-      "alpha2" : "ER",
-      "alpha3" : "ERI",
-      "numeric" : 232,
-      "latitude" : 15,
-      "longitude" : 39
-    },
-{
-      "country" : "Estonia",
-      "alpha2" : "EE",
-      "alpha3" : "EST",
-      "numeric" : 233,
-      "latitude" : 59,
-      "longitude" : 26
-    },
-{
-      "country" : "Ethiopia",
-      "alpha2" : "ET",
-      "alpha3" : "ETH",
-      "numeric" : 231,
-      "latitude" : 8,
-      "longitude" : 38
-    },
-{
-      "country" : "Falkland Islands (Malvinas)",
-      "alpha2" : "FK",
-      "alpha3" : "FLK",
-      "numeric" : 238,
-      "latitude" : -51.75,
-      "longitude" : -59
-    },
-{
-      "country" : "Faroe Islands",
-      "alpha2" : "FO",
-      "alpha3" : "FRO",
-      "numeric" : 234,
-      "latitude" : 62,
-      "longitude" : -7
-    },
-{
-      "country" : "Fiji",
-      "alpha2" : "FJ",
-      "alpha3" : "FJI",
-      "numeric" : 242,
-      "latitude" : -18,
-      "longitude" : 175
-    },
-{
-      "country" : "Finland",
-      "alpha2" : "FI",
-      "alpha3" : "FIN",
-      "numeric" : 246,
-      "latitude" : 64,
-      "longitude" : 26
-    },
-{
-      "country" : "France",
-      "alpha2" : "FR",
-      "alpha3" : "FRA",
-      "numeric" : 250,
-      "latitude" : 46,
-      "longitude" : 2
-    },
-{
-      "country" : "French Guiana",
-      "alpha2" : "GF",
-      "alpha3" : "GUF",
-      "numeric" : 254,
-      "latitude" : 4,
-      "longitude" : -53
-    },
-{
-      "country" : "French Polynesia",
-      "alpha2" : "PF",
-      "alpha3" : "PYF",
-      "numeric" : 258,
-      "latitude" : -15,
-      "longitude" : -140
-    },
-{
-      "country" : "French Southern Territories",
-      "alpha2" : "TF",
-      "alpha3" : "ATF",
-      "numeric" : 260,
-      "latitude" : -43,
-      "longitude" : 67
-    },
-{
-      "country" : "Gabon",
-      "alpha2" : "GA",
-      "alpha3" : "GAB",
-      "numeric" : 266,
-      "latitude" : -1,
-      "longitude" : 11.75
-    },
-{
-      "country" : "Gambia",
-      "alpha2" : "GM",
-      "alpha3" : "GMB",
-      "numeric" : 270,
-      "latitude" : 13.4667,
-      "longitude" : -16.5667
-    },
-{
-      "country" : "Georgia",
-      "alpha2" : "GE",
-      "alpha3" : "GEO",
-      "numeric" : 268,
-      "latitude" : 42,
-      "longitude" : 43.5
-    },
-{
-      "country" : "Germany",
-      "alpha2" : "DE",
-      "alpha3" : "DEU",
-      "numeric" : 276,
-      "latitude" : 51,
-      "longitude" : 9
-    },
-{
-      "country" : "Ghana",
-      "alpha2" : "GH",
-      "alpha3" : "GHA",
-      "numeric" : 288,
-      "latitude" : 8,
-      "longitude" : -2
-    },
-{
-      "country" : "Gibraltar",
-      "alpha2" : "GI",
-      "alpha3" : "GIB",
-      "numeric" : 292,
-      "latitude" : 36.1833,
-      "longitude" : -5.3667
-    },
-{
-      "country" : "Greece",
-      "alpha2" : "GR",
-      "alpha3" : "GRC",
-      "numeric" : 300,
-      "latitude" : 39,
-      "longitude" : 22
-    },
-{
-      "country" : "Greenland",
-      "alpha2" : "GL",
-      "alpha3" : "GRL",
-      "numeric" : 304,
-      "latitude" : 72,
-      "longitude" : -40
-    },
-{
-      "country" : "Grenada",
-      "alpha2" : "GD",
-      "alpha3" : "GRD",
-      "numeric" : 308,
-      "latitude" : 12.1167,
-      "longitude" : -61.6667
-    },
-{
-      "country" : "Guadeloupe",
-      "alpha2" : "GP",
-      "alpha3" : "GLP",
-      "numeric" : 312,
-      "latitude" : 16.25,
-      "longitude" : -61.5833
-    },
-{
-      "country" : "Guam",
-      "alpha2" : "GU",
-      "alpha3" : "GUM",
-      "numeric" : 316,
-      "latitude" : 13.4667,
-      "longitude" : 144.7833
-    },
-{
-      "country" : "Guatemala",
-      "alpha2" : "GT",
-      "alpha3" : "GTM",
-      "numeric" : 320,
-      "latitude" : 15.5,
-      "longitude" : -90.25
-    },
-{
-      "country" : "Guernsey",
-      "alpha2" : "GG",
-      "alpha3" : "GGY",
-      "numeric" : 831,
-      "latitude" : 49.5,
-      "longitude" : -2.56
-    },
-{
-      "country" : "Guinea",
-      "alpha2" : "GN",
-      "alpha3" : "GIN",
-      "numeric" : 324,
-      "latitude" : 11,
-      "longitude" : -10
-    },
-{
-      "country" : "Guinea-Bissau",
-      "alpha2" : "GW",
-      "alpha3" : "GNB",
-      "numeric" : 624,
-      "latitude" : 12,
-      "longitude" : -15
-    },
-{
-      "country" : "Guyana",
-      "alpha2" : "GY",
-      "alpha3" : "GUY",
-      "numeric" : 328,
-      "latitude" : 5,
-      "longitude" : -59
-    },
-{
-      "country" : "Haiti",
-      "alpha2" : "HT",
-      "alpha3" : "HTI",
-      "numeric" : 332,
-      "latitude" : 19,
-      "longitude" : -72.4167
-    },
-{
-      "country" : "Heard and McDonald Islands",
-      "alpha2" : "HM",
-      "alpha3" : "HMD",
-      "numeric" : 334,
-      "latitude" : -53.1,
-      "longitude" : 72.5167
-    },
-{
-      "country" : "Holy See (Vatican City State)",
-      "alpha2" : "VA",
-      "alpha3" : "VAT",
-      "numeric" : 336,
-      "latitude" : 41.9,
-      "longitude" : 12.45
-    },
-{
-      "country" : "Honduras",
-      "alpha2" : "HN",
-      "alpha3" : "HND",
-      "numeric" : 340,
-      "latitude" : 15,
-      "longitude" : -86.5
-    },
-{
-      "country" : "Hong Kong",
-      "alpha2" : "HK",
-      "alpha3" : "HKG",
-      "numeric" : 344,
-      "latitude" : 22.25,
-      "longitude" : 114.1667
-    },
-{
-      "country" : "Hungary",
-      "alpha2" : "HU",
-      "alpha3" : "HUN",
-      "numeric" : 348,
-      "latitude" : 47,
-      "longitude" : 20
-    },
-{
-      "country" : "Iceland",
-      "alpha2" : "IS",
-      "alpha3" : "ISL",
-      "numeric" : 352,
-      "latitude" : 65,
-      "longitude" : -18
-    },
-{
-      "country" : "India",
-      "alpha2" : "IN",
-      "alpha3" : "IND",
-      "numeric" : 356,
-      "latitude" : 20,
-      "longitude" : 77
-    },
-{
-      "country" : "Indonesia",
-      "alpha2" : "ID",
-      "alpha3" : "IDN",
-      "numeric" : 360,
-      "latitude" : -5,
-      "longitude" : 120
-    },
-{
-      "country" : "Iraq",
-      "alpha2" : "IQ",
-      "alpha3" : "IRQ",
-      "numeric" : 368,
-      "latitude" : 33,
-      "longitude" : 44
-    },
-{
-      "country" : "Ireland",
-      "alpha2" : "IE",
-      "alpha3" : "IRL",
-      "numeric" : 372,
-      "latitude" : 53,
-      "longitude" : -8
-    },
-{
-      "country" : "Islamic Republic of Iran",
-      "alpha2" : "IR",
-      "alpha3" : "IRN",
-      "numeric" : 364,
-      "latitude" : 32,
-      "longitude" : 53
-    },
-{
-      "country" : "Isle of Man",
-      "alpha2" : "IM",
-      "alpha3" : "IMN",
-      "numeric" : 833,
-      "latitude" : 54.23,
-      "longitude" : -4.55
-    },
-{
-      "country" : "Israel",
-      "alpha2" : "IL",
-      "alpha3" : "ISR",
-      "numeric" : 376,
-      "latitude" : 31.5,
-      "longitude" : 34.75
-    },
-{
-      "country" : "Italy",
-      "alpha2" : "IT",
-      "alpha3" : "ITA",
-      "numeric" : 380,
-      "latitude" : 42.8333,
-      "longitude" : 12.8333
-    },
-{
-      "country" : "Jamaica",
-      "alpha2" : "JM",
-      "alpha3" : "JAM",
-      "numeric" : 388,
-      "latitude" : 18.25,
-      "longitude" : -77.5
-    },
-{
-      "country" : "Japan",
-      "alpha2" : "JP",
-      "alpha3" : "JPN",
-      "numeric" : 392,
-      "latitude" : 36,
-      "longitude" : 138
-    },
-{
-      "country" : "Jordan",
-      "alpha2" : "JO",
-      "alpha3" : "JOR",
-      "numeric" : 400,
-      "latitude" : 31,
-      "longitude" : 36
-    },
-{
-      "country" : "Kazakhstan",
-      "alpha2" : "KZ",
-      "alpha3" : "KAZ",
-      "numeric" : 398,
-      "latitude" : 48,
-      "longitude" : 68
-    },
-{
-      "country" : "Kenya",
-      "alpha2" : "KE",
-      "alpha3" : "KEN",
-      "numeric" : 404,
-      "latitude" : 1,
-      "longitude" : 38
-    },
-/* {
-      "country" : "Kiribati",
-      "alpha2" : "KI",
-      "alpha3" : "KIR",
-      "numeric" : 296,
-      "latitude" : 1.4167,
-      "longitude" : 173
-    }, */
     {
-      "country" : "Kosovo",
-      "alpha2" : "XK",
-      "alpha3" : "XKX",
-      "numeric" : 688,
-      "latitude" : 42.667542,
-      "longitude" : 21.166191
-    },
-{
-      "country" : "Kuwait",
-      "alpha2" : "KW",
-      "alpha3" : "KWT",
-      "numeric" : 414,
-      "latitude" : 29.3375,
-      "longitude" : 47.6581
-    },
-{
-      "country" : "Kyrgyzstan",
-      "alpha2" : "KG",
-      "alpha3" : "KGZ",
-      "numeric" : 417,
-      "latitude" : 41,
-      "longitude" : 75
-    },
-{
-      "country" : "Laos",
-      "alpha2" : "LA",
-      "alpha3" : "LAO",
-      "numeric" : 418,
-      "latitude" : 18,
-      "longitude" : 105
-    },
-{
-      "country" : "Latvia",
-      "alpha2" : "LV",
-      "alpha3" : "LVA",
-      "numeric" : 428,
-      "latitude" : 57,
-      "longitude" : 25
-    },
-{
-      "country" : "Lebanon",
-      "alpha2" : "LB",
-      "alpha3" : "LBN",
-      "numeric" : 422,
-      "latitude" : 33.8333,
-      "longitude" : 35.8333
-    },
-{
-      "country" : "Lesotho",
-      "alpha2" : "LS",
-      "alpha3" : "LSO",
-      "numeric" : 426,
-      "latitude" : -29.5,
-      "longitude" : 28.5
-    },
-{
-      "country" : "Liberia",
-      "alpha2" : "LR",
-      "alpha3" : "LBR",
-      "numeric" : 430,
-      "latitude" : 6.5,
-      "longitude" : -9.5
-    },
-{
-      "country" : "Libya",
-      "alpha2" : "LY",
-      "alpha3" : "LBY",
-      "numeric" : 434,
-      "latitude" : 25,
-      "longitude" : 17
-    },
-{
-      "country" : "Liechtenstein",
-      "alpha2" : "LI",
-      "alpha3" : "LIE",
-      "numeric" : 438,
-      "latitude" : 47.1667,
-      "longitude" : 9.5333
-    },
-{
-      "country" : "Lithuania",
-      "alpha2" : "LT",
-      "alpha3" : "LTU",
-      "numeric" : 440,
-      "latitude" : 56,
-      "longitude" : 24
-    },
-{
-      "country" : "Luxembourg",
-      "alpha2" : "LU",
-      "alpha3" : "LUX",
-      "numeric" : 442,
-      "latitude" : 49.75,
-      "longitude" : 6.1667
-    },
-{
-      "country" : "Macao",
-      "alpha2" : "MO",
-      "alpha3" : "MAC",
-      "numeric" : 446,
-      "latitude" : 22.1667,
-      "longitude" : 113.55
-    },
-
-{
-      "country" : "Madagascar",
-      "alpha2" : "MG",
-      "alpha3" : "MDG",
-      "numeric" : 450,
-      "latitude" : -20,
-      "longitude" : 47
-    },
-{
-      "country" : "Malawi",
-      "alpha2" : "MW",
-      "alpha3" : "MWI",
-      "numeric" : 454,
-      "latitude" : -13.5,
-      "longitude" : 34
-    },
-{
-      "country" : "Malaysia",
-      "alpha2" : "MY",
-      "alpha3" : "MYS",
-      "numeric" : 458,
-      "latitude" : 2.5,
-      "longitude" : 112.5
-    },
-{
-      "country" : "Maldives",
-      "alpha2" : "MV",
-      "alpha3" : "MDV",
-      "numeric" : 462,
-      "latitude" : 3.25,
-      "longitude" : 73
-    },
-{
-      "country" : "Mali",
-      "alpha2" : "ML",
-      "alpha3" : "MLI",
-      "numeric" : 466,
-      "latitude" : 17,
-      "longitude" : -4
-    },
-{
-      "country" : "Malta",
-      "alpha2" : "MT",
-      "alpha3" : "MLT",
-      "numeric" : 470,
-      "latitude" : 35.8333,
-      "longitude" : 14.5833
-    },
-{
-      "country" : "Martinique",
-      "alpha2" : "MQ",
-      "alpha3" : "MTQ",
-      "numeric" : 474,
-      "latitude" : 14.6667,
-      "longitude" : -61
-    },
-{
-      "country" : "Mauritania",
-      "alpha2" : "MR",
-      "alpha3" : "MRT",
-      "numeric" : 478,
-      "latitude" : 20,
-      "longitude" : -12
-    },
-{
-      "country" : "Mauritius",
-      "alpha2" : "MU",
-      "alpha3" : "MUS",
-      "numeric" : 480,
-      "latitude" : -20.2833,
-      "longitude" : 57.55
-    },
-{
-      "country" : "Mayotte",
-      "alpha2" : "YT",
-      "alpha3" : "MYT",
-      "numeric" : 175,
-      "latitude" : -12.8333,
-      "longitude" : 45.1667
-    },
-{
-      "country" : "Mexico",
-      "alpha2" : "MX",
-      "alpha3" : "MEX",
-      "numeric" : 484,
-      "latitude" : 23,
-      "longitude" : -102
-    },
-{
-      "country" : "Moldova",
-      "alpha2" : "MD",
-      "alpha3" : "MDA",
-      "numeric" : 498,
-      "latitude" : 47,
-      "longitude" : 29
-    },
-{
-      "country" : "Monaco",
-      "alpha2" : "MC",
-      "alpha3" : "MCO",
-      "numeric" : 492,
-      "latitude" : 43.7333,
-      "longitude" : 7.4
-    },
-{
-      "country" : "Mongolia",
-      "alpha2" : "MN",
-      "alpha3" : "MNG",
-      "numeric" : 496,
-      "latitude" : 46,
-      "longitude" : 105
-    },
-{
-      "country" : "Montenegro",
-      "alpha2" : "ME",
-      "alpha3" : "MNE",
-      "numeric" : 499,
-      "latitude" : 42,
-      "longitude" : 19
-    },
-{
-      "country" : "Montserrat",
-      "alpha2" : "MS",
-      "alpha3" : "MSR",
-      "numeric" : 500,
-      "latitude" : 16.75,
-      "longitude" : -62.2
-    },
-{
-      "country" : "Morocco",
-      "alpha2" : "MA",
-      "alpha3" : "MAR",
-      "numeric" : 504,
-      "latitude" : 32,
-      "longitude" : -5
-    },
-{
-      "country" : "Mozambique",
-      "alpha2" : "MZ",
-      "alpha3" : "MOZ",
-      "numeric" : 508,
-      "latitude" : -18.25,
-      "longitude" : 35
-    },
-{
-      "country" : "Myanmar",
-      "alpha2" : "MM",
-      "alpha3" : "MMR",
-      "numeric" : 104,
-      "latitude" : 22,
-      "longitude" : 98
-    },
-{
-      "country" : "Namibia",
-      "alpha2" : "NA",
-      "alpha3" : "NAM",
-      "numeric" : 516,
-      "latitude" : -22,
-      "longitude" : 17
-    },
-{
-      "country" : "Nauru",
-      "alpha2" : "NR",
-      "alpha3" : "NRU",
-      "numeric" : 520,
-      "latitude" : -0.5333,
-      "longitude" : 166.9167
-    },
-{
-      "country" : "Nepal",
-      "alpha2" : "NP",
-      "alpha3" : "NPL",
-      "numeric" : 524,
-      "latitude" : 28,
-      "longitude" : 84
-    },
-{
-      "country" : "Netherlands",
-      "alpha2" : "NL",
-      "alpha3" : "NLD",
-      "numeric" : 528,
-      "latitude" : 52.5,
-      "longitude" : 5.75
-    },
-{
-      "country" : "New Caledonia",
-      "alpha2" : "NC",
-      "alpha3" : "NCL",
-      "numeric" : 540,
-      "latitude" : -21.5,
-      "longitude" : 165.5
-    },
-{
-      "country" : "New Zealand",
-      "alpha2" : "NZ",
-      "alpha3" : "NZL",
-      "numeric" : 554,
-      "latitude" : -41,
-      "longitude" : 174
-    },
-{
-      "country" : "Nicaragua",
-      "alpha2" : "NI",
-      "alpha3" : "NIC",
-      "numeric" : 558,
-      "latitude" : 13,
-      "longitude" : -85
-    },
-{
-      "country" : "Niger",
-      "alpha2" : "NE",
-      "alpha3" : "NER",
-      "numeric" : 562,
-      "latitude" : 16,
-      "longitude" : 8
-    },
-{
-      "country" : "Nigeria",
-      "alpha2" : "NG",
-      "alpha3" : "NGA",
-      "numeric" : 566,
-      "latitude" : 10,
-      "longitude" : 8
-    },
-{
-      "country" : "Niue",
-      "alpha2" : "NU",
-      "alpha3" : "NIU",
-      "numeric" : 570,
-      "latitude" : -19.0333,
-      "longitude" : -169.8667
-    },
-{
-      "country" : "Norfolk Island",
-      "alpha2" : "NF",
-      "alpha3" : "NFK",
-      "numeric" : 574,
-      "latitude" : -29.0333,
-      "longitude" : 167.95
-    },
-{
-      "country" : "North Korea",
-      "alpha2" : "KP",
-      "alpha3" : "PRK",
-      "numeric" : 408,
-      "latitude" : 40,
-      "longitude" : 127
-    },
-{
-      "country" : "North Macedonia",
-      "alpha2" : "MK",
-      "alpha3" : "MKD",
-      "numeric" : 807,
-      "latitude" : 41.8333,
-      "longitude" : 22
-    },
-{
-      "country" : "Norway",
-      "alpha2" : "NO",
-      "alpha3" : "NOR",
-      "numeric" : 578,
-      "latitude" : 62,
-      "longitude" : 10
-    },
-{
-      "country" : "Oman",
-      "alpha2" : "OM",
-      "alpha3" : "OMN",
-      "numeric" : 512,
-      "latitude" : 21,
-      "longitude" : 57
-    },
-{
-      "country" : "Pakistan",
-      "alpha2" : "PK",
-      "alpha3" : "PAK",
-      "numeric" : 586,
-      "latitude" : 30,
-      "longitude" : 70
-    },
-{
-      "country" : "Palau",
-      "alpha2" : "PW",
-      "alpha3" : "PLW",
-      "numeric" : 585,
-      "latitude" : 7.5,
-      "longitude" : 134.5
-    },
-{
-      "country" : "Panama",
-      "alpha2" : "PA",
-      "alpha3" : "PAN",
-      "numeric" : 591,
-      "latitude" : 9,
-      "longitude" : -80
-    },
-{
-      "country" : "Papua New Guinea",
-      "alpha2" : "PG",
-      "alpha3" : "PNG",
-      "numeric" : 598,
-      "latitude" : -6,
-      "longitude" : 147
-    },
-{
-      "country" : "Paraguay",
-      "alpha2" : "PY",
-      "alpha3" : "PRY",
-      "numeric" : 600,
-      "latitude" : -23,
-      "longitude" : -58
-    },
-{
-      "country" : "Peru",
-      "alpha2" : "PE",
-      "alpha3" : "PER",
-      "numeric" : 604,
-      "latitude" : -10,
-      "longitude" : -76
-    },
-{
-      "country" : "Philippines",
-      "alpha2" : "PH",
-      "alpha3" : "PHL",
-      "numeric" : 608,
-      "latitude" : 13,
-      "longitude" : 122
-    },
-{
-      "country" : "Pitcairn Islands",
-      "alpha2" : "PN",
-      "alpha3" : "PCN",
-      "numeric" : 612,
-      "latitude" : -24.7,
-      "longitude" : -127.4
-    },
-{
-      "country" : "Poland",
-      "alpha2" : "PL",
-      "alpha3" : "POL",
-      "numeric" : 616,
-      "latitude" : 52,
-      "longitude" : 20
-    },
-{
-      "country" : "Portugal",
-      "alpha2" : "PT",
-      "alpha3" : "PRT",
-      "numeric" : 620,
-      "latitude" : 39.5,
-      "longitude" : -8
-    },
-{
-      "country" : "Puerto Rico",
-      "alpha2" : "PR",
-      "alpha3" : "PRI",
-      "numeric" : 630,
-      "latitude" : 18.25,
-      "longitude" : -66.5
-    },
-{
-      "country" : "Qatar",
-      "alpha2" : "QA",
-      "alpha3" : "QAT",
-      "numeric" : 634,
-      "latitude" : 25.5,
-      "longitude" : 51.25
-    },
-{
-      "country" : "Réunion",
-      "alpha2" : "RE",
-      "alpha3" : "REU",
-      "numeric" : 638,
-      "latitude" : -21.1,
-      "longitude" : 55.6
-    },
-{
-      "country" : "Romania",
-      "alpha2" : "RO",
-      "alpha3" : "ROU",
-      "numeric" : 642,
-      "latitude" : 46,
-      "longitude" : 25
-    },
-{
-      "country" : "Russian Federation",
-      "alpha2" : "RU",
-      "alpha3" : "RUS",
-      "numeric" : 643,
-      "latitude" : 60,
-      "longitude" : 100
-    },
-{
-      "country" : "Rwanda",
-      "alpha2" : "RW",
-      "alpha3" : "RWA",
-      "numeric" : 646,
-      "latitude" : -2,
-      "longitude" : 30
-    },
-{
-      "country" : "Saint Helena",
-      "alpha2" : "SH",
-      "alpha3" : "SHN",
-      "numeric" : 654,
-      "latitude" : -15.9333,
-      "longitude" : -5.7
-    },
-{
-      "country" : "Saint Kitts and Nevis",
-      "alpha2" : "KN",
-      "alpha3" : "KNA",
-      "numeric" : 659,
-      "latitude" : 17.3333,
-      "longitude" : -62.75
-    },
-{
-      "country" : "Saint Lucia",
-      "alpha2" : "LC",
-      "alpha3" : "LCA",
-      "numeric" : 662,
-      "latitude" : 13.8833,
-      "longitude" : -61.1333
-    },
-{
-      "country" : "Saint Pierre and Miquelon",
-      "alpha2" : "PM",
-      "alpha3" : "SPM",
-      "numeric" : 666,
-      "latitude" : 46.8333,
-      "longitude" : -56.3333
-    },
-{
-      "country" : "Saint Vincent and the Grenadines",
-      "alpha2" : "VC",
-      "alpha3" : "VCT",
-      "numeric" : 670,
-      "latitude" : 13.25,
-      "longitude" : -61.2
-    },
-{
-      "country" : "Samoa",
-      "alpha2" : "WS",
-      "alpha3" : "WSM",
-      "numeric" : 882,
-      "latitude" : -13.5833,
-      "longitude" : -172.3333
-    },
-{
-      "country" : "San Marino",
-      "alpha2" : "SM",
-      "alpha3" : "SMR",
-      "numeric" : 674,
-      "latitude" : 43.7667,
-      "longitude" : 12.4167
-    },
-{
-      "country" : "Sao Tome and Principe",
-      "alpha2" : "ST",
-      "alpha3" : "STP",
-      "numeric" : 678,
-      "latitude" : 1,
-      "longitude" : 7
-    },
-{
-      "country" : "Saudi Arabia",
-      "alpha2" : "SA",
-      "alpha3" : "SAU",
-      "numeric" : 682,
-      "latitude" : 25,
-      "longitude" : 45
-    },
-{
-      "country" : "Senegal",
-      "alpha2" : "SN",
-      "alpha3" : "SEN",
-      "numeric" : 686,
-      "latitude" : 14,
-      "longitude" : -14
-    },
-{
-      "country" : "Serbia",
-      "alpha2" : "RS",
-      "alpha3" : "SRB",
-      "numeric" : 688,
-      "latitude" : 44,
-      "longitude" : 21
-    },
-{
-      "country" : "Seychelles",
-      "alpha2" : "SC",
-      "alpha3" : "SYC",
-      "numeric" : 690,
-      "latitude" : -4.5833,
-      "longitude" : 55.6667
-    },
-{
-      "country" : "Sierra Leone",
-      "alpha2" : "SL",
-      "alpha3" : "SLE",
-      "numeric" : 694,
-      "latitude" : 8.5,
-      "longitude" : -11.5
-    },
-{
-      "country" : "Singapore",
-      "alpha2" : "SG",
-      "alpha3" : "SGP",
-      "numeric" : 702,
-      "latitude" : 1.3667,
-      "longitude" : 103.8
-    },
-{
-      "country" : "Slovakia",
-      "alpha2" : "SK",
-      "alpha3" : "SVK",
-      "numeric" : 703,
-      "latitude" : 48.6667,
-      "longitude" : 19.5
-    },
-{
-      "country" : "Slovenia",
-      "alpha2" : "SI",
-      "alpha3" : "SVN",
-      "numeric" : 705,
-      "latitude" : 46,
-      "longitude" : 15
-    },
-{
-      "country" : "Solomon Islands",
-      "alpha2" : "SB",
-      "alpha3" : "SLB",
-      "numeric" : 90,
-      "latitude" : -8,
-      "longitude" : 159
-    },
-{
-      "country" : "Somalia",
-      "alpha2" : "SO",
-      "alpha3" : "SOM",
-      "numeric" : 706,
-      "latitude" : 10,
-      "longitude" : 49
-    },
-{
-      "country" : "South Africa",
-      "alpha2" : "ZA",
-      "alpha3" : "ZAF",
-      "numeric" : 710,
-      "latitude" : -29,
-      "longitude" : 24
-    },
-{
-      "country" : "South Georgia and the South Sandwich Islands",
-      "alpha2" : "GS",
-      "alpha3" : "SGS",
-      "numeric" : 239,
-      "latitude" : -54.5,
-      "longitude" : -37
-    },
-{
-      "country" : "South Korea",
-      "alpha2" : "KR",
-      "alpha3" : "KOR",
-      "numeric" : 410,
-      "latitude" : 37,
-      "longitude" : 127.5
+     "alpha2": "AF",
+     "alpha3": "AFG",
+     "numeric": "4",
+     "latitude": "33",
+     "longitude": "65",
+     "tr": "Afganistan",
+     "en": "Afghanistan",
+     "trSort": 1,
+     "enSort": 1
     },
     {
-      "country" : "South Sudan",
-      "alpha2" : "SS",
-      "alpha3" : "SSD",
-      "numeric" : 728,
-      "latitude" : 6.876991,
-      "longitude" : 31.306978
+     "alpha2": "AL",
+     "alpha3": "ALB",
+     "numeric": "8",
+     "latitude": "41",
+     "longitude": "20",
+     "tr": "Arnavutluk",
+     "en": "Albania",
+     "trSort": 10,
+     "enSort": 2
     },
-{
-      "country" : "Spain",
-      "alpha2" : "ES",
-      "alpha3" : "ESP",
-      "numeric" : 724,
-      "latitude" : 40,
-      "longitude" : -4
+    {
+     "alpha2": "DZ",
+     "alpha3": "DZA",
+     "numeric": "12",
+     "latitude": "28",
+     "longitude": "3",
+     "tr": "Cezayir",
+     "en": "Algeria",
+     "trSort": 39,
+     "enSort": 3
     },
-{
-      "country" : "Sri Lanka",
-      "alpha2" : "LK",
-      "alpha3" : "LKA",
-      "numeric" : 144,
-      "latitude" : 7,
-      "longitude" : 81
+    {
+     "alpha2": "AS",
+     "alpha3": "ASM",
+     "numeric": "16",
+     "latitude": "-14.3333",
+     "longitude": "-170",
+     "tr": "Amerikan Samoası",
+     "en": "American Samoa",
+     "trSort": 4,
+     "enSort": 4
     },
-{
-      "country" : "Sudan",
-      "alpha2" : "SD",
-      "alpha3" : "SDN",
-      "numeric" : 736,
-      "latitude" : 15,
-      "longitude" : 30
+    {
+     "alpha2": "AD",
+     "alpha3": "AND",
+     "numeric": "20",
+     "latitude": "42.5",
+     "longitude": "1.6",
+     "tr": "Andorra",
+     "en": "Andorra",
+     "trSort": 5,
+     "enSort": 5
     },
-{
-      "country" : "Suriname",
-      "alpha2" : "SR",
-      "alpha3" : "SUR",
-      "numeric" : 740,
-      "latitude" : 4,
-      "longitude" : -56
+    {
+     "alpha2": "AO",
+     "alpha3": "AGO",
+     "numeric": "24",
+     "latitude": "-12.5",
+     "longitude": "18.5",
+     "tr": "Angola",
+     "en": "Angola",
+     "trSort": 6,
+     "enSort": 6
     },
-{
-      "country" : "Svalbard and Jan Mayen",
-      "alpha2" : "SJ",
-      "alpha3" : "SJM",
-      "numeric" : 744,
-      "latitude" : 78,
-      "longitude" : 20
+    {
+     "alpha2": "AI",
+     "alpha3": "AIA",
+     "numeric": "660",
+     "latitude": "18.25",
+     "longitude": "-63.1667",
+     "tr": "Anguilla",
+     "en": "Anguilla",
+     "trSort": 7,
+     "enSort": 7
     },
-{
-      "country" : "Swaziland (Eswatini)",
-      "alpha2" : "SZ",
-      "alpha3" : "SWZ",
-      "numeric" : 748,
-      "latitude" : -26.5,
-      "longitude" : 31.5
+    {
+     "alpha2": "AG",
+     "alpha3": "ATG",
+     "numeric": "28",
+     "latitude": "17.05",
+     "longitude": "-61.8",
+     "tr": "Antigua ve Barbuda",
+     "en": "Antigua and Barbuda",
+     "trSort": 8,
+     "enSort": 8
     },
-{
-      "country" : "Sweden",
-      "alpha2" : "SE",
-      "alpha3" : "SWE",
-      "numeric" : 752,
-      "latitude" : 62,
-      "longitude" : 15
+    {
+     "alpha2": "AR",
+     "alpha3": "ARG",
+     "numeric": "32",
+     "latitude": "-34",
+     "longitude": "-64",
+     "tr": "Arjantin",
+     "en": "Argentina",
+     "trSort": 9,
+     "enSort": 9
     },
-{
-      "country" : "Switzerland",
-      "alpha2" : "CH",
-      "alpha3" : "CHE",
-      "numeric" : 756,
-      "latitude" : 47,
-      "longitude" : 8
+    {
+     "alpha2": "AM",
+     "alpha3": "ARM",
+     "numeric": "51",
+     "latitude": "40",
+     "longitude": "45",
+     "tr": "Ermenistan",
+     "en": "Armenia",
+     "trSort": 56,
+     "enSort": 10
     },
-{
-      "country" : "Syrian Arab Republic",
-      "alpha2" : "SY",
-      "alpha3" : "SYR",
-      "numeric" : 760,
-      "latitude" : 35,
-      "longitude" : 38
+    {
+     "alpha2": "AW",
+     "alpha3": "ABW",
+     "numeric": "533",
+     "latitude": "12.5",
+     "longitude": "-69.9667",
+     "tr": "Aruba",
+     "en": "Aruba",
+     "trSort": 11,
+     "enSort": 11
     },
-{
-      "country" : "Taiwan",
-      "alpha2" : "TW",
-      "alpha3" : "TWN",
-      "numeric" : 158,
-      "latitude" : 23.5,
-      "longitude" : 121
+    {
+     "alpha2": "AU",
+     "alpha3": "AUS",
+     "numeric": "36",
+     "latitude": "-27",
+     "longitude": "133",
+     "tr": "Avustralya",
+     "en": "Australia",
+     "trSort": 12,
+     "enSort": 12
     },
-{
-      "country" : "Tajikistan",
-      "alpha2" : "TJ",
-      "alpha3" : "TJK",
-      "numeric" : 762,
-      "latitude" : 39,
-      "longitude" : 71
+    {
+     "alpha2": "AT",
+     "alpha3": "AUT",
+     "numeric": "40",
+     "latitude": "47.3333",
+     "longitude": "13.3333",
+     "tr": "Avusturya",
+     "en": "Austria",
+     "trSort": 13,
+     "enSort": 13
     },
-{
-      "country" : "Tanzania",
-      "alpha2" : "TZ",
-      "alpha3" : "TZA",
-      "numeric" : 834,
-      "latitude" : -6,
-      "longitude" : 35
+    {
+     "alpha2": "AZ",
+     "alpha3": "AZE",
+     "numeric": "31",
+     "latitude": "40.5",
+     "longitude": "47.5",
+     "tr": "Azerbaycan",
+     "en": "Azerbaijan",
+     "trSort": 14,
+     "enSort": 14
     },
-{
-      "country" : "Thailand",
-      "alpha2" : "TH",
-      "alpha3" : "THA",
-      "numeric" : 764,
-      "latitude" : 15,
-      "longitude" : 100
+    {
+     "alpha2": "BS",
+     "alpha3": "BHS",
+     "numeric": "44",
+     "latitude": "24.25",
+     "longitude": "-76",
+     "tr": "Bahamalar",
+     "en": "Bahamas",
+     "trSort": 15,
+     "enSort": 15
     },
-{
-      "country" : "Timor-Leste",
-      "alpha2" : "TL",
-      "alpha3" : "TLS",
-      "numeric" : 626,
-      "latitude" : -8.55,
-      "longitude" : 125.5167
+    {
+     "alpha2": "BH",
+     "alpha3": "BHR",
+     "numeric": "48",
+     "latitude": "26",
+     "longitude": "50.55",
+     "tr": "Bahreyn",
+     "en": "Bahrain",
+     "trSort": 16,
+     "enSort": 16
     },
-{
-      "country" : "Togo",
-      "alpha2" : "TG",
-      "alpha3" : "TGO",
-      "numeric" : 768,
-      "latitude" : 8,
-      "longitude" : 1.1667
+    {
+     "alpha2": "BD",
+     "alpha3": "BGD",
+     "numeric": "50",
+     "latitude": "24",
+     "longitude": "90",
+     "tr": "Bangladeş",
+     "en": "Bangladesh",
+     "trSort": 17,
+     "enSort": 17
     },
-{
-      "country" : "Tokelau",
-      "alpha2" : "TK",
-      "alpha3" : "TKL",
-      "numeric" : 772,
-      "latitude" : -9,
-      "longitude" : -172
+    {
+     "alpha2": "BB",
+     "alpha3": "BRB",
+     "numeric": "52",
+     "latitude": "13.1667",
+     "longitude": "-59.5333",
+     "tr": "Barbados",
+     "en": "Barbados",
+     "trSort": 18,
+     "enSort": 18
     },
-/* {
-      "country" : "Tonga",
-      "alpha2" : "TO",
-      "alpha3" : "TON",
-      "numeric" : 776,
-      "latitude" : -20,
-      "longitude" : -175
-    }, */
-{
-      "country" : "Trinidad and Tobago",
-      "alpha2" : "TT",
-      "alpha3" : "TTO",
-      "numeric" : 780,
-      "latitude" : 11,
-      "longitude" : -61
+    {
+     "alpha2": "BY",
+     "alpha3": "BLR",
+     "numeric": "112",
+     "latitude": "53",
+     "longitude": "28",
+     "tr": "Belarus",
+     "en": "Belarus",
+     "trSort": 20,
+     "enSort": 19
     },
-{
-      "country" : "Tunisia",
-      "alpha2" : "TN",
-      "alpha3" : "TUN",
-      "numeric" : 788,
-      "latitude" : 34,
-      "longitude" : 9
+    {
+     "alpha2": "BE",
+     "alpha3": "BEL",
+     "numeric": "56",
+     "latitude": "50.8333",
+     "longitude": "4",
+     "tr": "Belçika",
+     "en": "Belgium",
+     "trSort": 21,
+     "enSort": 20
     },
-{
-      "country" : "Turkey",
-      "alpha2" : "TR",
-      "alpha3" : "TUR",
-      "numeric" : 792,
-      "latitude" : 39,
-      "longitude" : 35
+    {
+     "alpha2": "BZ",
+     "alpha3": "BLZ",
+     "numeric": "84",
+     "latitude": "17.25",
+     "longitude": "-88.75",
+     "tr": "Belize",
+     "en": "Belize",
+     "trSort": 22,
+     "enSort": 21
     },
-{
-      "country" : "Turkmenistan",
-      "alpha2" : "TM",
-      "alpha3" : "TKM",
-      "numeric" : 795,
-      "latitude" : 40,
-      "longitude" : 60
+    {
+     "alpha2": "BJ",
+     "alpha3": "BEN",
+     "numeric": "204",
+     "latitude": "9.5",
+     "longitude": "2.25",
+     "tr": "Benin",
+     "en": "Benin",
+     "trSort": 23,
+     "enSort": 22
     },
-{
-      "country" : "Turks and Caicos Islands",
-      "alpha2" : "TC",
-      "alpha3" : "TCA",
-      "numeric" : 796,
-      "latitude" : 21.75,
-      "longitude" : -71.5833
+    {
+     "alpha2": "BM",
+     "alpha3": "BMU",
+     "numeric": "60",
+     "latitude": "32.3333",
+     "longitude": "-64.75",
+     "tr": "Bermuda",
+     "en": "Bermuda",
+     "trSort": 24,
+     "enSort": 23
     },
-{
-      "country" : "Uganda",
-      "alpha2" : "UG",
-      "alpha3" : "UGA",
-      "numeric" : 800,
-      "latitude" : 1,
-      "longitude" : 32
+    {
+     "alpha2": "BT",
+     "alpha3": "BTN",
+     "numeric": "64",
+     "latitude": "27.5",
+     "longitude": "90.5",
+     "tr": "Butan",
+     "en": "Bhutan",
+     "trSort": 36,
+     "enSort": 24
     },
-{
-      "country" : "Ukraine",
-      "alpha2" : "UA",
-      "alpha3" : "UKR",
-      "numeric" : 804,
-      "latitude" : 49,
-      "longitude" : 32
+    {
+     "alpha2": "BO",
+     "alpha3": "BOL",
+     "numeric": "68",
+     "latitude": "-17",
+     "longitude": "-65",
+     "tr": "Bolivya",
+     "en": "Bolivia",
+     "trSort": 27,
+     "enSort": 25
     },
-{
-      "country" : "United Arab Emirates",
-      "alpha2" : "AE",
-      "alpha3" : "ARE",
-      "numeric" : 784,
-      "latitude" : 24,
-      "longitude" : 54
+    {
+     "alpha2": "BA",
+     "alpha3": "BIH",
+     "numeric": "70",
+     "latitude": "44",
+     "longitude": "18",
+     "tr": "Bosna Hersek",
+     "en": "Bosnia and Herzegovina",
+     "trSort": 28,
+     "enSort": 26
     },
-{
-      "country" : "United Kingdom",
-      "alpha2" : "GB",
-      "alpha3" : "GBR",
-      "numeric" : 826,
-      "latitude" : 54,
-      "longitude" : -2
+    {
+     "alpha2": "BW",
+     "alpha3": "BWA",
+     "numeric": "72",
+     "latitude": "-22",
+     "longitude": "24",
+     "tr": "Botsvana",
+     "en": "Botswana",
+     "trSort": 29,
+     "enSort": 27
     },
-{
-      "country" : "United States",
-      "alpha2" : "US",
-      "alpha3" : "USA",
-      "numeric" : 840,
-      "latitude" : 38,
-      "longitude" : -97
+    {
+     "alpha2": "BV",
+     "alpha3": "BVT",
+     "numeric": "74",
+     "latitude": "-54.4333",
+     "longitude": "3.4",
+     "tr": "Bouvet Adası",
+     "en": "Bouvet Island",
+     "trSort": 30,
+     "enSort": 28
     },
-{
-      "country" : "Uruguay",
-      "alpha2" : "UY",
-      "alpha3" : "URY",
-      "numeric" : 858,
-      "latitude" : -33,
-      "longitude" : -56
+    {
+     "alpha2": "BR",
+     "alpha3": "BRA",
+     "numeric": "76",
+     "latitude": "-10",
+     "longitude": "-55",
+     "tr": "Brezilya",
+     "en": "Brazil",
+     "trSort": 31,
+     "enSort": 29
     },
-{
-      "country" : "Uzbekistan",
-      "alpha2" : "UZ",
-      "alpha3" : "UZB",
-      "numeric" : 860,
-      "latitude" : 41,
-      "longitude" : 64
+    {
+     "alpha2": "BN",
+     "alpha3": "BRN",
+     "numeric": "96",
+     "latitude": "4.5",
+     "longitude": "114.6667",
+     "tr": "Brunei",
+     "en": "Brunei Darussalam",
+     "trSort": 32,
+     "enSort": 30
     },
-{
-      "country" : "Vanuatu",
-      "alpha2" : "VU",
-      "alpha3" : "VUT",
-      "numeric" : 548,
-      "latitude" : -16,
-      "longitude" : 167
+    {
+     "alpha2": "BG",
+     "alpha3": "BGR",
+     "numeric": "100",
+     "latitude": "43",
+     "longitude": "25",
+     "tr": "Bulgaristan",
+     "en": "Bulgaria",
+     "trSort": 33,
+     "enSort": 31
     },
-{
-      "country" : "Venezuela",
-      "alpha2" : "VE",
-      "alpha3" : "VEN",
-      "numeric" : 862,
-      "latitude" : 8,
-      "longitude" : -66
+    {
+     "alpha2": "BF",
+     "alpha3": "BFA",
+     "numeric": "854",
+     "latitude": "13",
+     "longitude": "-2",
+     "tr": "Burkina Faso",
+     "en": "Burkina Faso",
+     "trSort": 34,
+     "enSort": 32
     },
-{
-      "country" : "Viet Nam",
-      "alpha2" : "VN",
-      "alpha3" : "VNM",
-      "numeric" : 704,
-      "latitude" : 16,
-      "longitude" : 106
+    {
+     "alpha2": "BI",
+     "alpha3": "BDI",
+     "numeric": "108",
+     "latitude": "-3.5",
+     "longitude": "30",
+     "tr": "Burundi",
+     "en": "Burundi",
+     "trSort": 35,
+     "enSort": 33
     },
-{
-      "country" : "Virgin Islands, British",
-      "alpha2" : "VG",
-      "alpha3" : "VGB",
-      "numeric" : 92,
-      "latitude" : 18.5,
-      "longitude" : -64.5
+    {
+     "alpha2": "KH",
+     "alpha3": "KHM",
+     "numeric": "116",
+     "latitude": "13",
+     "longitude": "105",
+     "tr": "Kamboçya",
+     "en": "Cambodia",
+     "trSort": 104,
+     "enSort": 34
     },
-{
-      "country" : "Virgin Islands, U.S.",
-      "alpha2" : "VI",
-      "alpha3" : "VIR",
-      "numeric" : 850,
-      "latitude" : 18.3333,
-      "longitude" : -64.8333
+    {
+     "alpha2": "CM",
+     "alpha3": "CMR",
+     "numeric": "120",
+     "latitude": "6",
+     "longitude": "12",
+     "tr": "Kamerun",
+     "en": "Cameroon",
+     "trSort": 105,
+     "enSort": 35
     },
-{
-      "country" : "Wallis and Futuna",
-      "alpha2" : "WF",
-      "alpha3" : "WLF",
-      "numeric" : 876,
-      "latitude" : -13.3,
-      "longitude" : -176.2
+    {
+     "alpha2": "CA",
+     "alpha3": "CAN",
+     "numeric": "124",
+     "latitude": "60",
+     "longitude": "-95",
+     "tr": "Kanada",
+     "en": "Canada",
+     "trSort": 106,
+     "enSort": 36
     },
-{
-      "country" : "Western Sahara",
-      "alpha2" : "EH",
-      "alpha3" : "ESH",
-      "numeric" : 732,
-      "latitude" : 24.5,
-      "longitude" : -13
+    {
+     "alpha2": "CV",
+     "alpha3": "CPV",
+     "numeric": "132",
+     "latitude": "16",
+     "longitude": "-24",
+     "tr": "Yeşil Burun Adaları",
+     "en": "Cape Verde",
+     "trSort": 230,
+     "enSort": 37
     },
-{
-      "country" : "Yemen",
-      "alpha2" : "YE",
-      "alpha3" : "YEM",
-      "numeric" : 887,
-      "latitude" : 15,
-      "longitude" : 48
+    {
+     "alpha2": "KY",
+     "alpha3": "CYM",
+     "numeric": "136",
+     "latitude": "19.5",
+     "longitude": "-80.5",
+     "tr": "Cayman Adaları",
+     "en": "Cayman Islands",
+     "trSort": 37,
+     "enSort": 38
     },
-{
-      "country" : "Zambia",
-      "alpha2" : "ZM",
-      "alpha3" : "ZMB",
-      "numeric" : 894,
-      "latitude" : -15,
-      "longitude" : 30
+    {
+     "alpha2": "CF",
+     "alpha3": "CAF",
+     "numeric": "140",
+     "latitude": "7",
+     "longitude": "21",
+     "tr": "Orta Afrika Cumhuriyeti",
+     "en": "Central African Republic",
+     "trSort": 162,
+     "enSort": 39
     },
-{
-      "country" : "Zimbabwe",
-      "alpha2" : "ZW",
-      "alpha3" : "ZWE",
-      "numeric" : 716,
-      "latitude" : -20,
-      "longitude" : 30
+    {
+     "alpha2": "TD",
+     "alpha3": "TCD",
+     "numeric": "148",
+     "latitude": "15",
+     "longitude": "19",
+     "tr": "Çad",
+     "en": "Chad",
+     "trSort": 44,
+     "enSort": 40
+    },
+    {
+     "alpha2": "CL",
+     "alpha3": "CHL",
+     "numeric": "152",
+     "latitude": "-30",
+     "longitude": "-71",
+     "tr": "Şili",
+     "en": "Chile",
+     "trSort": 203,
+     "enSort": 41
+    },
+    {
+     "alpha2": "CN",
+     "alpha3": "CHN",
+     "numeric": "156",
+     "latitude": "35",
+     "longitude": "105",
+     "tr": "Çin",
+     "en": "China",
+     "trSort": 46,
+     "enSort": 42
+    },
+    {
+     "alpha2": "CX",
+     "alpha3": "CXR",
+     "numeric": "162",
+     "latitude": "-10.5",
+     "longitude": "105.6667",
+     "tr": "Christmas Adası",
+     "en": "Christmas Island",
+     "trSort": 40,
+     "enSort": 43
+    },
+    {
+     "alpha2": "CC",
+     "alpha3": "CCK",
+     "numeric": "166",
+     "latitude": "-12.5",
+     "longitude": "96.8333",
+     "tr": "Cocos (Keeling) Adaları",
+     "en": "Cocos (Keeling) Islands",
+     "trSort": 42,
+     "enSort": 44
+    },
+    {
+     "alpha2": "CO",
+     "alpha3": "COL",
+     "numeric": "170",
+     "latitude": "4",
+     "longitude": "-72",
+     "tr": "Kolombiya",
+     "en": "Colombia",
+     "trSort": 113,
+     "enSort": 45
+    },
+    {
+     "alpha2": "KM",
+     "alpha3": "COM",
+     "numeric": "174",
+     "latitude": "-12.1667",
+     "longitude": "44.25",
+     "tr": "Komoros",
+     "en": "Comoros",
+     "trSort": 114,
+     "enSort": 46
+    },
+    {
+     "alpha2": "CG",
+     "alpha3": "COG",
+     "numeric": "178",
+     "latitude": "-1",
+     "longitude": "15",
+     "tr": "Kongo",
+     "en": "Congo",
+     "trSort": 115,
+     "enSort": 47
+    },
+    {
+     "alpha2": "CK",
+     "alpha3": "COK",
+     "numeric": "184",
+     "latitude": "-21.2333",
+     "longitude": "-159.7667",
+     "tr": "Cook Adaları",
+     "en": "Cook Islands",
+     "trSort": 43,
+     "enSort": 48
+    },
+    {
+     "alpha2": "CR",
+     "alpha3": "CRI",
+     "numeric": "188",
+     "latitude": "10",
+     "longitude": "-84",
+     "tr": "Kosta Rika",
+     "en": "Costa Rica",
+     "trSort": 118,
+     "enSort": 49
+    },
+    {
+     "alpha2": "CI",
+     "alpha3": "CIV",
+     "numeric": "384",
+     "latitude": "8",
+     "longitude": "-5",
+     "tr": "Fildişi Sahili",
+     "en": "Côte d'Ivoire",
+     "trSort": 63,
+     "enSort": 50
+    },
+    {
+     "alpha2": "HR",
+     "alpha3": "HRV",
+     "numeric": "191",
+     "latitude": "45.1667",
+     "longitude": "15.5",
+     "tr": "Hırvatistan",
+     "en": "Croatia",
+     "trSort": 88,
+     "enSort": 51
+    },
+    {
+     "alpha2": "CU",
+     "alpha3": "CUB",
+     "numeric": "192",
+     "latitude": "21.5",
+     "longitude": "-80",
+     "tr": "Küba",
+     "en": "Cuba",
+     "trSort": 122,
+     "enSort": 52
+    },
+    {
+     "alpha2": "CY",
+     "alpha3": "CYP",
+     "numeric": "196",
+     "latitude": "35",
+     "longitude": "33",
+     "tr": "Kıbrıs",
+     "en": "Cyprus",
+     "trSort": 111,
+     "enSort": 53
+    },
+    {
+     "alpha2": "CZ",
+     "alpha3": "CZE",
+     "numeric": "203",
+     "latitude": "49.75",
+     "longitude": "15.5",
+     "tr": "Çek Cumhuriyeti",
+     "en": "Czech Republic",
+     "trSort": 45,
+     "enSort": 54
+    },
+    {
+     "alpha2": "CD",
+     "alpha3": "COD",
+     "numeric": "180",
+     "latitude": "0",
+     "longitude": "25",
+     "tr": "Kongo Demokratik Cumhuriyeti",
+     "en": "Democratic Republic of the Congo",
+     "trSort": 116,
+     "enSort": 55
+    },
+    {
+     "alpha2": "DK",
+     "alpha3": "DNK",
+     "numeric": "208",
+     "latitude": "56",
+     "longitude": "10",
+     "tr": "Danimarka",
+     "en": "Denmark",
+     "trSort": 47,
+     "enSort": 56
+    },
+    {
+     "alpha2": "DJ",
+     "alpha3": "DJI",
+     "numeric": "262",
+     "latitude": "11.5",
+     "longitude": "43",
+     "tr": "Cibuti",
+     "en": "Djibouti",
+     "trSort": 41,
+     "enSort": 57
+    },
+    {
+     "alpha2": "DM",
+     "alpha3": "DMA",
+     "numeric": "212",
+     "latitude": "15.4167",
+     "longitude": "-61.3333",
+     "tr": "Dominika",
+     "en": "Dominica",
+     "trSort": 50,
+     "enSort": 58
+    },
+    {
+     "alpha2": "DO",
+     "alpha3": "DOM",
+     "numeric": "214",
+     "latitude": "19",
+     "longitude": "-70.6667",
+     "tr": "Dominik Cumhuriyeti",
+     "en": "Dominican Republic",
+     "trSort": 49,
+     "enSort": 59
+    },
+    {
+     "alpha2": "EC",
+     "alpha3": "ECU",
+     "numeric": "218",
+     "latitude": "-2",
+     "longitude": "-77.5",
+     "tr": "Ekvador",
+     "en": "Ecuador",
+     "trSort": 51,
+     "enSort": 60
+    },
+    {
+     "alpha2": "EG",
+     "alpha3": "EGY",
+     "numeric": "818",
+     "latitude": "27",
+     "longitude": "30",
+     "tr": "Mısır",
+     "en": "Egypt",
+     "trSort": 145,
+     "enSort": 61
+    },
+    {
+     "alpha2": "SV",
+     "alpha3": "SLV",
+     "numeric": "222",
+     "latitude": "13.8333",
+     "longitude": "-88.9167",
+     "tr": "El Salvador",
+     "en": "El Salvador",
+     "trSort": 53,
+     "enSort": 62
+    },
+    {
+     "alpha2": "GQ",
+     "alpha3": "GNQ",
+     "numeric": "226",
+     "latitude": "2",
+     "longitude": "10",
+     "tr": "Ekvator Ginesi",
+     "en": "Equatorial Guinea",
+     "trSort": 52,
+     "enSort": 63
+    },
+    {
+     "alpha2": "ER",
+     "alpha3": "ERI",
+     "numeric": "232",
+     "latitude": "15",
+     "longitude": "39",
+     "tr": "Eritre",
+     "en": "Eritrea",
+     "trSort": 55,
+     "enSort": 64
+    },
+    {
+     "alpha2": "EE",
+     "alpha3": "EST",
+     "numeric": "233",
+     "latitude": "59",
+     "longitude": "26",
+     "tr": "Estonya",
+     "en": "Estonia",
+     "trSort": 57,
+     "enSort": 65
+    },
+    {
+     "alpha2": "ET",
+     "alpha3": "ETH",
+     "numeric": "231",
+     "latitude": "8",
+     "longitude": "38",
+     "tr": "Etiyopya",
+     "en": "Ethiopia",
+     "trSort": 58,
+     "enSort": 66
+    },
+    {
+     "alpha2": "FK",
+     "alpha3": "FLK",
+     "numeric": "238",
+     "latitude": "-51.75",
+     "longitude": "-59",
+     "tr": "Falkland Adaları (Malvinas)",
+     "en": "Falkland Islands (Malvinas)",
+     "trSort": 59,
+     "enSort": 67
+    },
+    {
+     "alpha2": "FO",
+     "alpha3": "FRO",
+     "numeric": "234",
+     "latitude": "62",
+     "longitude": "-7",
+     "tr": "Faroe Adaları",
+     "en": "Faroe Islands",
+     "trSort": 60,
+     "enSort": 68
+    },
+    {
+     "alpha2": "FJ",
+     "alpha3": "FJI",
+     "numeric": "242",
+     "latitude": "-18",
+     "longitude": "175",
+     "tr": "Fiji",
+     "en": "Fiji",
+     "trSort": 62,
+     "enSort": 69
+    },
+    {
+     "alpha2": "FI",
+     "alpha3": "FIN",
+     "numeric": "246",
+     "latitude": "64",
+     "longitude": "26",
+     "tr": "Finlandiya",
+     "en": "Finland",
+     "trSort": 65,
+     "enSort": 70
+    },
+    {
+     "alpha2": "FR",
+     "alpha3": "FRA",
+     "numeric": "250",
+     "latitude": "46",
+     "longitude": "2",
+     "tr": "Fransa",
+     "en": "France",
+     "trSort": 66,
+     "enSort": 71
+    },
+    {
+     "alpha2": "GF",
+     "alpha3": "GUF",
+     "numeric": "254",
+     "latitude": "4",
+     "longitude": "-53",
+     "tr": "Fransız Guyanası",
+     "en": "French Guiana",
+     "trSort": 67,
+     "enSort": 72
+    },
+    {
+     "alpha2": "PF",
+     "alpha3": "PYF",
+     "numeric": "258",
+     "latitude": "-15",
+     "longitude": "-140",
+     "tr": "Fransız Polinezyası",
+     "en": "French Polynesia",
+     "trSort": 69,
+     "enSort": 73
+    },
+    {
+     "alpha2": "TF",
+     "alpha3": "ATF",
+     "numeric": "260",
+     "latitude": "-43",
+     "longitude": "67",
+     "tr": "Fransız Güney Bölgeleri",
+     "en": "French Southern Territories",
+     "trSort": 68,
+     "enSort": 74
+    },
+    {
+     "alpha2": "GA",
+     "alpha3": "GAB",
+     "numeric": "266",
+     "latitude": "-1",
+     "longitude": "11.75",
+     "tr": "Gabon",
+     "en": "Gabon",
+     "trSort": 70,
+     "enSort": 75
+    },
+    {
+     "alpha2": "GM",
+     "alpha3": "GMB",
+     "numeric": "270",
+     "latitude": "13.4667",
+     "longitude": "-16.5667",
+     "tr": "Gambiya",
+     "en": "Gambia",
+     "trSort": 71,
+     "enSort": 76
+    },
+    {
+     "alpha2": "GE",
+     "alpha3": "GEO",
+     "numeric": "268",
+     "latitude": "42",
+     "longitude": "43.5",
+     "tr": "Gürcistan",
+     "en": "Georgia",
+     "trSort": 85,
+     "enSort": 77
+    },
+    {
+     "alpha2": "DE",
+     "alpha3": "DEU",
+     "numeric": "276",
+     "latitude": "51",
+     "longitude": "9",
+     "tr": "Almanya",
+     "en": "Germany",
+     "trSort": 2,
+     "enSort": 78
+    },
+    {
+     "alpha2": "GH",
+     "alpha3": "GHA",
+     "numeric": "288",
+     "latitude": "8",
+     "longitude": "-2",
+     "tr": "Gana",
+     "en": "Ghana",
+     "trSort": 72,
+     "enSort": 79
+    },
+    {
+     "alpha2": "GI",
+     "alpha3": "GIB",
+     "numeric": "292",
+     "latitude": "36.1833",
+     "longitude": "-5.3667",
+     "tr": "Cebelitarık",
+     "en": "Gibraltar",
+     "trSort": 38,
+     "enSort": 80
+    },
+    {
+     "alpha2": "GR",
+     "alpha3": "GRC",
+     "numeric": "300",
+     "latitude": "39",
+     "longitude": "22",
+     "tr": "Yunanistan",
+     "en": "Greece",
+     "trSort": 231,
+     "enSort": 81
+    },
+    {
+     "alpha2": "GL",
+     "alpha3": "GRL",
+     "numeric": "304",
+     "latitude": "72",
+     "longitude": "-40",
+     "tr": "Grönland",
+     "en": "Greenland",
+     "trSort": 76,
+     "enSort": 82
+    },
+    {
+     "alpha2": "GD",
+     "alpha3": "GRD",
+     "numeric": "308",
+     "latitude": "12.1167",
+     "longitude": "-61.6667",
+     "tr": "Grenada",
+     "en": "Grenada",
+     "trSort": 75,
+     "enSort": 83
+    },
+    {
+     "alpha2": "GP",
+     "alpha3": "GLP",
+     "numeric": "312",
+     "latitude": "16.25",
+     "longitude": "-61.5833",
+     "tr": "Guadeloupe",
+     "en": "Guadeloupe",
+     "trSort": 77,
+     "enSort": 84
+    },
+    {
+     "alpha2": "GU",
+     "alpha3": "GUM",
+     "numeric": "316",
+     "latitude": "13.4667",
+     "longitude": "144.7833",
+     "tr": "Guam",
+     "en": "Guam",
+     "trSort": 78,
+     "enSort": 85
+    },
+    {
+     "alpha2": "GT",
+     "alpha3": "GTM",
+     "numeric": "320",
+     "latitude": "15.5",
+     "longitude": "-90.25",
+     "tr": "Guatemala",
+     "en": "Guatemala",
+     "trSort": 79,
+     "enSort": 86
+    },
+    {
+     "alpha2": "GG",
+     "alpha3": "GGY",
+     "numeric": "831",
+     "latitude": "49.5",
+     "longitude": "-2.56",
+     "tr": "Guernsey",
+     "en": "Guernsey",
+     "trSort": 80,
+     "enSort": 87
+    },
+    {
+     "alpha2": "GN",
+     "alpha3": "GIN",
+     "numeric": "324",
+     "latitude": "11",
+     "longitude": "-10",
+     "tr": "Gine",
+     "en": "Guinea",
+     "trSort": 73,
+     "enSort": 88
+    },
+    {
+     "alpha2": "GW",
+     "alpha3": "GNB",
+     "numeric": "624",
+     "latitude": "12",
+     "longitude": "-15",
+     "tr": "Gine-Bissau",
+     "en": "Guinea-Bissau",
+     "trSort": 74,
+     "enSort": 89
+    },
+    {
+     "alpha2": "GY",
+     "alpha3": "GUY",
+     "numeric": "328",
+     "latitude": "5",
+     "longitude": "-59",
+     "tr": "Guyana",
+     "en": "Guyana",
+     "trSort": 81,
+     "enSort": 90
+    },
+    {
+     "alpha2": "HT",
+     "alpha3": "HTI",
+     "numeric": "332",
+     "latitude": "19",
+     "longitude": "-72.4167",
+     "tr": "Haiti",
+     "en": "Haiti",
+     "trSort": 86,
+     "enSort": 91
+    },
+    {
+     "alpha2": "HM",
+     "alpha3": "HMD",
+     "numeric": "334",
+     "latitude": "-53.1",
+     "longitude": "72.5167",
+     "tr": "Heard ve McDonald Adaları",
+     "en": "Heard and McDonald Islands",
+     "trSort": 87,
+     "enSort": 92
+    },
+    {
+     "alpha2": "VA",
+     "alpha3": "VAT",
+     "numeric": "336",
+     "latitude": "41.9",
+     "longitude": "12.45",
+     "tr": "Vatikan",
+     "en": "Holy See (Vatican City State)",
+     "trSort": 222,
+     "enSort": 93
+    },
+    {
+     "alpha2": "HN",
+     "alpha3": "HND",
+     "numeric": "340",
+     "latitude": "15",
+     "longitude": "-86.5",
+     "tr": "Honduras",
+     "en": "Honduras",
+     "trSort": 91,
+     "enSort": 94
+    },
+    {
+     "alpha2": "HK",
+     "alpha3": "HKG",
+     "numeric": "344",
+     "latitude": "22.25",
+     "longitude": "114.1667",
+     "tr": "Hong Kong",
+     "en": "Hong Kong",
+     "trSort": 92,
+     "enSort": 95
+    },
+    {
+     "alpha2": "HU",
+     "alpha3": "HUN",
+     "numeric": "348",
+     "latitude": "47",
+     "longitude": "20",
+     "tr": "Macaristan",
+     "en": "Hungary",
+     "trSort": 132,
+     "enSort": 96
+    },
+    {
+     "alpha2": "IS",
+     "alpha3": "ISL",
+     "numeric": "352",
+     "latitude": "65",
+     "longitude": "-18",
+     "tr": "İzlanda",
+     "en": "Iceland",
+     "trSort": 101,
+     "enSort": 97
+    },
+    {
+     "alpha2": "IN",
+     "alpha3": "IND",
+     "numeric": "356",
+     "latitude": "20",
+     "longitude": "77",
+     "tr": "Hindistan",
+     "en": "India",
+     "trSort": 89,
+     "enSort": 98
+    },
+    {
+     "alpha2": "ID",
+     "alpha3": "IDN",
+     "numeric": "360",
+     "latitude": "-5",
+     "longitude": "120",
+     "tr": "Endonezya",
+     "en": "Indonesia",
+     "trSort": 54,
+     "enSort": 99
+    },
+    {
+     "alpha2": "IQ",
+     "alpha3": "IRQ",
+     "numeric": "368",
+     "latitude": "33",
+     "longitude": "44",
+     "tr": "Irak",
+     "en": "Iraq",
+     "trSort": 93,
+     "enSort": 100
+    },
+    {
+     "alpha2": "IE",
+     "alpha3": "IRL",
+     "numeric": "372",
+     "latitude": "53",
+     "longitude": "-8",
+     "tr": "İrlanda",
+     "en": "Ireland",
+     "trSort": 95,
+     "enSort": 101
+    },
+    {
+     "alpha2": "IR",
+     "alpha3": "IRN",
+     "numeric": "364",
+     "latitude": "32",
+     "longitude": "53",
+     "tr": "İran İslam Cumhuriyeti",
+     "en": "Islamic Republic of Iran",
+     "trSort": 94,
+     "enSort": 102
+    },
+    {
+     "alpha2": "IM",
+     "alpha3": "IMN",
+     "numeric": "833",
+     "latitude": "54.23",
+     "longitude": "-4.55",
+     "tr": "Man Adası",
+     "en": "Isle of Man",
+     "trSort": 140,
+     "enSort": 103
+    },
+    {
+     "alpha2": "IL",
+     "alpha3": "ISR",
+     "numeric": "376",
+     "latitude": "31.5",
+     "longitude": "34.75",
+     "tr": "İsrail",
+     "en": "Israel",
+     "trSort": 97,
+     "enSort": 104
+    },
+    {
+     "alpha2": "IT",
+     "alpha3": "ITA",
+     "numeric": "380",
+     "latitude": "42.8333",
+     "longitude": "12.8333",
+     "tr": "İtalya",
+     "en": "Italy",
+     "trSort": 100,
+     "enSort": 105
+    },
+    {
+     "alpha2": "JM",
+     "alpha3": "JAM",
+     "numeric": "388",
+     "latitude": "18.25",
+     "longitude": "-77.5",
+     "tr": "Jamaika",
+     "en": "Jamaica",
+     "trSort": 102,
+     "enSort": 106
+    },
+    {
+     "alpha2": "JP",
+     "alpha3": "JPN",
+     "numeric": "392",
+     "latitude": "36",
+     "longitude": "138",
+     "tr": "Japonya",
+     "en": "Japan",
+     "trSort": 103,
+     "enSort": 107
+    },
+    {
+     "alpha2": "JO",
+     "alpha3": "JOR",
+     "numeric": "400",
+     "latitude": "31",
+     "longitude": "36",
+     "tr": "Ürdün",
+     "en": "Jordan",
+     "trSort": 219,
+     "enSort": 108
+    },
+    {
+     "alpha2": "KZ",
+     "alpha3": "KAZ",
+     "numeric": "398",
+     "latitude": "48",
+     "longitude": "68",
+     "tr": "Kazakistan",
+     "en": "Kazakhstan",
+     "trSort": 109,
+     "enSort": 109
+    },
+    {
+     "alpha2": "KE",
+     "alpha3": "KEN",
+     "numeric": "404",
+     "latitude": "1",
+     "longitude": "38",
+     "tr": "Kenya",
+     "en": "Kenya",
+     "trSort": 110,
+     "enSort": 110
+    },
+    {
+     "alpha2": "XK",
+     "alpha3": "XKX",
+     "numeric": "688",
+     "latitude": "42.667542",
+     "longitude": "21.166191",
+     "tr": "Kosova",
+     "en": "Kosovo",
+     "trSort": 117,
+     "enSort": 111
+    },
+    {
+     "alpha2": "KW",
+     "alpha3": "KWT",
+     "numeric": "414",
+     "latitude": "29.3375",
+     "longitude": "47.6581",
+     "tr": "Kuveyt",
+     "en": "Kuwait",
+     "trSort": 119,
+     "enSort": 112
+    },
+    {
+     "alpha2": "KG",
+     "alpha3": "KGZ",
+     "numeric": "417",
+     "latitude": "41",
+     "longitude": "75",
+     "tr": "Kırgızistan",
+     "en": "Kyrgyzstan",
+     "trSort": 112,
+     "enSort": 113
+    },
+    {
+     "alpha2": "LA",
+     "alpha3": "LAO",
+     "numeric": "418",
+     "latitude": "18",
+     "longitude": "105",
+     "tr": "Laos",
+     "en": "Laos",
+     "trSort": 123,
+     "enSort": 114
+    },
+    {
+     "alpha2": "LV",
+     "alpha3": "LVA",
+     "numeric": "428",
+     "latitude": "57",
+     "longitude": "25",
+     "tr": "Letonya",
+     "en": "Latvia",
+     "trSort": 125,
+     "enSort": 115
+    },
+    {
+     "alpha2": "LB",
+     "alpha3": "LBN",
+     "numeric": "422",
+     "latitude": "33.8333",
+     "longitude": "35.8333",
+     "tr": "Lübnan",
+     "en": "Lebanon",
+     "trSort": 130,
+     "enSort": 116
+    },
+    {
+     "alpha2": "LS",
+     "alpha3": "LSO",
+     "numeric": "426",
+     "latitude": "-29.5",
+     "longitude": "28.5",
+     "tr": "Lesoto",
+     "en": "Lesotho",
+     "trSort": 124,
+     "enSort": 117
+    },
+    {
+     "alpha2": "LR",
+     "alpha3": "LBR",
+     "numeric": "430",
+     "latitude": "6.5",
+     "longitude": "-9.5",
+     "tr": "Liberya",
+     "en": "Liberia",
+     "trSort": 126,
+     "enSort": 118
+    },
+    {
+     "alpha2": "LY",
+     "alpha3": "LBY",
+     "numeric": "434",
+     "latitude": "25",
+     "longitude": "17",
+     "tr": "Libya",
+     "en": "Libya",
+     "trSort": 127,
+     "enSort": 119
+    },
+    {
+     "alpha2": "LI",
+     "alpha3": "LIE",
+     "numeric": "438",
+     "latitude": "47.1667",
+     "longitude": "9.5333",
+     "tr": "Lihtenştayn",
+     "en": "Liechtenstein",
+     "trSort": 128,
+     "enSort": 120
+    },
+    {
+     "alpha2": "LT",
+     "alpha3": "LTU",
+     "numeric": "440",
+     "latitude": "56",
+     "longitude": "24",
+     "tr": "Litvanya",
+     "en": "Lithuania",
+     "trSort": 129,
+     "enSort": 121
+    },
+    {
+     "alpha2": "LU",
+     "alpha3": "LUX",
+     "numeric": "442",
+     "latitude": "49.75",
+     "longitude": "6.1667",
+     "tr": "Lüksemburg",
+     "en": "Luxembourg",
+     "trSort": 131,
+     "enSort": 122
+    },
+    {
+     "alpha2": "MO",
+     "alpha3": "MAC",
+     "numeric": "446",
+     "latitude": "22.1667",
+     "longitude": "113.55",
+     "tr": "Makao",
+     "en": "Macao",
+     "trSort": 134,
+     "enSort": 123
+    },
+    {
+     "alpha2": "MG",
+     "alpha3": "MDG",
+     "numeric": "450",
+     "latitude": "-20",
+     "longitude": "47",
+     "tr": "Madagaskar",
+     "en": "Madagascar",
+     "trSort": 133,
+     "enSort": 124
+    },
+    {
+     "alpha2": "MW",
+     "alpha3": "MWI",
+     "numeric": "454",
+     "latitude": "-13.5",
+     "longitude": "34",
+     "tr": "Malavi",
+     "en": "Malawi",
+     "trSort": 135,
+     "enSort": 125
+    },
+    {
+     "alpha2": "MY",
+     "alpha3": "MYS",
+     "numeric": "458",
+     "latitude": "2.5",
+     "longitude": "112.5",
+     "tr": "Malezya",
+     "en": "Malaysia",
+     "trSort": 137,
+     "enSort": 126
+    },
+    {
+     "alpha2": "MV",
+     "alpha3": "MDV",
+     "numeric": "462",
+     "latitude": "3.25",
+     "longitude": "73",
+     "tr": "Maldivler",
+     "en": "Maldives",
+     "trSort": 136,
+     "enSort": 127
+    },
+    {
+     "alpha2": "ML",
+     "alpha3": "MLI",
+     "numeric": "466",
+     "latitude": "17",
+     "longitude": "-4",
+     "tr": "Mali",
+     "en": "Mali",
+     "trSort": 138,
+     "enSort": 128
+    },
+    {
+     "alpha2": "MT",
+     "alpha3": "MLT",
+     "numeric": "470",
+     "latitude": "35.8333",
+     "longitude": "14.5833",
+     "tr": "Malta",
+     "en": "Malta",
+     "trSort": 139,
+     "enSort": 129
+    },
+    {
+     "alpha2": "MQ",
+     "alpha3": "MTQ",
+     "numeric": "474",
+     "latitude": "14.6667",
+     "longitude": "-61",
+     "tr": "Martinik",
+     "en": "Martinique",
+     "trSort": 141,
+     "enSort": 130
+    },
+    {
+     "alpha2": "MR",
+     "alpha3": "MRT",
+     "numeric": "478",
+     "latitude": "20",
+     "longitude": "-12",
+     "tr": "Moritanya",
+     "en": "Mauritania",
+     "trSort": 150,
+     "enSort": 131
+    },
+    {
+     "alpha2": "MU",
+     "alpha3": "MUS",
+     "numeric": "480",
+     "latitude": "-20.2833",
+     "longitude": "57.55",
+     "tr": "Mauritius",
+     "en": "Mauritius",
+     "trSort": 142,
+     "enSort": 132
+    },
+    {
+     "alpha2": "YT",
+     "alpha3": "MYT",
+     "numeric": "175",
+     "latitude": "-12.8333",
+     "longitude": "45.1667",
+     "tr": "Mayotte",
+     "en": "Mayotte",
+     "trSort": 143,
+     "enSort": 133
+    },
+    {
+     "alpha2": "MX",
+     "alpha3": "MEX",
+     "numeric": "484",
+     "latitude": "23",
+     "longitude": "-102",
+     "tr": "Meksika",
+     "en": "Mexico",
+     "trSort": 144,
+     "enSort": 134
+    },
+    {
+     "alpha2": "MD",
+     "alpha3": "MDA",
+     "numeric": "498",
+     "latitude": "47",
+     "longitude": "29",
+     "tr": "Moldova",
+     "en": "Moldova",
+     "trSort": 147,
+     "enSort": 135
+    },
+    {
+     "alpha2": "MC",
+     "alpha3": "MCO",
+     "numeric": "492",
+     "latitude": "43.7333",
+     "longitude": "7.4",
+     "tr": "Monako",
+     "en": "Monaco",
+     "trSort": 148,
+     "enSort": 136
+    },
+    {
+     "alpha2": "MN",
+     "alpha3": "MNG",
+     "numeric": "496",
+     "latitude": "46",
+     "longitude": "105",
+     "tr": "Moğolistan",
+     "en": "Mongolia",
+     "trSort": 146,
+     "enSort": 137
+    },
+    {
+     "alpha2": "ME",
+     "alpha3": "MNE",
+     "numeric": "499",
+     "latitude": "42",
+     "longitude": "19",
+     "tr": "Karadağ",
+     "en": "Montenegro",
+     "trSort": 107,
+     "enSort": 138
+    },
+    {
+     "alpha2": "MS",
+     "alpha3": "MSR",
+     "numeric": "500",
+     "latitude": "16.75",
+     "longitude": "-62.2",
+     "tr": "Montserrat",
+     "en": "Montserrat",
+     "trSort": 149,
+     "enSort": 139
+    },
+    {
+     "alpha2": "MA",
+     "alpha3": "MAR",
+     "numeric": "504",
+     "latitude": "32",
+     "longitude": "-5",
+     "tr": "Fas",
+     "en": "Morocco",
+     "trSort": 61,
+     "enSort": 140
+    },
+    {
+     "alpha2": "MZ",
+     "alpha3": "MOZ",
+     "numeric": "508",
+     "latitude": "-18.25",
+     "longitude": "35",
+     "tr": "Mozambik",
+     "en": "Mozambique",
+     "trSort": 151,
+     "enSort": 141
+    },
+    {
+     "alpha2": "MM",
+     "alpha3": "MMR",
+     "numeric": "104",
+     "latitude": "22",
+     "longitude": "98",
+     "tr": "Myanmar",
+     "en": "Myanmar",
+     "trSort": 152,
+     "enSort": 142
+    },
+    {
+     "alpha2": "NA",
+     "alpha3": "NAM",
+     "numeric": "516",
+     "latitude": "-22",
+     "longitude": "17",
+     "tr": "Namibya",
+     "en": "Namibia",
+     "trSort": 153,
+     "enSort": 143
+    },
+    {
+     "alpha2": "NR",
+     "alpha3": "NRU",
+     "numeric": "520",
+     "latitude": "-0.5333",
+     "longitude": "166.9167",
+     "tr": "Nauru",
+     "en": "Nauru",
+     "trSort": 154,
+     "enSort": 144
+    },
+    {
+     "alpha2": "NP",
+     "alpha3": "NPL",
+     "numeric": "524",
+     "latitude": "28",
+     "longitude": "84",
+     "tr": "Nepal",
+     "en": "Nepal",
+     "trSort": 155,
+     "enSort": 145
+    },
+    {
+     "alpha2": "NL",
+     "alpha3": "NLD",
+     "numeric": "528",
+     "latitude": "52.5",
+     "longitude": "5.75",
+     "tr": "Hollanda",
+     "en": "Netherlands",
+     "trSort": 90,
+     "enSort": 146
+    },
+    {
+     "alpha2": "NC",
+     "alpha3": "NCL",
+     "numeric": "540",
+     "latitude": "-21.5",
+     "longitude": "165.5",
+     "tr": "Yeni Kaledonya",
+     "en": "New Caledonia",
+     "trSort": 228,
+     "enSort": 147
+    },
+    {
+     "alpha2": "NZ",
+     "alpha3": "NZL",
+     "numeric": "554",
+     "latitude": "-41",
+     "longitude": "174",
+     "tr": "Yeni Zelanda",
+     "en": "New Zealand",
+     "trSort": 229,
+     "enSort": 148
+    },
+    {
+     "alpha2": "NI",
+     "alpha3": "NIC",
+     "numeric": "558",
+     "latitude": "13",
+     "longitude": "-85",
+     "tr": "Nikaragua",
+     "en": "Nicaragua",
+     "trSort": 158,
+     "enSort": 149
+    },
+    {
+     "alpha2": "NE",
+     "alpha3": "NER",
+     "numeric": "562",
+     "latitude": "16",
+     "longitude": "8",
+     "tr": "Nijer",
+     "en": "Niger",
+     "trSort": 156,
+     "enSort": 150
+    },
+    {
+     "alpha2": "NG",
+     "alpha3": "NGA",
+     "numeric": "566",
+     "latitude": "10",
+     "longitude": "8",
+     "tr": "Nijerya",
+     "en": "Nigeria",
+     "trSort": 157,
+     "enSort": 151
+    },
+    {
+     "alpha2": "NU",
+     "alpha3": "NIU",
+     "numeric": "570",
+     "latitude": "-19.0333",
+     "longitude": "-169.8667",
+     "tr": "Niue",
+     "en": "Niue",
+     "trSort": 159,
+     "enSort": 152
+    },
+    {
+     "alpha2": "NF",
+     "alpha3": "NFK",
+     "numeric": "574",
+     "latitude": "-29.0333",
+     "longitude": "167.95",
+     "tr": "Norfolk Adası",
+     "en": "Norfolk Island",
+     "trSort": 160,
+     "enSort": 153
+    },
+    {
+     "alpha2": "KP",
+     "alpha3": "PRK",
+     "numeric": "408",
+     "latitude": "40",
+     "longitude": "127",
+     "tr": "Kuzey Kore",
+     "en": "North Korea",
+     "trSort": 120,
+     "enSort": 154
+    },
+    {
+     "alpha2": "MK",
+     "alpha3": "MKD",
+     "numeric": "807",
+     "latitude": "41.8333",
+     "longitude": "22",
+     "tr": "Kuzey Makedonya",
+     "en": "North Macedonia",
+     "trSort": 121,
+     "enSort": 155
+    },
+    {
+     "alpha2": "NO",
+     "alpha3": "NOR",
+     "numeric": "578",
+     "latitude": "62",
+     "longitude": "10",
+     "tr": "Norveç",
+     "en": "Norway",
+     "trSort": 161,
+     "enSort": 156
+    },
+    {
+     "alpha2": "OM",
+     "alpha3": "OMN",
+     "numeric": "512",
+     "latitude": "21",
+     "longitude": "57",
+     "tr": "Umman",
+     "en": "Oman",
+     "trSort": 217,
+     "enSort": 157
+    },
+    {
+     "alpha2": "PK",
+     "alpha3": "PAK",
+     "numeric": "586",
+     "latitude": "30",
+     "longitude": "70",
+     "tr": "Pakistan",
+     "en": "Pakistan",
+     "trSort": 164,
+     "enSort": 158
+    },
+    {
+     "alpha2": "PW",
+     "alpha3": "PLW",
+     "numeric": "585",
+     "latitude": "7.5",
+     "longitude": "134.5",
+     "tr": "Palau",
+     "en": "Palau",
+     "trSort": 165,
+     "enSort": 159
+    },
+    {
+     "alpha2": "PA",
+     "alpha3": "PAN",
+     "numeric": "591",
+     "latitude": "9",
+     "longitude": "-80",
+     "tr": "Panama",
+     "en": "Panama",
+     "trSort": 166,
+     "enSort": 160
+    },
+    {
+     "alpha2": "PG",
+     "alpha3": "PNG",
+     "numeric": "598",
+     "latitude": "-6",
+     "longitude": "147",
+     "tr": "Papua Yeni Gine",
+     "en": "Papua New Guinea",
+     "trSort": 167,
+     "enSort": 161
+    },
+    {
+     "alpha2": "PY",
+     "alpha3": "PRY",
+     "numeric": "600",
+     "latitude": "-23",
+     "longitude": "-58",
+     "tr": "Paraguay",
+     "en": "Paraguay",
+     "trSort": 168,
+     "enSort": 162
+    },
+    {
+     "alpha2": "PE",
+     "alpha3": "PER",
+     "numeric": "604",
+     "latitude": "-10",
+     "longitude": "-76",
+     "tr": "Peru",
+     "en": "Peru",
+     "trSort": 169,
+     "enSort": 163
+    },
+    {
+     "alpha2": "PH",
+     "alpha3": "PHL",
+     "numeric": "608",
+     "latitude": "13",
+     "longitude": "122",
+     "tr": "Filipinler",
+     "en": "Philippines",
+     "trSort": 64,
+     "enSort": 164
+    },
+    {
+     "alpha2": "PN",
+     "alpha3": "PCN",
+     "numeric": "612",
+     "latitude": "-24.7",
+     "longitude": "-127.4",
+     "tr": "Pitcairn Adaları",
+     "en": "Pitcairn Islands",
+     "trSort": 170,
+     "enSort": 165
+    },
+    {
+     "alpha2": "PL",
+     "alpha3": "POL",
+     "numeric": "616",
+     "latitude": "52",
+     "longitude": "20",
+     "tr": "Polonya",
+     "en": "Poland",
+     "trSort": 171,
+     "enSort": 166
+    },
+    {
+     "alpha2": "PT",
+     "alpha3": "PRT",
+     "numeric": "620",
+     "latitude": "39.5",
+     "longitude": "-8",
+     "tr": "Portekiz",
+     "en": "Portugal",
+     "trSort": 172,
+     "enSort": 167
+    },
+    {
+     "alpha2": "PR",
+     "alpha3": "PRI",
+     "numeric": "630",
+     "latitude": "18.25",
+     "longitude": "-66.5",
+     "tr": "Porto Riko",
+     "en": "Puerto Rico",
+     "trSort": 173,
+     "enSort": 168
+    },
+    {
+     "alpha2": "QA",
+     "alpha3": "QAT",
+     "numeric": "634",
+     "latitude": "25.5",
+     "longitude": "51.25",
+     "tr": "Katar",
+     "en": "Qatar",
+     "trSort": 108,
+     "enSort": 169
+    },
+    {
+     "alpha2": "RE",
+     "alpha3": "REU",
+     "numeric": "638",
+     "latitude": "-21.1",
+     "longitude": "55.6",
+     "tr": "Réunion",
+     "en": "Réunion",
+     "trSort": 174,
+     "enSort": 170
+    },
+    {
+     "alpha2": "RO",
+     "alpha3": "ROU",
+     "numeric": "642",
+     "latitude": "46",
+     "longitude": "25",
+     "tr": "Romanya",
+     "en": "Romania",
+     "trSort": 175,
+     "enSort": 171
+    },
+    {
+     "alpha2": "RU",
+     "alpha3": "RUS",
+     "numeric": "643",
+     "latitude": "60",
+     "longitude": "100",
+     "tr": "Rusya Federasyonu",
+     "en": "Russian Federation",
+     "trSort": 177,
+     "enSort": 172
+    },
+    {
+     "alpha2": "RW",
+     "alpha3": "RWA",
+     "numeric": "646",
+     "latitude": "-2",
+     "longitude": "30",
+     "tr": "Ruanda",
+     "en": "Rwanda",
+     "trSort": 176,
+     "enSort": 173
+    },
+    {
+     "alpha2": "SH",
+     "alpha3": "SHN",
+     "numeric": "654",
+     "latitude": "-15.9333",
+     "longitude": "-5.7",
+     "tr": "Saint Helena",
+     "en": "Saint Helena",
+     "trSort": 178,
+     "enSort": 174
+    },
+    {
+     "alpha2": "KN",
+     "alpha3": "KNA",
+     "numeric": "659",
+     "latitude": "17.3333",
+     "longitude": "-62.75",
+     "tr": "Saint Kitts ve Nevis",
+     "en": "Saint Kitts and Nevis",
+     "trSort": 179,
+     "enSort": 175
+    },
+    {
+     "alpha2": "LC",
+     "alpha3": "LCA",
+     "numeric": "662",
+     "latitude": "13.8833",
+     "longitude": "-61.1333",
+     "tr": "Saint Lucia",
+     "en": "Saint Lucia",
+     "trSort": 180,
+     "enSort": 176
+    },
+    {
+     "alpha2": "PM",
+     "alpha3": "SPM",
+     "numeric": "666",
+     "latitude": "46.8333",
+     "longitude": "-56.3333",
+     "tr": "Saint Pierre ve Miquelon",
+     "en": "Saint Pierre and Miquelon",
+     "trSort": 181,
+     "enSort": 177
+    },
+    {
+     "alpha2": "VC",
+     "alpha3": "VCT",
+     "numeric": "670",
+     "latitude": "13.25",
+     "longitude": "-61.2",
+     "tr": "Saint Vincent ve Grenadinler",
+     "en": "Saint Vincent and the Grenadines",
+     "trSort": 182,
+     "enSort": 178
+    },
+    {
+     "alpha2": "WS",
+     "alpha3": "WSM",
+     "numeric": "882",
+     "latitude": "-13.5833",
+     "longitude": "-172.3333",
+     "tr": "Samoa",
+     "en": "Samoa",
+     "trSort": 183,
+     "enSort": 179
+    },
+    {
+     "alpha2": "SM",
+     "alpha3": "SMR",
+     "numeric": "674",
+     "latitude": "43.7667",
+     "longitude": "12.4167",
+     "tr": "San Marino",
+     "en": "San Marino",
+     "trSort": 184,
+     "enSort": 180
+    },
+    {
+     "alpha2": "ST",
+     "alpha3": "STP",
+     "numeric": "678",
+     "latitude": "1",
+     "longitude": "7",
+     "tr": "Sao Tome ve Principe",
+     "en": "Sao Tome and Principe",
+     "trSort": 185,
+     "enSort": 181
+    },
+    {
+     "alpha2": "SA",
+     "alpha3": "SAU",
+     "numeric": "682",
+     "latitude": "25",
+     "longitude": "45",
+     "tr": "Suudi Arabistan",
+     "en": "Saudi Arabia",
+     "trSort": 200,
+     "enSort": 182
+    },
+    {
+     "alpha2": "SN",
+     "alpha3": "SEN",
+     "numeric": "686",
+     "latitude": "14",
+     "longitude": "-14",
+     "tr": "Senegal",
+     "en": "Senegal",
+     "trSort": 186,
+     "enSort": 183
+    },
+    {
+     "alpha2": "RS",
+     "alpha3": "SRB",
+     "numeric": "688",
+     "latitude": "44",
+     "longitude": "21",
+     "tr": "Sırbistan",
+     "en": "Serbia",
+     "trSort": 188,
+     "enSort": 184
+    },
+    {
+     "alpha2": "SC",
+     "alpha3": "SYC",
+     "numeric": "690",
+     "latitude": "-4.5833",
+     "longitude": "55.6667",
+     "tr": "Seyşeller",
+     "en": "Seychelles",
+     "trSort": 187,
+     "enSort": 185
+    },
+    {
+     "alpha2": "SL",
+     "alpha3": "SLE",
+     "numeric": "694",
+     "latitude": "8.5",
+     "longitude": "-11.5",
+     "tr": "Sierra Leone",
+     "en": "Sierra Leone",
+     "trSort": 189,
+     "enSort": 186
+    },
+    {
+     "alpha2": "SG",
+     "alpha3": "SGP",
+     "numeric": "702",
+     "latitude": "1.3667",
+     "longitude": "103.8",
+     "tr": "Singapur",
+     "en": "Singapore",
+     "trSort": 190,
+     "enSort": 187
+    },
+    {
+     "alpha2": "SK",
+     "alpha3": "SVK",
+     "numeric": "703",
+     "latitude": "48.6667",
+     "longitude": "19.5",
+     "tr": "Slovakya",
+     "en": "Slovakia",
+     "trSort": 191,
+     "enSort": 188
+    },
+    {
+     "alpha2": "SI",
+     "alpha3": "SVN",
+     "numeric": "705",
+     "latitude": "46",
+     "longitude": "15",
+     "tr": "Slovenya",
+     "en": "Slovenia",
+     "trSort": 192,
+     "enSort": 189
+    },
+    {
+     "alpha2": "SB",
+     "alpha3": "SLB",
+     "numeric": "90",
+     "latitude": "-8",
+     "longitude": "159",
+     "tr": "Solomon Adaları",
+     "en": "Solomon Islands",
+     "trSort": 193,
+     "enSort": 190
+    },
+    {
+     "alpha2": "SO",
+     "alpha3": "SOM",
+     "numeric": "706",
+     "latitude": "10",
+     "longitude": "49",
+     "tr": "Somali",
+     "en": "Somalia",
+     "trSort": 194,
+     "enSort": 191
+    },
+    {
+     "alpha2": "ZA",
+     "alpha3": "ZAF",
+     "numeric": "710",
+     "latitude": "-29",
+     "longitude": "24",
+     "tr": "Güney Afrika",
+     "en": "South Africa",
+     "trSort": 82,
+     "enSort": 192
+    },
+    {
+     "alpha2": "GS",
+     "alpha3": "SGS",
+     "numeric": "239",
+     "latitude": "-54.5",
+     "longitude": "-37",
+     "tr": "South Georgia ve South Sandwich Adaları",
+     "en": "South Georgia and the South Sandwich Islands",
+     "trSort": 195,
+     "enSort": 193
+    },
+    {
+     "alpha2": "KR",
+     "alpha3": "KOR",
+     "numeric": "410",
+     "latitude": "37",
+     "longitude": "127.5",
+     "tr": "Güney Kore",
+     "en": "South Korea",
+     "trSort": 83,
+     "enSort": 194
+    },
+    {
+     "alpha2": "SS",
+     "alpha3": "SSD",
+     "numeric": "728",
+     "latitude": "6.876991",
+     "longitude": "31.306978",
+     "tr": "Güney Sudan",
+     "en": "South Sudan",
+     "trSort": 84,
+     "enSort": 195
+    },
+    {
+     "alpha2": "ES",
+     "alpha3": "ESP",
+     "numeric": "724",
+     "latitude": "40",
+     "longitude": "-4",
+     "tr": "İspanya",
+     "en": "Spain",
+     "trSort": 96,
+     "enSort": 196
+    },
+    {
+     "alpha2": "LK",
+     "alpha3": "LKA",
+     "numeric": "144",
+     "latitude": "7",
+     "longitude": "81",
+     "tr": "Sri Lanka",
+     "en": "Sri Lanka",
+     "trSort": 196,
+     "enSort": 197
+    },
+    {
+     "alpha2": "SD",
+     "alpha3": "SDN",
+     "numeric": "736",
+     "latitude": "15",
+     "longitude": "30",
+     "tr": "Sudan",
+     "en": "Sudan",
+     "trSort": 197,
+     "enSort": 198
+    },
+    {
+     "alpha2": "SR",
+     "alpha3": "SUR",
+     "numeric": "740",
+     "latitude": "4",
+     "longitude": "-56",
+     "tr": "Surinam",
+     "en": "Suriname",
+     "trSort": 198,
+     "enSort": 199
+    },
+    {
+     "alpha2": "SJ",
+     "alpha3": "SJM",
+     "numeric": "744",
+     "latitude": "78",
+     "longitude": "20",
+     "tr": "Svalbard ve Jan Mayen",
+     "en": "Svalbard and Jan Mayen",
+     "trSort": 201,
+     "enSort": 200
+    },
+    {
+     "alpha2": "SZ",
+     "alpha3": "SWZ",
+     "numeric": "748",
+     "latitude": "-26.5",
+     "longitude": "31.5",
+     "tr": "Svaziland (Esvatini)",
+     "en": "Swaziland (Eswatini)",
+     "trSort": 202,
+     "enSort": 201
+    },
+    {
+     "alpha2": "SE",
+     "alpha3": "SWE",
+     "numeric": "752",
+     "latitude": "62",
+     "longitude": "15",
+     "tr": "İsveç",
+     "en": "Sweden",
+     "trSort": 98,
+     "enSort": 202
+    },
+    {
+     "alpha2": "CH",
+     "alpha3": "CHE",
+     "numeric": "756",
+     "latitude": "47",
+     "longitude": "8",
+     "tr": "İsviçre",
+     "en": "Switzerland",
+     "trSort": 99,
+     "enSort": 203
+    },
+    {
+     "alpha2": "SY",
+     "alpha3": "SYR",
+     "numeric": "760",
+     "latitude": "35",
+     "longitude": "38",
+     "tr": "Suriye Arap Cumhuriyeti",
+     "en": "Syrian Arab Republic",
+     "trSort": 199,
+     "enSort": 204
+    },
+    {
+     "alpha2": "TW",
+     "alpha3": "TWN",
+     "numeric": "158",
+     "latitude": "23.5",
+     "longitude": "121",
+     "tr": "Tayvan",
+     "en": "Taiwan",
+     "trSort": 207,
+     "enSort": 205
+    },
+    {
+     "alpha2": "TJ",
+     "alpha3": "TJK",
+     "numeric": "762",
+     "latitude": "39",
+     "longitude": "71",
+     "tr": "Tacikistan",
+     "en": "Tajikistan",
+     "trSort": 204,
+     "enSort": 206
+    },
+    {
+     "alpha2": "TZ",
+     "alpha3": "TZA",
+     "numeric": "834",
+     "latitude": "-6",
+     "longitude": "35",
+     "tr": "Tanzanya",
+     "en": "Tanzania",
+     "trSort": 205,
+     "enSort": 207
+    },
+    {
+     "alpha2": "TH",
+     "alpha3": "THA",
+     "numeric": "764",
+     "latitude": "15",
+     "longitude": "100",
+     "tr": "Tayland",
+     "en": "Thailand",
+     "trSort": 206,
+     "enSort": 208
+    },
+    {
+     "alpha2": "TL",
+     "alpha3": "TLS",
+     "numeric": "626",
+     "latitude": "-8.55",
+     "longitude": "125.5167",
+     "tr": "Doğu Timor",
+     "en": "Timor-Leste",
+     "trSort": 48,
+     "enSort": 209
+    },
+    {
+     "alpha2": "TG",
+     "alpha3": "TGO",
+     "numeric": "768",
+     "latitude": "8",
+     "longitude": "1.1667",
+     "tr": "Togo",
+     "en": "Togo",
+     "trSort": 208,
+     "enSort": 210
+    },
+    {
+     "alpha2": "TK",
+     "alpha3": "TKL",
+     "numeric": "772",
+     "latitude": "-9",
+     "longitude": "-172",
+     "tr": "Tokelau",
+     "en": "Tokelau",
+     "trSort": 209,
+     "enSort": 211
+    },
+    {
+     "alpha2": "TT",
+     "alpha3": "TTO",
+     "numeric": "780",
+     "latitude": "11",
+     "longitude": "-61",
+     "tr": "Trinidad ve Tobago",
+     "en": "Trinidad and Tobago",
+     "trSort": 210,
+     "enSort": 212
+    },
+    {
+     "alpha2": "TN",
+     "alpha3": "TUN",
+     "numeric": "788",
+     "latitude": "34",
+     "longitude": "9",
+     "tr": "Tunus",
+     "en": "Tunisia",
+     "trSort": 211,
+     "enSort": 213
+    },
+    {
+     "alpha2": "TR",
+     "alpha3": "TUR",
+     "numeric": "792",
+     "latitude": "39",
+     "longitude": "35",
+     "tr": "Türkiye",
+     "en": "Turkey",
+     "trSort": 213,
+     "enSort": 214
+    },
+    {
+     "alpha2": "TM",
+     "alpha3": "TKM",
+     "numeric": "795",
+     "latitude": "40",
+     "longitude": "60",
+     "tr": "Türkmenistan",
+     "en": "Turkmenistan",
+     "trSort": 214,
+     "enSort": 215
+    },
+    {
+     "alpha2": "TC",
+     "alpha3": "TCA",
+     "numeric": "796",
+     "latitude": "21.75",
+     "longitude": "-71.5833",
+     "tr": "Turks ve Caicos Adaları",
+     "en": "Turks and Caicos Islands",
+     "trSort": 212,
+     "enSort": 216
+    },
+    {
+     "alpha2": "UG",
+     "alpha3": "UGA",
+     "numeric": "800",
+     "latitude": "1",
+     "longitude": "32",
+     "tr": "Uganda",
+     "en": "Uganda",
+     "trSort": 215,
+     "enSort": 217
+    },
+    {
+     "alpha2": "UA",
+     "alpha3": "UKR",
+     "numeric": "804",
+     "latitude": "49",
+     "longitude": "32",
+     "tr": "Ukrayna",
+     "en": "Ukraine",
+     "trSort": 216,
+     "enSort": 218
+    },
+    {
+     "alpha2": "AE",
+     "alpha3": "ARE",
+     "numeric": "784",
+     "latitude": "24",
+     "longitude": "54",
+     "tr": "Birleşik Arap Emirlikleri",
+     "en": "United Arab Emirates",
+     "trSort": 25,
+     "enSort": 219
+    },
+    {
+     "alpha2": "GB",
+     "alpha3": "GBR",
+     "numeric": "826",
+     "latitude": "54",
+     "longitude": "-2",
+     "tr": "Birleşik Krallık",
+     "en": "United Kingdom",
+     "trSort": 26,
+     "enSort": 220
+    },
+    {
+     "alpha2": "US",
+     "alpha3": "USA",
+     "numeric": "840",
+     "latitude": "38",
+     "longitude": "-97",
+     "tr": "Amerika Birleşik Devletleri",
+     "en": "United States",
+     "trSort": 3,
+     "enSort": 221
+    },
+    {
+     "alpha2": "UY",
+     "alpha3": "URY",
+     "numeric": "858",
+     "latitude": "-33",
+     "longitude": "-56",
+     "tr": "Uruguay",
+     "en": "Uruguay",
+     "trSort": 218,
+     "enSort": 222
+    },
+    {
+     "alpha2": "UZ",
+     "alpha3": "UZB",
+     "numeric": "860",
+     "latitude": "41",
+     "longitude": "64",
+     "tr": "Özbekistan",
+     "en": "Uzbekistan",
+     "trSort": 163,
+     "enSort": 223
+    },
+    {
+     "alpha2": "VU",
+     "alpha3": "VUT",
+     "numeric": "548",
+     "latitude": "-16",
+     "longitude": "167",
+     "tr": "Vanuatu",
+     "en": "Vanuatu",
+     "trSort": 221,
+     "enSort": 224
+    },
+    {
+     "alpha2": "VE",
+     "alpha3": "VEN",
+     "numeric": "862",
+     "latitude": "8",
+     "longitude": "-66",
+     "tr": "Venezuela",
+     "en": "Venezuela",
+     "trSort": 223,
+     "enSort": 225
+    },
+    {
+     "alpha2": "VN",
+     "alpha3": "VNM",
+     "numeric": "704",
+     "latitude": "16",
+     "longitude": "106",
+     "tr": "Viet Nam",
+     "en": "Viet Nam",
+     "trSort": 224,
+     "enSort": 226
+    },
+    {
+     "alpha2": "VG",
+     "alpha3": "VGB",
+     "numeric": "92",
+     "latitude": "18.5",
+     "longitude": "-64.5",
+     "tr": "Virjin Adaları, İngiliz",
+     "en": "Virgin Islands, British",
+     "trSort": 226,
+     "enSort": 227
+    },
+    {
+     "alpha2": "VI",
+     "alpha3": "VIR",
+     "numeric": "850",
+     "latitude": "18.3333",
+     "longitude": "-64.8333",
+     "tr": "Virjin Adaları, ABD",
+     "en": "Virgin Islands, U.S.",
+     "trSort": 225,
+     "enSort": 228
+    },
+    {
+     "alpha2": "WF",
+     "alpha3": "WLF",
+     "numeric": "876",
+     "latitude": "-13.3",
+     "longitude": "-176.2",
+     "tr": "Vallis and Futuna",
+     "en": "Wallis and Futuna",
+     "trSort": 220,
+     "enSort": 229
+    },
+    {
+     "alpha2": "EH",
+     "alpha3": "ESH",
+     "numeric": "732",
+     "latitude": "24.5",
+     "longitude": "-13",
+     "tr": "Batı Sahra",
+     "en": "Western Sahara",
+     "trSort": 19,
+     "enSort": 230
+    },
+    {
+     "alpha2": "YE",
+     "alpha3": "YEM",
+     "numeric": "887",
+     "latitude": "15",
+     "longitude": "48",
+     "tr": "Yemen",
+     "en": "Yemen",
+     "trSort": 227,
+     "enSort": 231
+    },
+    {
+     "alpha2": "ZM",
+     "alpha3": "ZMB",
+     "numeric": "894",
+     "latitude": "-15",
+     "longitude": "30",
+     "tr": "Zambiya",
+     "en": "Zambia",
+     "trSort": 232,
+     "enSort": 232
+    },
+    {
+     "alpha2": "ZW",
+     "alpha3": "ZWE",
+     "numeric": "716",
+     "latitude": "-20",
+     "longitude": "30",
+     "tr": "Zimbabve",
+     "en": "Zimbabwe",
+     "trSort": 233,
+     "enSort": 233
     }
-  ]
-}
-
-export default countries;
+   ]
+  }
+  
+  export default countries;

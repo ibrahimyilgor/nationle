@@ -43,6 +43,8 @@ const langTr = {
     showMap: "Haritayı Göster",
     mapDisabled: "Harita ve bayrak gizlendi. Tekrar görmek için ayarlara gir.",
     flagMode: "Bayrak Modu",
+    azerbaijan: "Azerbaycan",
+    turkey: "Türkiye",
   }
   
   export default langTr;

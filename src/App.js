@@ -165,9 +165,15 @@ function App() {
   const randomNum = useMemo(() => Math.round(random()*(countries.ref_country_codes.length-1)), []);
   const datee = useMemo(() => new Date(), []);
 
+  const [lang, setLang] = useState("en");
+
   const options = [];
-  countries.ref_country_codes.map(country => {
-    options.push({label:country.country,value:country});
+  const tempList = countries.ref_country_codes.slice();
+
+  tempList.sort((a, b) => (a[lang + "Sort"] > b[lang + "Sort"]) ? 1 : -1) //Sort to target language
+
+  tempList.map(country => {
+    options.push({label:country[lang],value:country});
     return true; //To avoid warning.
   });
 
@@ -190,7 +196,6 @@ function App() {
   const [openHowToPlayModal, setOpenHowToPlayModal] = useState();
   const [openSettingsModal, setOpenSettingsModal] = useState();
 
-  const [lang, setLang] = useState("en");
   const [showMap, setShowMap] = useState(true);
   const [flagMode, setFlagMode] = useState(false);
   const autoCompleteRef = useRef();
@@ -277,7 +282,7 @@ function App() {
       let changeGuess = guesses;
       changeGuess[guessNum] = {
         code: guessText?.value?.alpha2,
-        name1:guessText?.value?.country,
+        name1:guessText?.value[lang],
         name2: km + " km",
         name3: bearing(guessText?.value?.latitude,guessText?.value?.longitude,countries.ref_country_codes[randomNum].latitude,countries.ref_country_codes[randomNum].longitude).toFixed(2),
         value: value
@@ -349,7 +354,7 @@ function App() {
             alt = "target_country"
             style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
             src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
-            width="100%" height="auto"/>
+            width="50%" height="auto"/>
           ) 
           : undefined
           } 
@@ -359,7 +364,7 @@ function App() {
           {(flagMode === true) &&
           (
             <img
-            width="60%"
+            width="50%"
             src={`svg/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}.svg`}
             alt={"flag"}/> 
           )}
@@ -389,7 +394,7 @@ function App() {
                     width="35vw"
                     src={`svg/${option?.value?.alpha2?.toLowerCase()}.svg`}
                     alt={option?.value?.alpha2?.toLowerCase() || "flag"}/> )}
-                  <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value?.country} />
+                  <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value[lang]} />
                 </ListItem>
               )}
               renderInput={(params) => <TextField ref={autoCompleteRef} placeholder={l(lang,"selectACountry")} {...params} />}
@@ -421,7 +426,7 @@ function App() {
         {guesses.map((val,key) => {
           return<Guess 
             code={val?.code}
-            name1={val?.name1}
+            name1={countries.ref_country_codes.find(obj => obj.alpha2 === val?.code) && countries.ref_country_codes.find(obj => obj.alpha2 === val?.code)[lang]}
             name2={val?.name2}
             name3={val?.name3}
             value={val?.value}/>
