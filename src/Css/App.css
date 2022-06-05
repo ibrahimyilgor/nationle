@@ -34,8 +34,8 @@
   height: 30vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;  /* Centering y-axis */
-  align-items :center; /* Centering x-axis */
+  justify-content: center;  /* Centering y-axis */
+  align-items: center; /* Centering x-axis */
 }
 
 .ImageOnlyFlag{
