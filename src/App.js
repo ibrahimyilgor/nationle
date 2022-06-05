@@ -354,7 +354,7 @@ function App() {
             alt = "target_country"
             style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
             src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
-            width="50%" height="auto"/>
+            width={flagMode ? "50%" : "80%"} height="auto"/>
           ) 
           : undefined
           } 
@@ -364,7 +364,7 @@ function App() {
           {(flagMode === true) &&
           (
             <img
-            width="50%"
+            width={showMap ? "50%": "80%"}
             src={`svg/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}.svg`}
             alt={"flag"}/> 
           )}
