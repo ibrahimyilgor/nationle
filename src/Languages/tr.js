@@ -45,6 +45,10 @@ const langTr = {
     flagMode: "Bayrak Modu",
     azerbaijan: "Azerbaycan",
     turkey: "Türkiye",
+    wikiMessage: "Ülkeyi Vikipedi'de görüntüleyin",
+    avgDistance: "Ortalama Mesafe",
+    winRate: "Kazanma Oranı",
+    winStreak: "Peşpeşe Kazanma",
   }
   
   export default langTr;

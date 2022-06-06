@@ -110,9 +110,12 @@ const LoseModal = ({ country, handleClose, open, lang, datee, guesses}) => {
                         alt={country?.alpha2?.toLowerCase() || "flag"}/>
                         
                         <Typography id="modal-modal-description" variant="h5" component="h3" sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }}>
-                        {country.country}
+                        {country[lang]}
                         </Typography>
-                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country.country}`} rel="noreferrer" target="_blank">{l(lang,"viewCountry")}</a>
+                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country["en"]}`} rel="noreferrer" target="_blank">{l(lang,"viewCountry")}</a>
+                        <br></br>
+                        <br></br>
+                        <a style={{"color": "inherit"}} href={`https://${lang}.wikipedia.org/wiki/${country[lang]}`} rel="noreferrer" target="_blank">{l(lang,"wikiMessage")}</a>
                         <Typography sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">{time.length === 1 ? time[0] : l(lang,"nextNationleIn")+ time[1] + l(lang,"hours")  + time[2] + l(lang,"minutes") + time[3] + l(lang,"seconds")}
                         </Typography>
                     </center>
@@ -122,6 +125,7 @@ const LoseModal = ({ country, handleClose, open, lang, datee, guesses}) => {
                           {l(lang,"copy")}
                         </Alert>
                       </Snackbar>)}
+                      
                 </Box>
             </Modal>
         </div>

@@ -45,6 +45,10 @@ const langEn = {
     flagMode: "Flag Mode",
     azerbaijan: "Azerbaijan",
     turkey: "Turkey",
+    wikiMessage: "View the country on Wikipedia",
+    avgDistance: "Average Distance",
+    winRate: "Win Rate",
+    winStreak: "Win Streak",
   }
   
   export default langEn;
