@@ -70,8 +70,15 @@ function Guess({fullWidth,code,name1,name2,name3,value}) {
             {value === 100 ? (<DoneIcon className={classes.done}/>) : (<EastIcon className={[classes.svgIcon, classes.rotateImg]}/>)}
             
         </div>)}
-        {name3 !== undefined && (<div className='GuessPercentage'>
+        {/* {name3 !== undefined && (<div className='GuessPercentage'>
             <CircularStatic variant={'determinate'} value={value} />
+        </div>)} */}
+        {name3 !== undefined && (<div className='GuessPercentage'>
+        <img 
+            alt = ""
+            style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
+            src={`all/${code.toLowerCase()}/vector.svg`}
+            width={"90%"} height="90%"/>
         </div>)}
     </div>)
 }
