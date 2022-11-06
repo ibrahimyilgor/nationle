@@ -205,6 +205,7 @@ const WinModal = ({ country, handleClose, open, lang, datee, guesses}) => {
                       </div>
                       <br></br>
                         <NewMap
+                          width={dim?.width *0.5}
                           mapData={mapData} 
                           marker={markers}
                           win={true}

@@ -8,7 +8,7 @@ const handleClick = (e, countryCode) => {
   console.log(countryCode);
 };
 
-const NewMap = ({mapData, marker, win, lang}) => {
+const NewMap = ({mapData, marker, win, lang, width}) => {
 
   const onToolTipShow = (e, el, code) => {
     console.log("ibrahim",code, e, el)
@@ -52,8 +52,8 @@ const NewMap = ({mapData, marker, win, lang}) => {
         //   }
         // }
         containerStyle={{
-          width: "100%",
-          height: "250px",
+          width: width * 0.9,
+          height: width * 0.45,
         }}
         markers={marker}
         onRegionClick={handleClick} //gets the country code

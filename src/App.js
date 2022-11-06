@@ -64,6 +64,9 @@ const useStyles = makeStyles(
         color: "#F6EABE",
         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
       },
+      "&.MuiAutocomplete-root .MuiOutlinedInput-root":{
+        padding: "0 0 0 9px",
+      },
       "&.MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input":{
         fontFamily: "Patrick Hand",
         width: "50vw",
