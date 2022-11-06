@@ -103,7 +103,7 @@ const useStyles = makeStyles(
     }
   );
 
-  const GreenSwitch = styled(Switch)(({ theme }) => ({
+  export const GreenSwitch = styled(Switch)(({ theme }) => ({
     '& .MuiSwitch-switchBase.Mui-checked': {
       color: "#F6EABE",
       '&:hover': {

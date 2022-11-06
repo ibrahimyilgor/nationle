@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Modal, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, IconButton, Modal, Snackbar, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useCountdown } from "../Timer";
 
@@ -6,6 +6,13 @@ import copyAnswer from '../Share';
 import { useState } from "react";
 
 import l from '../Languages/language';
+import NewMap from "../NewMap";
+import countries from '../countries';
+
+import MapIcon from '@mui/icons-material/Map';
+import InfoIcon from '@mui/icons-material/Info';
+import { useWindowDimensions } from "react-native";
+import { useEffect } from "react";
 
 const style = {
     position: 'absolute',
@@ -67,12 +74,75 @@ const useStyles = makeStyles(
           borderColor: "#F6EABE",
         },
     },
+    iconbutton: {
+      "&.MuiIconButton-root":{
+        marginTop: "1.25%",
+        height: "80%",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        width: "100%",
+        backgroundColor: "#789395",
+        color: "#F6EABE",
+        borderRadius: "25px",
+        borderWidth: "5px",
+        borderColor: "#F6EABE",
+        borderStyle: "solid",
+        fontSize: "80%",
+        marginLeft: "1%",
+        marginRight: "1%"
+      },
+      '&.MuiIconButton-root:hover': {
+        marginTop: "1.25%",
+        height: "80%",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        width: "100%",
+        borderRadius: "25px",
+        borderWidth: "5px",
+        borderColor: "#F6EABE",
+        borderStyle: "solid",
+        backgroundColor: "#95aaab",
+        color: "#F6EABE",
+        fontSize: "80%",
+        marginLeft: "1%",
+        marginRight: "1%"
+      },
+    },
   }
 );
 
 const WinModal = ({ country, handleClose, open, lang, datee, guesses}) => {
-    const time = useCountdown(datee, lang);
+    // const time = useCountdown(datee, lang);
     const classes = useStyles();
+
+    const dim = useWindowDimensions();
+    const [mapData, setMapData] = useState({})
+    const [markers, setMarkers] = useState({})
+
+    useEffect(() => {
+      if(open){
+        // console.log("openwinmodel")
+        setMapData({
+          [guesses[0].code ?? "XXX"] : country?.alpha2.toUpperCase() === guesses[0].code ? 500 : 9000,
+          [guesses[1].code ?? "XXX"] : country?.alpha2.toUpperCase() === guesses[1].code ? 500 : 9000,
+          [guesses[2].code ?? "XXX"] : country?.alpha2.toUpperCase() === guesses[2].code ? 500 : 9000,
+          [guesses[3].code ?? "XXX"] : country?.alpha2.toUpperCase() === guesses[3].code ? 500 : 9000,
+          [guesses[4].code ?? "XXX"] : country?.alpha2.toUpperCase() === guesses[4].code ? 500 : 9000,
+          [guesses[5].code ?? "XXX"] : country?.alpha2.toUpperCase() === guesses[5].code ? 500 : 9000
+        })
+
+        let markerObj = {}
+        for(let i=0; i<6; i++){
+          if(guesses[i] === {}){
+            continue
+          }
+          markerObj = {...markerObj, [i]: {
+            latLng: [countries.ref_country_codes.find(obj => obj.alpha2 === guesses[i].code) && countries.ref_country_codes.find(obj => obj.alpha2 === guesses[i].code)["latitude"], countries.ref_country_codes.find(obj => obj.alpha2 === guesses[i].code) && countries.ref_country_codes.find(obj => obj.alpha2 === guesses[i].code)["longitude"]],
+            name: countries.ref_country_codes.find(obj => obj.alpha2 === guesses[i].code) && i+1 + " - " + countries.ref_country_codes.find(obj => obj.alpha2 === guesses[i].code)[lang],
+            style: {r: 5, fill: guesses[i].code === country?.alpha2 ? "green" : "red"}
+          }}
+        }
+        setMarkers(markerObj)
+      }
+    }, [open])
 
     const [copyAlert, setCopyAlert] = useState(false);
     const handleCloseAlert = (event, reason) => {
@@ -100,29 +170,51 @@ const WinModal = ({ country, handleClose, open, lang, datee, guesses}) => {
                     {l(lang,"win")}
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">
-                    {l(lang,"congratulations")}
+                    {l(lang,"congratulations") + " " + country[lang]}
                     </Typography>
                     <center>
-                        
-                        <img
-                        width={"35%"}
-                        src={`svg/${country?.alpha2?.toLowerCase()}.svg`}
-                        alt={country?.alpha2?.toLowerCase() || "flag"}/>
-                        
-                        <Typography id="modal-modal-description" variant="h5" component="h3" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>
-                        {country[lang]}
-                        </Typography>
-                        <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country["en"]}`} rel="noreferrer" target="_blank">{l(lang,"viewCountry")}</a>
-                        <br></br>
-                        <br></br>
-                        <a style={{"color": "inherit"}} href={`https://${lang}.wikipedia.org/wiki/${country[lang]}`} rel="noreferrer" target="_blank">{l(lang,"wikiMessage")}</a>
-                        <Typography variant="h6" component="h5" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }}>{time.length === 1 ? time[0] : l(lang,"nextNationleIn")+ time[1] + l(lang,"hours")  + time[2] + l(lang,"minutes") + time[3] + l(lang,"seconds")}
-                        </Typography>
+                    <div style={{display: "flex", flexDirection: "row", width: "80%", marginBottom: "10px", justifyContent: "center"}}>
+                        <div style={{width: (dim.height * 1.2 > dim.width) ? "50%" : "30%", height: "100%", marginRight: 5}}> 
+                          <a style={{"color": "inherit"}} href={`https://www.google.com/maps/place/${country["en"]}`} rel="noreferrer" target="_blank">
+                            <IconButton className={classes.iconbutton} aria-label="delete">
+                              <MapIcon fontSize={(dim.height > dim.width) ? "inherit" : "medium"}/>
+                              {dim.height * 1.2 < dim.width && 
+                                (
+                                  <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", textAlign:"center" }} variant="h6" component="h5">
+                                    {l(lang, "maps")}
+                                  </Typography>
+                                )
+                              }
+                            </IconButton>
+                          </a>
+                        </div>
+                        <div style={{width: (dim.height * 1.2 > dim.width) ? "50%" : "30%", height: "100%", marginLeft: 5}}> 
+                          <a style={{"color": "inherit"}} href={`https://${lang}.wikipedia.org/wiki/${country[lang]}`} rel="noreferrer" target="_blank">
+                            <IconButton className={classes.iconbutton} aria-label="delete">
+                              <InfoIcon fontSize={(dim.height > dim.width) ? "inherit" : "medium"}/>
+                              {dim.height * 1.2 < dim.width && 
+                                (
+                                  <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", textAlign:"center" }} variant="h6" component="h5">
+                                    {l(lang, "wiki")}
+                                  </Typography>
+                                )
+                              }
+                            </IconButton>
+                          </a>
+                        </div>
+                      </div>
+                      <br></br>
+                        <NewMap
+                          mapData={mapData} 
+                          marker={markers}
+                          win={true}
+                          lang={lang}
+                        />
                     </center>
                     {copyAlert && (
                       <Snackbar open={copyAlert} onClose={handleCloseAlert} autoHideDuration={3000} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
                         <Alert className={classes.cookieAlert} severity="success" sx={{ width: '100%' }}>
-                        {l(lang,"copy")}
+                          {l(lang,"copy")}
                         </Alert>
                       </Snackbar>)}
                 </Box>
