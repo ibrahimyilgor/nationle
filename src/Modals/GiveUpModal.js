@@ -1,7 +1,6 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
-import l from '../Languages/language';
+import { useAppContext } from "../context/context";
 
 const style = {
     position: 'absolute',
@@ -40,8 +39,10 @@ const useStyles = makeStyles(
     }
   );
 
-const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handleClose, open, lang}) => {
+const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handleClose, open}) => {
     const classes = useStyles();
+
+    const {l} = useAppContext();
 
     return(
         <div>
@@ -55,11 +56,11 @@ const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handle
                     <center>
                         <div>
                         <Typography sx={{ fontFamily: "Patrick Hand", textAlign:"center", mb:2 }} id="modal-modal-title" variant="h6" component="h2">
-                            {l(lang,"areYouGivingUp")}
+                            {l("areYouGivingUp")}
                         </Typography>
                         </div>
                         <div style={{ flexDirection: "column" }}>
-                            <Button className={classes.button} sx={{ color: "#F6EABE", marginRight: "2%" }} onClick={handleClose}>{l(lang,"no")}</Button>
+                            <Button className={classes.button} sx={{ color: "#F6EABE", marginRight: "2%" }} onClick={handleClose}>{l("no")}</Button>
                             <Button className={classes.button} sx={{ color: "#F6EABE", marginLeft: "2%" }} onClick={()=>{
                                 setEndState(2);
                                 localStorage.setItem(new Date().getDate().toString() + "." + (new Date().getMonth()+1).toString()  + "." + new Date().getFullYear().toString(), JSON.stringify({guesses,guessNum,endState:2}));
@@ -68,7 +69,7 @@ const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handle
                                 let tempStats = stats;
                                 tempStats[0] += 1;
                                 localStorage.setItem("stats", JSON.stringify(stats));
-                                }}>{l(lang,"yes")}</Button>
+                                }}>{l("yes")}</Button>
                         </div>
                     </center>
                 </Box>

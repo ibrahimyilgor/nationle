@@ -1,14 +1,15 @@
 import React from "react";
-import { useState } from "react";
 import { VectorMap } from "react-jvectormap";
+import { useAppContext } from "./context/context";
 import countries from './countries';
-import l from './Languages/language';
 
 const handleClick = (e, countryCode) => {
   // console.log(countryCode);
 };
 
-const NewMap = ({mapData, marker, win, lang, width}) => {
+const NewMap = ({mapData, marker, win, width}) => {
+
+  const {lang} = useAppContext();
 
   const onToolTipShow = (e, el, code) => {
     // console.log("ibrahim",code, e, el)

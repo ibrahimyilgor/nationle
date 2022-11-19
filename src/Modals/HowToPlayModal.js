@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Modal, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Guess from "../Guess";
 import useWindowDimensions from '../getWindowDimensions';
@@ -7,7 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import l from '../Languages/language';
+import { useAppContext } from "../context/context";
 
 const style = {
   position: 'absolute',
@@ -78,9 +78,11 @@ const useStyles = makeStyles(
   }
 );
 
-const InfoModal = ({ lang, handleClose, open}) => {
-    const classes = useStyles();
-    const dim = useWindowDimensions();
+const InfoModal = ({ handleClose, open}) => {
+  const classes = useStyles();
+  const dim = useWindowDimensions();
+
+  const {l} = useAppContext();
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -109,36 +111,36 @@ const InfoModal = ({ lang, handleClose, open}) => {
             >
                 <Box sx={style}>
                 <div style={{width: "100%", height: "5vh"}}>
-                    <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>{l(lang,"close")}</Button>
+                    <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>{l("close")}</Button>
                 </div>
                 <Box sx={{width: "100%", height: "60vh", display: "flex", flexDirection: "column", justifyContent: "center"}}>
                   {activeStep === 0 && (
                     <>
                       <Typography sx={{ fontFamily: "Patrick Hand", textAlign: "center", lineHeight: "1" }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h5" : "h4"} component="h3">
-                        {l(lang, "howToPlay")}
+                        {l("howToPlay")}
                       </Typography>
                       <Typography id="modal-modal-description" sx={[{ fontFamily: "Patrick Hand", textAlign: "center", lineHeight: "1" }, dim.height > dim.width ? { mt: 1, mb: 1 } : { mt: 2, mb: 2 }]} variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                        {l(lang, "guessTheCountry")}
+                        {l("guessTheCountry")}
                       </Typography>
                       <Guess
                         fullWidth={true}
                         code={"az"}
-                        name1={l(lang, "azerbaijan")}
+                        name1={l("azerbaijan")}
                         name2="1162 km"
                         name3={170}
                         value={94} />
                       <Typography sx={[{ fontFamily: "Patrick Hand", textAlign: "center", lineHeight: "1" }, dim.height > dim.width ? { mt: 1, mb: 1 } : { mt: 2, mb: 2 }]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                        {l(lang, "theTarget")}
+                        {l("theTarget")}
                       </Typography>
                       <Guess
                         fullWidth={true}
                         code={"tr"}
-                        name1={l(lang, "turkey")}
+                        name1={l("turkey")}
                         name2="0 km"
                         name3={0}
                         value={100} />
                       <Typography sx={[{ fontFamily: "Patrick Hand", textAlign: "center", lineHeight: "1" }, dim.height > dim.width ? { mt: 1, mb: 1 } : { mt: 2, mb: 2 }]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                        {l(lang, "nextGuess")}
+                        {l("nextGuess")}
                       </Typography>
                     </>
                   )}
@@ -146,22 +148,22 @@ const InfoModal = ({ lang, handleClose, open}) => {
                   {activeStep === 1 && (
                     <>
                       <Typography sx={[{ fontFamily: "Patrick Hand", textAlign: "center", lineHeight: "1" }, dim.height > dim.width ? { mt: 1, mb: 1 } : { mt: 2, mb: 2 }]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                        {l(lang, "heavilyInspired")}
+                        {l("heavilyInspired")}
                         <a style={{ "color": "inherit" }} href={`https://www.nytimes.com/games/wordle/index.html`} rel="noreferrer" target="_blank">Wordle</a>
-                        {l(lang, "createdBy")}
+                        {l("createdBy")}
                         <a style={{ "color": "inherit" }} href={`https://twitter.com/powerlanguish`} rel="noreferrer" target="_blank">@powerlanguish</a>
-                        {l(lang, "and")}
+                        {l("and")}
                         <a style={{ "color": "inherit" }} href={`https://worldle.teuteuf.fr/`} rel="noreferrer" target="_blank">Worldle</a>
-                        {l(lang, "createdBy")}
+                        {l("createdBy")}
                         <a style={{ "color": "inherit" }} href={`https://twitter.com/teuteuf`} rel="noreferrer" target="_blank">@teuteuf </a>
                       </Typography>
                       <Typography sx={[{ fontFamily: "Patrick Hand", textAlign: "center", lineHeight: "1" }, dim.height > dim.width ? { mt: 1, mb: 1 } : { mt: 2, mb: 2 }]} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                        {l(lang, "creator")}
+                        {l("creator")}
                         <a style={{ "color": "inherit" }} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">@ibrahimyilgor</a>
-                        {l(lang, "youCanReach")}
-                        <a style={{ "color": "inherit" }} href={`https://github.com/ibrahimyilgor/nationle`} rel="noreferrer" target="_blank">{l(lang, "sourceCode")}</a>
-                        {l(lang, "support")}
-                        <a style={{ "color": "inherit" }} href={`https://www.buymeacoffee.com/nationle`} rel="noreferrer" target="_blank">{l(lang, "coffee")}</a>
+                        {l("youCanReach")}
+                        <a style={{ "color": "inherit" }} href={`https://github.com/ibrahimyilgor/nationle`} rel="noreferrer" target="_blank">{l("sourceCode")}</a>
+                        {l("support")}
+                        <a style={{ "color": "inherit" }} href={`https://www.buymeacoffee.com/nationle`} rel="noreferrer" target="_blank">{l("coffee")}</a>
                       </Typography>
                     </>
                   )}
@@ -176,7 +178,7 @@ const InfoModal = ({ lang, handleClose, open}) => {
                         sx={{ width: "90%", position: "absolute", bottom: 0}}
                         nextButton={
                           <Button size="small" onClick={handleNext} disabled={activeStep === 1}>
-                            {l(lang,"next")}
+                            {l("next")}
                             {theme.direction === 'rtl' ? (
                               <KeyboardArrowLeft />
                             ) : (
@@ -191,7 +193,7 @@ const InfoModal = ({ lang, handleClose, open}) => {
                             ) : (
                               <KeyboardArrowLeft />
                             )}
-                            {l(lang,"back")}
+                            {l("back")}
                           </Button>
                         }
                       />

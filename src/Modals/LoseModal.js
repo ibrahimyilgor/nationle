@@ -1,19 +1,18 @@
 import { Alert, Box, Button, IconButton, Modal, Snackbar, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { useCountdown } from "../Timer";
+// import { useCountdown } from "../Timer";
 
 import copyAnswer from '../Share'; 
 import { useState } from "react";
 
-import l from '../Languages/language';
 import NewMap from "../NewMap";
 import countries from '../countries';
 
 import MapIcon from '@mui/icons-material/Map';
 import InfoIcon from '@mui/icons-material/Info';
 import { useWindowDimensions } from "react-native";
-import { GreenSwitch } from "./SettingsModal";
 import { useEffect } from "react";
+import { useAppContext } from "../context/context";
 
 const style = {
     position: 'absolute',
@@ -110,10 +109,12 @@ const useStyles = makeStyles(
   }
 );
 
-const LoseModal = ({ country, handleClose, open, lang, datee, guesses}) => {
+const LoseModal = ({ country, handleClose, open, datee, guesses}) => {
     // const time = useCountdown(datee, lang);
 
     const dim = useWindowDimensions();
+
+    const {lang, l} = useAppContext();
 
     const classes = useStyles();
 
@@ -171,14 +172,14 @@ const LoseModal = ({ country, handleClose, open, lang, datee, guesses}) => {
             >
                 <Box sx={style}>
                 <div style={{width: "100%", height: "5vh"}}>
-                    <Button className={classes.buttonRight} onClick={handleClose} sx={{ color: "#FFBED8", marginLeft: "1vw" }}>{l(lang,"close")}</Button>
-                    <Button className={classes.buttonLeft} onClick={ () => copyAnswer(guesses,datee,setCopyAlert)} sx={{ color: "#FFBED8"}}>{l(lang,"share")}</Button>
+                    <Button className={classes.buttonRight} onClick={handleClose} sx={{ color: "#FFBED8", marginLeft: "1vw" }}>{l("close")}</Button>
+                    <Button className={classes.buttonLeft} onClick={ () => copyAnswer(guesses,datee,setCopyAlert)} sx={{ color: "#FFBED8"}}>{l("share")}</Button>
                 </div>
                     <Typography sx={{ fontFamily: "Patrick Hand",textAlign: "center"}} id="modal-modal-title" variant="h4" component="h3">
-                      {l(lang,"lose")}
+                      {l("lose")}
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand",mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">
-                      {l(lang,"unfortunately") + " " + country[lang]}
+                      {l("unfortunately") + " " + country[lang]}
                     </Typography>
                     <center>
 
@@ -190,7 +191,7 @@ const LoseModal = ({ country, handleClose, open, lang, datee, guesses}) => {
                               {dim.height * 1.2 < dim.width && 
                                 (
                                   <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", textAlign:"center" }} variant="h6" component="h5">
-                                    {l(lang, "maps")}
+                                    {l( "maps")}
                                   </Typography>
                                 )
                               }
@@ -204,7 +205,7 @@ const LoseModal = ({ country, handleClose, open, lang, datee, guesses}) => {
                               {dim.height * 1.2 < dim.width && 
                                 (
                                   <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", textAlign:"center" }} variant="h6" component="h5">
-                                    {l(lang, "wiki")}
+                                    {l( "wiki")}
                                   </Typography>
                                 )
                               }
@@ -218,13 +219,12 @@ const LoseModal = ({ country, handleClose, open, lang, datee, guesses}) => {
                         mapData={mapData} 
                         marker={markers}
                         win={false}
-                        lang={lang}
                       />
                     </center>
                     {copyAlert && (
                       <Snackbar open={copyAlert} onClose={handleCloseAlert} autoHideDuration={3000} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
                         <Alert className={classes.cookieAlert} severity="success" sx={{ width: '100%' }}>
-                          {l(lang,"copy")}
+                          {l("copy")}
                         </Alert>
                       </Snackbar>)}
                       

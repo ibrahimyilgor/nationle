@@ -1,8 +1,7 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { useAppContext } from "../context/context";
 import useWindowDimensions from '../getWindowDimensions';
-
-import l from '../Languages/language';
 
 const style = {
     position: 'absolute',
@@ -43,9 +42,10 @@ const useStyles = makeStyles(
     }
   );
 
-const StatsModal = ({ stats, lang, handleClose, open}) => {
+const StatsModal = ({ stats, handleClose, open}) => {
   const dim = useWindowDimensions();
   const classes = useStyles();
+  const {l} = useAppContext();
   const max = Math.max.apply(Math,stats);
   return(
       <div>
@@ -57,10 +57,10 @@ const StatsModal = ({ stats, lang, handleClose, open}) => {
           >
               <Box sx={style}>
               <div style={{width: "100%", height: "5vh"}}>
-                  <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>{l(lang,"close")}</Button>
+                  <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>{l("close")}</Button>
               </div>
                   <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center" }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h5" : "h4"} component="h3">
-                  {l(lang,"stats")}
+                  {l("stats")}
                   </Typography>
                 {/*   {stats.map((val,key) => {
                     return <Typography id="modal-modal-description" sx={{ fontFamily: "Patrick Hand", mt: 2, mb: 2, textAlign:"center" }} variant="h6" component="h5">

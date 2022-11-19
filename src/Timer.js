@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-
-import l from './Languages/language';
+import { useAppContext } from "./context/context";
 
 const useCountdown = (datee, lang) => {
+
+  const {l} = useAppContext();
+
   const countDownDate = new Date(datee.getFullYear(), datee.getMonth(), datee.getDate(), 23, 59, 59)
 
   const [countDown, setCountDown] = useState(
@@ -23,7 +25,7 @@ const useCountdown = (datee, lang) => {
 const getReturnValues = (countDown,lang) => {
   // calculate time left
   if (countDown < 0){
-    return [l(lang,"nextNationleIsReady")];
+    return [l("nextNationleIsReady")];
   }
   const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
   const hours = Math.floor(

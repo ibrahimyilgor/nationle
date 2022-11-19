@@ -28,7 +28,7 @@ import StatsModal from './Modals/StatsModal';
 import HowToPlayModal from './Modals/HowToPlayModal';
 import SettingsModal from './Modals/SettingsModal';
 
-import l from './Languages/language';
+import { useAppContext } from './context/context';
 
 document.title = "Nationle";
 
@@ -168,7 +168,7 @@ function App() {
   const randomNum = useMemo(() => Math.round(random()*(countries.ref_country_codes.length-1)), []);
   const datee = useMemo(() => new Date(), []);
 
-  const [lang, setLang] = useState("en");
+  const {lang, l} = useAppContext();
 
   const options = [];
   const tempList = countries.ref_country_codes.slice();
@@ -218,13 +218,6 @@ function App() {
       setGuesses(localGuesses.guesses);
       setGuessNum(parseInt(localGuesses.guessNum));
       setEndState(parseInt(localGuesses.endState));
-    }
-
-    //Language
-    let localLang = localStorage.getItem("lang");
-    localLang = JSON.parse(localLang);
-    if(localLang){
-      setLang(localLang);
     }
 
     //ShowMap
@@ -322,171 +315,187 @@ function App() {
     <div className="App"> 
       <header className="App-header">
         <div className="Top">
-        <IconButton className={classes.iconbutton}  onClick={() => { setOpenHowToPlayModal(true) }} aria-label="delete">
-          <QuestionMarkIcon fontSize="inherit" />
-        </IconButton>
-        <a style={{"color": "inherit"}} href={`https://twitter.com/nationleGame`} rel="noreferrer" target="_blank">
+          <IconButton className={classes.iconbutton}  onClick={() => { setOpenHowToPlayModal(true) }} aria-label="delete">
+            <QuestionMarkIcon fontSize="inherit" />
+          </IconButton>
+
+          <a style={{"color": "inherit"}} href={`https://twitter.com/nationleGame`} rel="noreferrer" target="_blank">
+            <IconButton className={classes.iconbutton} aria-label="delete">
+              <TwitterIcon fontSize="inherit" />
+            </IconButton>
+          </a>
+
+          <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
+            <IconButton className={classes.iconbutton} aria-label="delete">
+              <AccountBoxIcon fontSize="inherit" />
+            </IconButton>
+          </a>
+
+          <IconButton  className={classes.namebutton} aria-label="delete">
+              <p>NATIONLE</p>
+            </IconButton>
+
+          <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/nationle`} rel="noreferrer" target="_blank">
           <IconButton className={classes.iconbutton} aria-label="delete">
-            <TwitterIcon fontSize="inherit" />
+            <CoffeeIcon fontSize="inherit" />
           </IconButton>
-        </a>
-        <a style={{"color": "inherit"}} href={`https://twitter.com/ibrahimyilgor`} rel="noreferrer" target="_blank">
-          <IconButton className={classes.iconbutton} aria-label="delete">
-            <AccountBoxIcon fontSize="inherit" />
+          </a>
+
+          <IconButton className={classes.iconbutton}  onClick={() => { setOpenStatsModal(true) }} aria-label="delete">
+            <EqualizerIcon fontSize="inherit" />
           </IconButton>
-        </a>
-        <IconButton  className={classes.namebutton} aria-label="delete">
-            <p>NATIONLE</p>
+          <IconButton className={classes.iconbutton}  onClick={() => { setOpenSettingsModal(true) }} aria-label="delete">
+            <SettingsIcon fontSize="inherit" />
           </IconButton>
-        <a style={{"color": "inherit"}} href={`https://www.buymeacoffee.com/nationle`} rel="noreferrer" target="_blank">
-        <IconButton className={classes.iconbutton} aria-label="delete">
-          <CoffeeIcon fontSize="inherit" />
-        </IconButton>
-        </a>
-        <IconButton className={classes.iconbutton}  onClick={() => { setOpenStatsModal(true) }} aria-label="delete">
-          <EqualizerIcon fontSize="inherit" />
-        </IconButton>
-        <IconButton className={classes.iconbutton}  onClick={() => { setOpenSettingsModal(true) }} aria-label="delete">
-          <SettingsIcon fontSize="inherit" />
-        </IconButton>
         </div>
         <div className={(flagMode && !showMap) ? "ImageOnlyFlag" : "Image"}>
           {(showMap === true) ? 
-          (
-          <img 
-            alt = "target_country"
-            style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
-            src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
-            width={flagMode ? "50%" : "80%"} height="auto"/>
-          ) 
-          : undefined
+            (
+              <img 
+                alt = "target_country"
+                style={{filter: "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)"}} 
+                src={`all/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}/vector.svg`}
+                width={flagMode ? "50%" : "80%"} height="auto"
+              />
+            ) 
+            : undefined
           } 
 
-          {!showMap && !flagMode && (<p>{l(lang,"mapDisabled")}</p>)}
+          {!showMap && !flagMode && (<p>{l("mapDisabled")}</p>)}
 
           {(flagMode === true) &&
           (
             <img
-            width={showMap ? "50%": "80%"}
-            src={`svg/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}.svg`}
-            alt={"flag"}/> 
+              width={showMap ? "50%": "80%"}
+              src={`svg/${countries.ref_country_codes[randomNum].alpha2.toLowerCase()}.svg`}
+              alt={"flag"}
+            /> 
           )}
         </div>
         <div className='AutocompleteAndButton'>
-            <Autocomplete
-              disablePortal
-              onChange={change}
-              freeSolo={true}
-             
-              disabled={endState !== 0}
-              onKeyPress= {(e) => {
-                if (e.key === 'Enter') {
-                  guessClick()
-                }
-              }}
-              openOnFocus
-              value={guessText?.label}
-              id="combo-box-demo"
-              options={options}
-              className={classes.autocomplete}
-              renderOption={(props, option, state) => (
-                <ListItem  {...props}>
-                  {!flagMode && (
-                  <img
-                    height="25vh"
-                    width="35vw"
-                    src={`svg/${option?.value?.alpha2?.toLowerCase()}.svg`}
-                    alt={option?.value?.alpha2?.toLowerCase() || "flag"}/> )}
-                  <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value[lang]} />
-                </ListItem>
-              )}
-              renderInput={(params) => <TextField ref={autoCompleteRef} placeholder={l(lang,"selectACountry")} {...params} />}
-              PopperComponent={CustomPopper}
-            />
-            {endState === 0 &&(
+          <Autocomplete
+            disablePortal
+            onChange={change}
+            freeSolo={true}
+            
+            disabled={endState !== 0}
+            onKeyPress= {(e) => {
+              if (e.key === 'Enter') {
+                guessClick()
+              }
+            }}
+            openOnFocus
+            value={guessText?.label}
+            id="combo-box-demo"
+            options={options}
+            className={classes.autocomplete}
+            renderOption={(props, option, state) => (
+              <ListItem  {...props}>
+                {!flagMode && (
+                <img
+                  height="25vh"
+                  width="35vw"
+                  src={`svg/${option?.value?.alpha2?.toLowerCase()}.svg`}
+                  alt={option?.value?.alpha2?.toLowerCase() || "flag"}/> )}
+                <ListItemText sx={{marginLeft: "1vw"}} primary={option?.value[lang]} />
+              </ListItem>
+            )}
+            renderInput={(params) => <TextField ref={autoCompleteRef} placeholder={l("selectACountry")} {...params} />}
+            PopperComponent={CustomPopper}
+          />
+          {endState === 0 &&(
             <>
-            <Button
-              variant="contained"
-              className={classes.button}
-              onClick={guessClick}>{l(lang,"guess")}</Button>
-            <Button
-              variant="contained"
-              className={classes.button}
-              onClick={() => {setOpenGiveUpModal(true);}}>{l(lang,"giveUp")}</Button>
-              </>)}
-              {endState !== 0 &&(
-            <>
-            <Button
-              variant="contained"
-              className={classes.button}
-              onClick={ () => copyAnswer(guesses,datee,setCopyAlert)} >{l(lang,"share")}</Button>
-            <Button
-              variant="contained"
-              className={classes.button}
-              onClick={showAnswer}>{l(lang,"answer")}</Button>
-              </>)}
+              <Button
+                variant="contained"
+                className={classes.button}
+                onClick={guessClick}>{l("guess")}</Button>
+              <Button
+                variant="contained"
+                className={classes.button}
+                onClick={() => {setOpenGiveUpModal(true);}}>{l("giveUp")}</Button>
+                </>)}
+                {endState !== 0 &&(
+              <>
+              <Button
+                variant="contained"
+                className={classes.button}
+                onClick={ () => copyAnswer(guesses,datee,setCopyAlert)} >{l("share")}</Button>
+              <Button
+                variant="contained"
+                className={classes.button}
+                onClick={showAnswer}>{l("answer")}</Button>
+            </>
+          )}
         </div>
         {guesses.map((val,key) => {
           return<Guess 
-            code={val?.code}
-            name1={countries.ref_country_codes.find(obj => obj.alpha2 === val?.code) && countries.ref_country_codes.find(obj => obj.alpha2 === val?.code)[lang]}
-            name2={val?.name2}
-            name3={val?.name3}
-            value={val?.value}/>
-        })} 
+              code={val?.code}
+              name1={countries.ref_country_codes.find(obj => obj.alpha2 === val?.code) && countries.ref_country_codes.find(obj => obj.alpha2 === val?.code)[lang]}
+              name2={val?.name2}
+              name3={val?.name3}
+              value={val?.value}
+            />
+          })} 
         {copyAlert && (
-        <Snackbar open={copyAlert} onClose={handleCloseAlert} autoHideDuration={3000} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
-          <Alert className={classes.cookieAlert} severity="success" sx={{ width: '100%' }}>
-            {l(lang,"copy")}
-          </Alert>
-        </Snackbar>)}
+          <Snackbar open={copyAlert} onClose={handleCloseAlert} autoHideDuration={3000} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
+            <Alert className={classes.cookieAlert} severity="success" sx={{ width: '100%' }}>
+              {l("copy")}
+            </Alert>
+          </Snackbar>
+        )}
       </header>
+
       <HowToPlayModal
-        country={countries.ref_country_codes[randomNum]}
-        handleClose={() => {setOpenHowToPlayModal(false)}}
         open={openHowToPlayModal}
-        lang={lang}/>
+        handleClose={() => {setOpenHowToPlayModal(false)}}
+        country={countries.ref_country_codes[randomNum]}
+      />
+
       <StatsModal
+        open={openStatsModal}
+        handleClose={() => {setOpenStatsModal(false)}}
         country={countries.ref_country_codes[randomNum]}
         stats={stats}
-        lang={lang}
-        handleClose={() => {setOpenStatsModal(false)}}
-        open={openStatsModal}/>
+      />
+
       <WinModal
-        country={countries.ref_country_codes[randomNum]}
-        handleClose={() => {setOpenWinModal(false)}}
         open={openWinModal}
-        lang={lang}
-        randomNum={randomNum}
-        guesses={guesses}
-        datee={datee}/>
-      <LoseModal 
+        handleClose={() => {setOpenWinModal(false)}}
         country={countries.ref_country_codes[randomNum]}
-        handleClose={() => {setOpenLoseModal(false)}}
-        open={openLoseModal}
         randomNum={randomNum}
-        lang={lang}
         guesses={guesses}
-        datee={datee}/>
+        datee={datee}
+      />
+
+      <LoseModal 
+        open={openLoseModal}
+        handleClose={() => {setOpenLoseModal(false)}}
+        country={countries.ref_country_codes[randomNum]}
+        guesses={guesses}
+        randomNum={randomNum}
+        datee={datee}
+      />
+
       <GiveUpModal
+        open={openGiveUpModal}
         handleClose={() => {setOpenGiveUpModal(false)}}
         handleOpen={() => {setOpenLoseModal(true)}}
-        open={openGiveUpModal}
-        lang={lang}
         setEndState={setEndState}
         guesses={guesses}
         stats={stats}
-        guessNum={guessNum}/>
+        guessNum={guessNum}
+      />
+
       <SettingsModal
+        open={openSettingsModal}
         handleClose={() => {setOpenSettingsModal(false)}}
         handleOpen={() => {setOpenSettingsModal(true)}}
-        lang={lang}
-        setLang={setLang}
         showMap={showMap}
         setShowMap={setShowMap}
         flagMode={flagMode}
         setFlagMode={setFlagMode}
-        open={openSettingsModal}/>
+      />
+      
     </div>
   );
 }

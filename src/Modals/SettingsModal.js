@@ -1,15 +1,13 @@
-import { Box, Button, Grid, InputLabel, MenuItem, Modal, Popper, Select, Typography } from "@mui/material";
+import { Box, Button, Grid, MenuItem, Modal, Select, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import useWindowDimensions from '../getWindowDimensions';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Switch from '@mui/material/Switch';
 
 import '../Css/Settings.css';
 
-import l from '../Languages/language';
-
 import { alpha, styled } from '@mui/material/styles';
-import { pink } from '@mui/material/colors';
+import { useAppContext } from "../context/context";
 
 const style = {
     position: 'absolute',
@@ -125,10 +123,12 @@ const useStyles = makeStyles(
     }
   }));
 
-const SettingsModal = ({ handleClose, open, lang, setLang, showMap, setShowMap, flagMode, setFlagMode}) => {
+const SettingsModal = ({ handleClose, open, showMap, setShowMap, flagMode, setFlagMode}) => {
   const dim = useWindowDimensions();
   const classes = useStyles();
   const [openSelect, setOpenSelect] = useState(false);
+
+  const {lang, setLang, l} = useAppContext();
 
   const handleChange = (event) => {
     setLang(event.target.value);
@@ -168,15 +168,15 @@ const SettingsModal = ({ handleClose, open, lang, setLang, showMap, setShowMap, 
           >
               <Box sx={style}>
               <div style={{width: "100%", height: "5vh"}}>
-                  <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>{l(lang,"close")}</Button>
+                  <Button className={classes.button} onClick={handleClose} sx={{ color: "#F6EABE" }}>{l("close")}</Button>
               </div>
                   <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center" }} id="modal-modal-title" variant={(dim.height > dim.width) ? "h5" : "h4"} component="h3">
-                  {l(lang,"settings")}
+                  {l("settings")}
                   </Typography>
                   <Grid container spacing={2}>
                     <Grid item xs={6} style={gridStyle}>
                     <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", justifyContent: "center"}} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                      {l(lang,"language")}
+                      {l("language")}
                     </Typography>
                     </Grid>
                     <Grid item xs={6} style={gridStyle}>
@@ -203,15 +203,15 @@ const SettingsModal = ({ handleClose, open, lang, setLang, showMap, setShowMap, 
                         label="Language"
                         onChange={handleChange}
                       >
-                        <MenuItem className={classes.menuItem} value={"en"}>{l(lang,"english")}</MenuItem>
-                        <MenuItem className={classes.menuItem} value={"tr"}>{l(lang,"turkish")}</MenuItem>
+                        <MenuItem className={classes.menuItem} value={"en"}>{l("english")}</MenuItem>
+                        <MenuItem className={classes.menuItem} value={"tr"}>{l("turkish")}</MenuItem>
                       
-                        {/* <MenuItem className={classes.menuItem} value={"ja"}>{l(lang,"japanese")}</MenuItem> */}
+                        {/* <MenuItem className={classes.menuItem} value={"ja"}>{l("japanese")}</MenuItem> */}
                       </Select>
                     </Grid>
                     <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
                       <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", justifyContent: "center"}} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                        {l(lang,"showMap")}
+                        {l("showMap")}
                       </Typography>
                     </Grid>
                     <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
@@ -225,7 +225,7 @@ const SettingsModal = ({ handleClose, open, lang, setLang, showMap, setShowMap, 
 
                     <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
                       <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", justifyContent: "center"}} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
-                        {l(lang,"flagMode")}
+                        {l("flagMode")}
                       </Typography>
                     </Grid>
                     <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
