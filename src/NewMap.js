@@ -5,13 +5,13 @@ import countries from './countries';
 import l from './Languages/language';
 
 const handleClick = (e, countryCode) => {
-  console.log(countryCode);
+  // console.log(countryCode);
 };
 
 const NewMap = ({mapData, marker, win, lang, width}) => {
 
   const onToolTipShow = (e, el, code) => {
-    console.log("ibrahim",code, e, el)
+    // console.log("ibrahim",code, e, el)
     // el[0].attributes.style = "style='zIndex: 1000, display: none; left: 677px; top: 469px;'"
     // el[0]["zIndex"] = 99999999
     el[0]["style"]["zIndex"] = 99999999
