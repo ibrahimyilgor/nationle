@@ -51,6 +51,8 @@ const langEn = {
     avgDistance: "Average Distance",
     winRate: "Win Rate",
     winStreak: "Win Streak",
+    back: "Back",
+    next: "Next"
   }
   
   export default langEn;

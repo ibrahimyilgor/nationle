@@ -49,6 +49,8 @@ const langTr = {
     avgDistance: "Ortalama Mesafe",
     winRate: "Kazanma Oranı",
     winStreak: "Peşpeşe Kazanma",
+    back: "Geri",
+    next: "İleri"
   }
   
   export default langTr;
