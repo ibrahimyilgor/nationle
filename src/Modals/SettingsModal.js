@@ -28,7 +28,8 @@ const style = {
 
 const gridStyle = {
   marginTop: "3vh",
-  display: "flex",
+  display: "grid",
+  alignItems: "center",
   flexDirection: "row",
   textAlign: "center", 
   justifyContent: "center"
@@ -174,7 +175,9 @@ const SettingsModal = ({ handleClose, open, lang, setLang, showMap, setShowMap, 
                   </Typography>
                   <Grid container spacing={2}>
                     <Grid item xs={6} style={gridStyle}>
-                      <p>{l(lang,"language")}</p>
+                    <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", justifyContent: "center"}} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
+                      {l(lang,"language")}
+                    </Typography>
                     </Grid>
                     <Grid item xs={6} style={gridStyle}>
                       <Select
@@ -207,7 +210,9 @@ const SettingsModal = ({ handleClose, open, lang, setLang, showMap, setShowMap, 
                       </Select>
                     </Grid>
                     <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
-                      <p>{l(lang,"showMap")}</p>
+                      <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", justifyContent: "center"}} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
+                        {l(lang,"showMap")}
+                      </Typography>
                     </Grid>
                     <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
                       <GreenSwitch 
@@ -219,7 +224,9 @@ const SettingsModal = ({ handleClose, open, lang, setLang, showMap, setShowMap, 
                     </Grid>
 
                     <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
-                      <p>{l(lang,"flagMode")}</p>
+                      <Typography sx={{fontFamily: "Patrick Hand", textAlign:"center", justifyContent: "center"}} id="modal-modal-title" variant={(dim.height > dim.width) ? "h7" : "h6"} component="h4">
+                        {l(lang,"flagMode")}
+                      </Typography>
                     </Grid>
                     <Grid item xs={6} style={gridStyle} alignItems="center" justify="center">
                       <GreenSwitch 
