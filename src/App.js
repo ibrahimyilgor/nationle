@@ -190,7 +190,7 @@ function App() {
   const [guesses,setGuesses] = useState([{},{},{},{},{},{}]);
   const [guessText, setGuessText] = useState({});
   const [copyAlert, setCopyAlert] = useState(false);
-  const [stats, setStats] = useState([0,0,0,0,0,0,0]);
+  const [stats, setStats] = useState([[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]);
 
   const [openWinModal, setOpenWinModal] = useState();
   const [openLoseModal, setOpenLoseModal] = useState();
@@ -202,6 +202,15 @@ function App() {
   const [showMap, setShowMap] = useState(true);
   const [flagMode, setFlagMode] = useState(false);
   const autoCompleteRef = useRef();
+
+  const continentIndex = {
+    EUROPE: 0,
+    ASIA: 1,
+    AFRICA: 2,
+    SOUTHAMERICA: 3,
+    NORTHAMERICA: 4,
+    OCEANIA: 5
+}
 
   useEffect(() => {
     //Remove last 30 day's localGuess
@@ -237,7 +246,7 @@ function App() {
     //Stats
     let localStats = localStorage.getItem("stats");
     localStats = JSON.parse(localStats);
-    if(localStats){
+    if(localStats && Array.isArray(localStats[0])){
       setStats(localStats);
     }
   }, []); 
@@ -298,7 +307,7 @@ function App() {
       setEndState(1);
       localStorage.setItem(datee.getDate().toString() + "." + (datee.getMonth()+1).toString()  + "." + datee.getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:1}));
       let tempStats = stats;
-      tempStats[guessNum+1] += 1
+      tempStats[continentIndex[guessText?.value?.continent]][guessNum+1] += 1
       localStorage.setItem("stats", JSON.stringify(stats));
     }
     if(value !== 100 && guessNum === 5 && guesses[5].code){
@@ -306,7 +315,7 @@ function App() {
       setEndState(2);
       localStorage.setItem(datee.getDate().toString() + "." + (datee.getMonth()+1).toString()  + "." + datee.getFullYear().toString(), JSON.stringify({guesses,guessNum:guessNum+1,endState:2}));
       let tempStats = stats;
-      tempStats[0] += 1
+      tempStats[continentIndex[countries.ref_country_codes[randomNum]?.continent]][0] += 1
       localStorage.setItem("stats", JSON.stringify(stats));
     }
   }
@@ -484,6 +493,8 @@ function App() {
         guesses={guesses}
         stats={stats}
         guessNum={guessNum}
+        continentIndex={continentIndex}
+        randomNum={randomNum}
       />
 
       <SettingsModal

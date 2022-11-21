@@ -1,6 +1,7 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useAppContext } from "../context/context";
+import countries from "../countries";
 
 const style = {
     position: 'absolute',
@@ -39,7 +40,7 @@ const useStyles = makeStyles(
     }
   );
 
-const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handleClose, open}) => {
+const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handleClose, open, randomNum, continentIndex}) => {
     const classes = useStyles();
 
     const {l} = useAppContext();
@@ -67,7 +68,7 @@ const GiveUpModal = ({ stats, guesses, guessNum, setEndState, handleOpen, handle
                                 handleClose();
                                 handleOpen();
                                 let tempStats = stats;
-                                tempStats[0] += 1;
+                                tempStats[continentIndex[countries.ref_country_codes[randomNum]?.continent]][0] += 1;
                                 localStorage.setItem("stats", JSON.stringify(stats));
                                 }}>{l("yes")}</Button>
                         </div>

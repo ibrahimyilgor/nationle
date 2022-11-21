@@ -52,7 +52,15 @@ const langEn = {
     winRate: "Win Rate",
     winStreak: "Win Streak",
     back: "Back",
-    next: "Next"
+    next: "Next",
+    guessChart: "Guess",
+    loseChart: "Lose",
+    europe: "Europe",
+    asia: "Asia",
+    africa: "Africa",
+    southAmerica: "South America",
+    northAmerica: "North America",
+    oceania: "Oceania"
   }
   
   export default langEn;

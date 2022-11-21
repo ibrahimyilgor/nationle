@@ -50,7 +50,15 @@ const langTr = {
     winRate: "Kazanma Oranı",
     winStreak: "Peşpeşe Kazanma",
     back: "Geri",
-    next: "İleri"
+    next: "İleri",
+    guessChart: "Tahmin",
+    loseChart: "Kaybetme",
+    europe: "Avrupa",
+    asia: "Asya",
+    africa: "Afrika",
+    southAmerica: "Güney Amerika",
+    northAmerica: "Kuzey Amerika",
+    oceania: "Okyanusya"
   }
   
   export default langTr;

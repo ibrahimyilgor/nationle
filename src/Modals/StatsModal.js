@@ -1,5 +1,6 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import BarChart from "../BarChart";
 import { useAppContext } from "../context/context";
 import useWindowDimensions from '../getWindowDimensions';
 
@@ -8,7 +9,9 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: "50%",
+    maxHeight: "90%",
+    minHeight: "50%",
+    width: "80%",
     bgcolor: 'background.paper',
     border: '2px solid #F6EABE',
     boxShadow: 24,
@@ -16,6 +19,9 @@ const style = {
     borderRadius: "25px",
     p: 4,
     color: "#F6EABE",
+    // // display: "grid",
+    // justifyContent: "center",
+    // alignItems: "center"
 };
 
 const useStyles = makeStyles(
@@ -67,7 +73,7 @@ const StatsModal = ({ stats, handleClose, open}) => {
                       {(key === 0 ? "Unsuccessful" : key) + ": " + val}   
                     </Typography>
                   })}  */}
-                    {stats.map((val,key) => {
+                    {/* {stats.map((val,key) => {
                     return (
                     <div style={{display: "flex", marginBottom: "2vh"}}>
                       <Typography id="modal-modal-description" sx={{ width: "2vw", fontFamily: "Patrick Hand", mr: 1, textAlign: "center"}} variant="h6" component="h5">
@@ -76,7 +82,8 @@ const StatsModal = ({ stats, handleClose, open}) => {
                       <div style={{ marginLeft: "1vw", height: "4vh", width: `${(val/max)*70+1}%`, backgroundColor: "#F6EABE" }}></div>
                       <Typography style={{ height: "4vh", fontFamily: "Patrick Hand", marginLeft: "0.5vw",  justifyContent: "center", alignItems: "center", display: "flex"}}>{val}</Typography>
                     </div>)
-                  })}  
+                  })} */}
+                  <BarChart data={stats}/>  
               </Box>
           </Modal>
       </div>
