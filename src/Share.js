@@ -49,7 +49,7 @@ const copyAnswer = (guesses,datee,setCopyAlert) => {
       }
       answer +=  " %" + parseInt(guesses[i].value) + "\n";
     }
-    answer += "https://nationle.herokuapp.com";
+    answer += "https://nationle.netlify.app/";
     navigator.clipboard.writeText(answer);
     setCopyAlert(true);
   }
