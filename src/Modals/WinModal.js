@@ -19,7 +19,9 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: "50%",
+    maxHeight: "90%",
+    minHeight: "50%",
+    width: "80%",
     bgcolor: 'background.paper',
     border: '2px solid #F6EABE',
     boxShadow: 24,
@@ -207,7 +209,7 @@ const WinModal = ({ country, handleClose, open, datee, guesses}) => {
                       </div>
                       <br></br>
                         <NewMap
-                          width={dim?.width *0.5}
+                          width={dim.width * 0.7}
                           mapData={mapData} 
                           marker={markers}
                           win={true}

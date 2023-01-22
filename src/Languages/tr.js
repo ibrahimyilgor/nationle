@@ -12,6 +12,8 @@ const langTr = {
     answer: "Cevap",
     win: "Kazandın",
     lose: "Kaybettin",
+    maps: "Harita",
+    wiki: "Viki",
     congratulations: "Tebrikler, bugünün cevabını buldunuz:",
     unfortunately: "Maalesef, bugünün cevabını bulamadınız:",
     copy: "Cevabınız kopyalandı",

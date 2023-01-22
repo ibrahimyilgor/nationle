@@ -19,10 +19,10 @@ const useCountdown = (datee, lang) => {
     return () => clearInterval(interval);
   }, [countDownDate]);
 
-  return getReturnValues(countDown,lang);
+  return getReturnValues(countDown, l);
 };
 
-const getReturnValues = (countDown,lang) => {
+const getReturnValues = (countDown, l) => {
   // calculate time left
   if (countDown < 0){
     return [l("nextNationleIsReady")];

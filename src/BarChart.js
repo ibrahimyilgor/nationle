@@ -53,6 +53,7 @@ const BarChart = ({data}) => {
                     fontSize: (dim.height > dim.width) ? "13px" : "20px"
                 }
             },
+            allowDecimals: false,
         },
         legend: {
             reversed: true,

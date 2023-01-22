@@ -29,6 +29,7 @@ import HowToPlayModal from './Modals/HowToPlayModal';
 import SettingsModal from './Modals/SettingsModal';
 
 import { useAppContext } from './context/context';
+import TimerComponent from './TimerComponent';
 
 document.title = "Nationle";
 
@@ -382,6 +383,7 @@ function App() {
           )}
         </div>
         <div className='AutocompleteAndButton'>
+        {endState === 0 ? (
           <Autocomplete
             disablePortal
             onChange={change}
@@ -411,7 +413,9 @@ function App() {
             )}
             renderInput={(params) => <TextField ref={autoCompleteRef} placeholder={l("selectACountry")} {...params} />}
             PopperComponent={CustomPopper}
-          />
+          />) : 
+          <TimerComponent/>
+          }
           {endState === 0 &&(
             <>
               <Button

@@ -19,7 +19,9 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: "50%",
+    maxHeight: "90%",
+    minHeight: "50%",
+    width: "80%",
     bgcolor: 'background.paper',
     border: '2px solid #F6EABE',
     boxShadow: 24,
@@ -113,7 +115,6 @@ const LoseModal = ({ country, handleClose, open, datee, guesses}) => {
     // const time = useCountdown(datee, lang);
 
     const dim = useWindowDimensions();
-
     const {lang, l} = useAppContext();
 
     const classes = useStyles();
@@ -215,7 +216,7 @@ const LoseModal = ({ country, handleClose, open, datee, guesses}) => {
                       </div>
                       <br></br>
                       <NewMap 
-                        width={dim?.width *0.5}
+                        width={dim.width * 0.7}
                         mapData={mapData} 
                         marker={markers}
                         win={false}
