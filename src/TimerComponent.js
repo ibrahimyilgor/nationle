@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useWindowDimensions } from 'react-native';
 import { useAppContext } from './context/context';
 import { useCountdown } from './Timer';
@@ -36,9 +36,10 @@ function TimerComponent() {
     const datee = useMemo(() => new Date(), []);
     const time = useCountdown(datee, lang);
     const dim = useWindowDimensions();
+    
     return(
         <Button variant="contained" className={classes.timeButton}>
-            {dim.height > dim.width ? l("nextNationleIn")+ time[1] + ":" + time[2] + ":" + time[3] : l("nextNationleIn")+ time[1] + l("hours")  + time[2] + l("minutes") + time[3] + l("seconds")}
+            {time.length === 1 ? time[0] : (dim.height > dim.width) ? l("nextNationleIn")+ time[1] + ":" + time[2] + ":" + time[3] : l("nextNationleIn")+ time[1] + l("hours")  + time[2] + l("minutes") + time[3] + l("seconds")}
        </Button>
     )
 }
