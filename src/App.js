@@ -18,7 +18,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 import distance from './Distance';
 import bearing from './Degree';
-import random from './Random';
+import { getRandomIndex } from './Random';
 import copyAnswer from './Share';
 
 import WinModal from './Modals/WinModal'
@@ -165,8 +165,7 @@ const useStyles = makeStyles(
 
 function App() {
   const classes = useStyles();
-  // console.log(countries.ref_country_codes.map(function(e) { return e.alpha2; }).indexOf('TR')); //Türkiye'nin indexi 217
-  const randomNum = useMemo(() => Math.round(random()*(countries.ref_country_codes.length-1)), []);
+  const randomNum = useMemo(() => getRandomIndex(countries.ref_country_codes, new Date()), []);
   const datee = useMemo(() => new Date(), []);
 
   const {lang, l} = useAppContext();
