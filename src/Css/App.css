@@ -29,24 +29,6 @@
   right: 300;
 }
 
-.Image{
-  width: 30vh;
-  height: 30vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;  /* Centering y-axis */
-  align-items: center; /* Centering x-axis */
-}
-
-.ImageOnlyFlag{
-  width: 30vh;
-  height: 30vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;  /* Centering y-axis */
-  align-items :center; /* Centering x-axis */
-}
-
 .Top{
   height: 7vh;
   margin-bottom: 2vh;

@@ -1,26 +1,46 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import CircularProgress from '@mui/material/CircularProgress';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import * as React from "react";
+import PropTypes from "prop-types";
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 function CircularProgressWithLabel(props) {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex', height: "100%", alignItems: "center" }}>
-      <CircularProgress size={"3.5vh"} sx={{color: "#F6EABE"}} variant="determinate" {...props} />
+    <Box
+      sx={{
+        position: "relative",
+        display: "inline-flex",
+        height: "100%",
+        alignItems: "center",
+      }}
+    >
+      <CircularProgress
+        size={"3.5vh"}
+        sx={{ color: colors.yellow }}
+        variant="determinate"
+        {...props}
+      />
       <Box
         sx={{
           top: 0,
           left: 0,
           bottom: 0,
           right: 0,
-          position: 'absolute',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        <Typography variant="caption" component="div" sx={{color: "#F6EABE",fontFamily: "Patrick Hand", fontSize: "55%"}}>
+        <Typography
+          variant="caption"
+          component="div"
+          sx={{
+            color: colors.yellow,
+            fontFamily: "Patrick Hand",
+            fontSize: "55%",
+          }}
+        >
           {`${Math.round(props.value)}`}
         </Typography>
       </Box>
@@ -42,7 +62,7 @@ export default function CircularStatic(props) {
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-        setProgress(progress+1 > props.value ? props.value : progress+1);
+      setProgress(progress + 1 > props.value ? props.value : progress + 1);
     }, 40);
     return () => {
       clearInterval(timer);
