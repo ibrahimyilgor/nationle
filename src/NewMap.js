@@ -8,7 +8,7 @@ const handleClick = (e, countryCode) => {
   // console.log(countryCode);
 };
 
-const NewMap = ({ mapData, marker, win, width }) => {
+const NewMap = ({ mapData, marker, width }) => {
   const { lang } = useAppContext();
 
   const onToolTipShow = (e, el, code) => {
@@ -119,4 +119,7 @@ const NewMap = ({ mapData, marker, win, width }) => {
     </div>
   );
 };
-export default NewMap;
+
+const MemoizedComponent = React.memo(NewMap);
+
+export default MemoizedComponent;

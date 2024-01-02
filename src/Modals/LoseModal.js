@@ -336,7 +336,6 @@ const LoseModal = ({ country, handleClose, open, datee, guesses }) => {
               width={dim.width * 0.7}
               mapData={mapData}
               marker={markers}
-              win={false}
             />
           </center>
           {copyAlert && (
