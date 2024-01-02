@@ -8,7 +8,7 @@ import { makeStyles } from "@mui/styles";
 import { colors } from "../Constants";
 
 const useStyles = makeStyles({
-  rotateImgDiv: ({}) => ({
+  rotateImgDiv: ({ direction }) => ({
     float: "left",
     backgroundColor: colors.blue,
     marginLeft: "0.6vw",
@@ -48,8 +48,8 @@ const useStyles = makeStyles({
 });
 
 function Guess({ fullWidth, code, name, distance, direction, value }) {
-  const classes = useStyles({});
-
+  const classes = useStyles({ direction });
+  console.log("ibrahim", code, name, distance, direction, value);
   return (
     <div className="Guess" style={fullWidth && { width: "100%" }}>
       {code && (
