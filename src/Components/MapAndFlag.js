@@ -2,21 +2,23 @@ import "../Css/App.css";
 import countries from "../countries";
 import { useAppContext } from "../context/context";
 import { makeStyles } from "@mui/styles";
+import useWindowDimensions from "../getWindowDimensions";
 
 const useStyles = makeStyles({
-  root: {
-    width: "50vw",
+  root: ({ dim }) => ({
+    width: dim.height > dim.width ? "90%" : "45%",
     height: "30vh",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-  },
+  }),
 });
 
 function MapAndFlag({ showMap, randomNum, flagMode }) {
-  const classes = useStyles();
   const { l } = useAppContext();
+  const dim = useWindowDimensions();
+  const classes = useStyles({ dim });
 
   return (
     <div className={classes.root}>
@@ -32,8 +34,8 @@ function MapAndFlag({ showMap, randomNum, flagMode }) {
           src={`all/${countries.ref_country_codes[
             randomNum
           ].alpha2.toLowerCase()}/vector.svg`}
-          width={flagMode ? "50%" : "80%"}
-          height="100%"
+          width="50%"
+          height="70%"
         />
       )}
 
@@ -43,7 +45,7 @@ function MapAndFlag({ showMap, randomNum, flagMode }) {
           src={`svg/${countries.ref_country_codes[
             randomNum
           ].alpha2.toLowerCase()}.svg`}
-          width={showMap ? "50%" : "80%"}
+          width="50%"
           height="70%"
         />
       )}
