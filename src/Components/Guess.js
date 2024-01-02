@@ -49,7 +49,6 @@ const useStyles = makeStyles({
 
 function Guess({ fullWidth, code, name, distance, direction, value }) {
   const classes = useStyles({ direction });
-  console.log("ibrahim", code, name, distance, direction, value);
   return (
     <div className="Guess" style={fullWidth && { width: "100%" }}>
       {code && (
