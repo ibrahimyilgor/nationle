@@ -10,7 +10,7 @@ import TopArea from "./Components/TopArea";
 import MapAndFlag from "./Components/MapAndFlag";
 import AutoCompleteAndButton from "./Components/AutoCompleteAndButton";
 
-import countries from "./countries";
+import countries from "./Data/countries";
 
 import { useAppContext } from "./context/context";
 import { getRandomIndex } from "./Functions/random";

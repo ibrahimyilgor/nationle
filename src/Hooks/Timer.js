@@ -1,11 +1,17 @@
-import { useEffect, useState } from 'react';
-import { useAppContext } from "./context/context";
+import { useEffect, useState } from "react";
+import { useAppContext } from "../context/context";
 
 const useCountdown = (datee, lang) => {
+  const { l } = useAppContext();
 
-  const {l} = useAppContext();
-
-  const countDownDate = new Date(datee.getFullYear(), datee.getMonth(), datee.getDate(), 23, 59, 59)
+  const countDownDate = new Date(
+    datee.getFullYear(),
+    datee.getMonth(),
+    datee.getDate(),
+    23,
+    59,
+    59
+  );
 
   const [countDown, setCountDown] = useState(
     countDownDate - new Date().getTime()
@@ -13,7 +19,7 @@ const useCountdown = (datee, lang) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCountDown(countDownDate - new Date())
+      setCountDown(countDownDate - new Date());
     }, 1000);
 
     return () => clearInterval(interval);
@@ -24,7 +30,7 @@ const useCountdown = (datee, lang) => {
 
 const getReturnValues = (countDown, l) => {
   // calculate time left
-  if (countDown < 0){
+  if (countDown < 0) {
     return [l("nextNationleIsReady")];
   }
   const days = Math.floor(countDown / (1000 * 60 * 60 * 24));

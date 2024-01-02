@@ -1,8 +1,8 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import BarChart from "../BarChart";
+import BarChart from "../Components/BarChart";
 import { useAppContext } from "../context/context";
-import useWindowDimensions from "../getWindowDimensions";
+import useWindowDimensions from "../Hooks/getWindowDimensions";
 import { colors } from "../Constants";
 
 const style = {

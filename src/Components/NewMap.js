@@ -1,8 +1,8 @@
 import React from "react";
 import { VectorMap } from "react-jvectormap";
-import { useAppContext } from "./context/context";
-import countries from "./countries";
-import { colors } from "./Constants";
+import { useAppContext } from "../context/context";
+import countries from "../Data/countries";
+import { colors } from "../Constants";
 
 const handleClick = (e, countryCode) => {
   // console.log(countryCode);

@@ -1,7 +1,7 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Guess from "../Components/Guess";
-import useWindowDimensions from "../getWindowDimensions";
+import useWindowDimensions from "../Hooks/getWindowDimensions";
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import MobileStepper from "@mui/material/MobileStepper";

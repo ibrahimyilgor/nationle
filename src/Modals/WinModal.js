@@ -11,8 +11,8 @@ import { makeStyles } from "@mui/styles";
 
 import { useState } from "react";
 
-import NewMap from "../NewMap";
-import countries from "../countries";
+import NewMap from "../Components/NewMap";
+import countries from "../Data/countries";
 
 import MapIcon from "@mui/icons-material/Map";
 import InfoIcon from "@mui/icons-material/Info";
@@ -191,7 +191,7 @@ const WinModal = ({ country, handleClose, open, datee, guesses }) => {
       }
       setMarkers(markerObj);
     }
-  }, [open]);
+  }, [open, guesses, lang, country]);
 
   const [copyAlert, setCopyAlert] = useState(false);
   const handleCloseAlert = (event, reason) => {

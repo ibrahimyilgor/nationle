@@ -13,7 +13,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import StatsModal from "../Modals/StatsModal";
 import HowToPlayModal from "../Modals/HowToPlayModal";
 import SettingsModal from "../Modals/SettingsModal";
-import countries from "../countries";
+import countries from "../Data/countries";
 import { colors } from "../Constants";
 
 const useStyles = makeStyles({

@@ -1,9 +1,9 @@
 import React from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { useAppContext } from "./context/context";
+import { useAppContext } from "../context/context";
 import { useWindowDimensions } from "react-native";
-import { colors } from "./Constants";
+import { colors } from "../Constants";
 
 const BarChart = ({ data }) => {
   const { l } = useAppContext();

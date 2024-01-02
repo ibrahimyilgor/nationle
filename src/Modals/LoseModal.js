@@ -13,8 +13,8 @@ import { makeStyles } from "@mui/styles";
 import { copyAnswer } from "../Functions/copyAnswer";
 import { useState } from "react";
 
-import NewMap from "../NewMap";
-import countries from "../countries";
+import NewMap from "../Components/NewMap";
+import countries from "../Data/countries";
 
 import MapIcon from "@mui/icons-material/Map";
 import InfoIcon from "@mui/icons-material/Info";
@@ -190,7 +190,7 @@ const LoseModal = ({ country, handleClose, open, datee, guesses }) => {
       }
       markerObj = {
         ...markerObj,
-        ["answer"]: {
+        answer: {
           latLng: [country["latitude"], country["longitude"]],
           name: country[lang],
           style: { r: 5, fill: "green" },
@@ -198,7 +198,7 @@ const LoseModal = ({ country, handleClose, open, datee, guesses }) => {
       };
       setMarkers(markerObj);
     }
-  }, [open]);
+  }, [open, guesses, lang, country]);
 
   const handleCloseAlert = (event, reason) => {
     if (reason === "clickaway") {

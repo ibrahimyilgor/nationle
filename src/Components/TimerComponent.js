@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { useMemo } from "react";
 import { useWindowDimensions } from "react-native";
 import { useAppContext } from "../context/context";
-import { useCountdown } from "../Timer";
+import { useCountdown } from "../Hooks/Timer";
 import { colors } from "../Constants";
 
 const useStyles = makeStyles({

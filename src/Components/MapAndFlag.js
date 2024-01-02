@@ -1,8 +1,8 @@
 import "../Css/App.css";
-import countries from "../countries";
+import countries from "../Data/countries";
 import { useAppContext } from "../context/context";
 import { makeStyles } from "@mui/styles";
-import useWindowDimensions from "../getWindowDimensions";
+import useWindowDimensions from "../Hooks/getWindowDimensions";
 
 const useStyles = makeStyles({
   root: ({ dim }) => ({

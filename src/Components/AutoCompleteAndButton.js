@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useAppContext } from "../context/context";
 import { copyAnswer } from "../Functions/copyAnswer";
-import countries from "../countries";
+import countries from "../Data/countries";
 import { makeStyles } from "@mui/styles";
 import bearing from "../Functions/bearing";
 import { colors, continentIndex } from "../Constants";

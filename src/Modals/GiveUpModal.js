@@ -1,7 +1,7 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useAppContext } from "../context/context";
-import countries from "../countries";
+import countries from "../Data/countries";
 import { colors, continentIndex } from "../Constants";
 
 const style = {
