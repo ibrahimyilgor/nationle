@@ -26,7 +26,7 @@ function MapAndFlag({ showMap, randomNum, flagMode }) {
 
       {showMap === true && (
         <img
-          alt="target_country"
+          alt=""
           style={{
             filter:
               "invert(90%) sepia(23%) saturate(334%) hue-rotate(359deg) brightness(101%) contrast(93%)",
