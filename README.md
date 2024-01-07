@@ -1,4 +1,6 @@
-# Game Name
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5acfaea1-5e1c-4408-9ea6-a51423989181/deploy-status)](https://app.netlify.com/sites/nationle/deploys)
+
+# Nationle
 
 Short description or tagline about the game.
 
