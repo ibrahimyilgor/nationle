@@ -87,31 +87,31 @@ const BarChart = ({ data }) => {
     series: [
       {
         name: `${l("loseChart")}`,
-        data: data.map((d) => d[0]),
+        data: Array.isArray(data) && data.map((d) => d[0]),
       },
       {
         name: `${l("guessChart")} 6`,
-        data: data.map((d) => d[6]),
+        data: Array.isArray(data) && data.map((d) => d[6]),
       },
       {
         name: `${l("guessChart")} 5`,
-        data: data.map((d) => d[5]),
+        data: Array.isArray(data) && data.map((d) => d[5]),
       },
       {
         name: `${l("guessChart")} 4`,
-        data: data.map((d) => d[4]),
+        data: Array.isArray(data) && data.map((d) => d[4]),
       },
       {
         name: `${l("guessChart")} 3`,
-        data: data.map((d) => d[3]),
+        data: Array.isArray(data) && data.map((d) => d[3]),
       },
       {
         name: `${l("guessChart")} 2`,
-        data: data.map((d) => d[2]),
+        data: Array.isArray(data) && data.map((d) => d[2]),
       },
       {
         name: `${l("guessChart")} 1`,
-        data: data.map((d) => d[1]),
+        data: Array.isArray(data) && data.map((d) => d[1]),
       },
     ],
   };
