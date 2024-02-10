@@ -8,6 +8,7 @@ import {
   Popper,
   TextField,
 } from "@mui/material";
+import ReactGA from "react-ga4";
 import { useAppContext } from "../context/context";
 import { copyAnswer } from "../Functions/copyAnswer";
 import countries from "../Data/countries";
@@ -123,6 +124,7 @@ function AutoCompleteAndButton({
   const { lang, l } = useAppContext();
   const autoCompleteRef = useRef();
   const classes = useStyles();
+  ReactGA.initialize("G-GJGYRN05ER");
 
   const datee = useMemo(() => new Date(), []);
 
@@ -215,6 +217,10 @@ function AutoCompleteAndButton({
     }
     if (value === 100) {
       setOpenWinModal(true);
+      ReactGA.event({
+        category: "Answer-True",
+        action: `${guessNum + 1}`,
+      });
       setEndState(1);
       localStorage.setItem(
         datee.getDate().toString() +
