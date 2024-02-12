@@ -9,6 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 import ReactGA from "react-ga4";
+
 import { useAppContext } from "../context/context";
 import { copyAnswer } from "../Functions/copyAnswer";
 import countries from "../Data/countries";
@@ -219,7 +220,7 @@ function AutoCompleteAndButton({
       setOpenWinModal(true);
       ReactGA.event({
         category: "Answer-True",
-        action: `${guessNum + 1}`,
+        action: `Answer${guessNum + 1}`,
       });
       setEndState(1);
       localStorage.setItem(
@@ -236,6 +237,10 @@ function AutoCompleteAndButton({
     }
     if (value !== 100 && guessNum === 5 && guesses[5].code) {
       setOpenLoseModal(true);
+      ReactGA.event({
+        category: "Answer-False",
+        action: `Answer6`,
+      });
       setEndState(2);
       localStorage.setItem(
         datee.getDate().toString() +

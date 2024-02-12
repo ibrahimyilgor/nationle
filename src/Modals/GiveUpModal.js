@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { useAppContext } from "../context/context";
 import countries from "../Data/countries";
 import { colors, continentIndex } from "../Constants";
+import ReactGA from "react-ga4";
 
 const style = {
   position: "absolute",
@@ -54,7 +55,7 @@ const GiveUpModal = ({
   const classes = useStyles();
 
   const { l } = useAppContext();
-
+  ReactGA.initialize("G-GJGYRN05ER");
   return (
     <div>
       <Modal
@@ -88,6 +89,10 @@ const GiveUpModal = ({
                 sx={{ color: colors.yellow, marginLeft: "2%" }}
                 onClick={() => {
                   setEndState(2);
+                  ReactGA.event({
+                    category: "Answer-GiveUp",
+                    action: `Answer0`,
+                  });
                   localStorage.setItem(
                     new Date().getDate().toString() +
                       "." +
