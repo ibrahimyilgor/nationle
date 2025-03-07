@@ -1,16 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useAppContext } from "../context/context";
 
 const useCountdown = (datee, lang) => {
   const { l } = useAppContext();
 
-  const countDownDate = new Date(
-    datee.getFullYear(),
-    datee.getMonth(),
-    datee.getDate(),
-    23,
-    59,
-    59
+  // Memoize countDownDate to avoid recreating it on every render.
+  const countDownDate = useMemo(
+    () =>
+      new Date(
+        datee.getFullYear(),
+        datee.getMonth(),
+        datee.getDate(),
+        23,
+        59,
+        59
+      ),
+    [datee]
   );
 
   const [countDown, setCountDown] = useState(
