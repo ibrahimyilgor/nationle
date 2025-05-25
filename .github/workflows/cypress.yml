@@ -11,18 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 18
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
+
       - run: npm ci
       - run: npm run build
-      - name: Start application
-        run: npm start &
-      - name: Wait for app to be ready
-        run: npx wait-on http://localhost:3000
+
+      # Use Cypress action directly to handle server startup and wait
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           start: npm start
-          wait-on: 'http://localhost:3000' 
+          wait-on: "http://localhost:3000"
