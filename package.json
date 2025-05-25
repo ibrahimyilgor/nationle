@@ -27,6 +27,7 @@
     "react-scripts": "5.0.0",
     "react-select": "^5.2.2",
     "seedrandom": "^3.0.5",
+    "wait-on": "^8.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
